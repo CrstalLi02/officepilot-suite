@@ -12,11 +12,14 @@ import {
 } from 'node:fs'
 import { basename, dirname, isAbsolute, join, resolve, win32 } from 'node:path'
 
+/** OfficePilot modification: the command users type is officepilot-suite (trademark-free name). */
+export const LINK_NAME = 'officepilot-suite'
+
 /**
- * Making `genoffice` reachable from a terminal. The launcher ships inside the app
+ * Making `officepilot-suite` reachable from a terminal. The launcher ships inside the app
  * (Resources/cli/genoffice, or genoffice.cmd on Windows); nothing at install time puts
  * it on PATH for the dmg, so the app tries this on every launch until it
- * succeeds and `genoffice install-cli` repeats it on demand. Best effort
+ * succeeds and `officepilot-suite install-cli` repeats it on demand. Best effort
  * everywhere: no prompts, no elevation, never an error on the app's startup
  * path. `inspectCliLink` reports the same states without writing anything.
  */
@@ -49,7 +52,7 @@ export interface InstallOutcome {
  * inherit, so it is the target even when it does not exist yet: a missing
  * directory is reported as unwritable (creating it needs root), not skipped.
  * When it is not writable the user's own bin dir takes the link, so a
- * non-admin install still gets a `genoffice` command.
+ * non-admin install still gets a `officepilot-suite` command.
  *
  * The Homebrew prefix is never a candidate (genoffice#1914): `/opt/homebrew/bin` on
  * Apple Silicon, `/usr/local/bin` on an Intel Mac with a classic install,
@@ -121,7 +124,7 @@ export function installCliLink(opts: InstallOptions): InstallOutcome {
   const manual = manualCommand(opts.launcher)
   let occupied: string | undefined
   for (const dir of dirs) {
-    const link = join(dir, 'genoffice')
+    const link = join(dir, LINK_NAME)
     const state = linkState(link, opts.launcher)
     if (state === 'ours' && readlinkSync(link) === opts.launcher) {
       return withPathHint({ status: 'present', location: link }, dir, userDirs, env)
@@ -149,7 +152,7 @@ export function installCliLink(opts: InstallOptions): InstallOutcome {
     }
   }
   if (occupied) return { status: 'occupied', location: occupied, manual }
-  return { status: 'unwritable', location: join(dirs[0] ?? '/usr/local/bin', 'genoffice'), manual }
+  return { status: 'unwritable', location: join(dirs[0] ?? '/usr/local/bin', LINK_NAME), manual }
 }
 
 /** Read-only twin of `installCliLink`: what a fresh terminal would find, without changing anything. */
@@ -164,7 +167,7 @@ export function inspectCliLink(opts: InstallOptions): InstallOutcome {
   let occupied: string | undefined
   // same walk installCliLink does: an occupied name is skipped, the first free writable dir wins
   for (const dir of dirs) {
-    const link = join(dir, 'genoffice')
+    const link = join(dir, LINK_NAME)
     const state = linkState(link, opts.launcher)
     if (state === 'ours' && readlinkSync(link) === opts.launcher) {
       return withPathHint({ status: 'present', location: link }, dir, userDirs, env)
@@ -178,11 +181,11 @@ export function inspectCliLink(opts: InstallOptions): InstallOutcome {
     }
   }
   if (occupied) return { status: 'occupied', location: occupied, manual }
-  return { status: 'unwritable', location: join(dirs[0] ?? '/usr/local/bin', 'genoffice'), manual }
+  return { status: 'unwritable', location: join(dirs[0] ?? '/usr/local/bin', LINK_NAME), manual }
 }
 
 function manualCommand(launcher: string): string {
-  return `sudo mkdir -p /usr/local/bin && sudo ln -sf "${launcher}" /usr/local/bin/genoffice`
+  return `sudo mkdir -p /usr/local/bin && sudo ln -sf "${launcher}" /usr/local/bin/${LINK_NAME}`
 }
 
 function linkState(
@@ -204,7 +207,7 @@ function linkState(
 
 /**
  * A link is ours when it resolves to the launcher we are installing, or to a
- * `genoffice` launcher shipped by another copy of the app (an earlier version,
+ * `officepilot-suite` launcher shipped by another copy of the app (an earlier version,
  * a second install dir): one that has our CLI bundle or the Windows twin beside
  * it. A path that merely ends in `/cli/genoffice` belongs to whoever put it there.
  */

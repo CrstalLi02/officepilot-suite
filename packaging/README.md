@@ -31,8 +31,8 @@ Notes:
 
 - File type associations, the icon set and the desktop entry come from the repo
   (`apps/shell/build/icons`); the deb's payload only provides the app itself.
-- The bundled `genoffice` command line works inside the sandbox, e.g.:
-  `flatpak run --command=/app/extra/app/opt/GenOffice/resources/cli/genoffice com.genoffice.app --help`
+- The bundled `officepilot-suite` command line works inside the sandbox, e.g.:
+  `flatpak run --command=/app/extra/app/opt/OfficePilot Suite/resources/cli/genoffice com.genoffice.app --help`
 - The deb carries an in-app updater feed baked for the native install layout;
   under Flatpak `/app` is read-only, so updates must go through Flatpak, not
   the app's update dialog.
@@ -59,7 +59,7 @@ a new release, bump `version` and the `hash` in `nix/genoffice.nix`.
 Known caveat: the nix store is mounted `nosuid`, so Chromium can abort with
 "The SUID sandbox helper binary was found, but is not configured correctly"
 when the AppImage's `chrome-sandbox` is present but not setuid. In that case
-launch with `genoffice --no-sandbox` (the flag passes through the wrapper); the
+launch with `officepilot-suite --no-sandbox` (the flag passes through the wrapper); the
 Flatpak route keeps the real sandbox via Zypak instead.
 
 ## Docker

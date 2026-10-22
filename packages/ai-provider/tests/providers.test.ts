@@ -16,7 +16,8 @@ import type { AiProviderId } from '../src/types'
 describe('defaultAiSettings', () => {
   it('gives every provider its default model and an empty key by default', () => {
     const settings = defaultAiSettings()
-    expect(settings.provider).toBe('genspark')
+    // OfficePilot modification: a direct provider with the user's own key is the default
+    expect(settings.provider).toBe('deepseek')
     for (const meta of AI_PROVIDERS) {
       expect(settings.providers[meta.id].apiKey).toBe('')
       expect(settings.providers[meta.id].model).toBe(meta.defaultModel)
@@ -410,11 +411,14 @@ describe('activeProvider', () => {
 })
 
 describe('gskToolsEnabled', () => {
-  it('defaults on, survives resolveAiSettings, and only an explicit false turns it off', () => {
-    expect(cloudToolsEnabled(defaultAiSettings())).toBe(true)
-    // pre-toggle settings file (field absent) stays on
+  // OfficePilot modification: Genspark cloud tools default off in this fork
+  it('defaults off, survives resolveAiSettings, and an explicit true / false is kept', () => {
+    expect(cloudToolsEnabled(defaultAiSettings())).toBe(false)
+    // settings file without the field follows the default
     const legacy = resolveAiSettings({ providers: {} as never }, defaultAiSettings())
-    expect(cloudToolsEnabled(legacy)).toBe(true)
+    expect(cloudToolsEnabled(legacy)).toBe(false)
+    const on = resolveAiSettings({ providers: {} as never, gskToolsEnabled: true }, defaultAiSettings())
+    expect(cloudToolsEnabled(on)).toBe(true)
     const off = resolveAiSettings(
       { providers: {} as never, gskToolsEnabled: false },
       defaultAiSettings(),

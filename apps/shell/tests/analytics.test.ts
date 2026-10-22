@@ -30,16 +30,18 @@ function okFetch() {
 }
 
 describe('extractAnalyticsKeys', () => {
-  it('reads the injected block from package.json', () => {
-    expect(extractAnalyticsKeys({ genofficeAnalytics: KEYS })).toEqual(KEYS)
+  // OfficePilot modification: analytics is removed from this fork, so even an
+  // injected block is ignored
+  it('ignores an injected block from package.json', () => {
+    expect(extractAnalyticsKeys({ genofficeAnalytics: KEYS })).toBeNull()
   })
 
-  it('trims whitespace around the values', () => {
+  it('ignores well-formed values too', () => {
     expect(
       extractAnalyticsKeys({
         genofficeAnalytics: { measurementId: ' G-1 ', apiSecret: ' s ' },
       }),
-    ).toEqual({ measurementId: 'G-1', apiSecret: 's' })
+    ).toBeNull()
   })
 
   it('returns null when the block is missing (source/fork builds)', () => {
@@ -58,8 +60,8 @@ describe('extractAnalyticsKeys', () => {
     expect(extractAnalyticsKeys({ genofficeAnalytics: { measurementId: 'G-1' } })).toBeNull()
   })
 
-  it('accepts metadata only for a packaged runtime', () => {
-    expect(extractPackagedAnalyticsKeys({ genofficeAnalytics: KEYS }, true)).toEqual(KEYS)
+  it('never accepts metadata, packaged or not (OfficePilot modification)', () => {
+    expect(extractPackagedAnalyticsKeys({ genofficeAnalytics: KEYS }, true)).toBeNull()
     expect(extractPackagedAnalyticsKeys({ genofficeAnalytics: KEYS }, false)).toBeNull()
   })
 })

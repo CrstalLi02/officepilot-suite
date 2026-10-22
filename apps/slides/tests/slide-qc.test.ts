@@ -123,7 +123,8 @@ describe('vision capability fallback', () => {
   })
 
   it('does not send screenshots to text-only models under a vision-capable provider', () => {
-    const settings = defaultAiSettings()
+    // OfficePilot modification: the default provider is no longer genspark
+    const settings = { ...defaultAiSettings(), provider: 'genspark' as const }
     settings.providers.genspark.model = 'deep-seek-v4-flash'
     expect(settingsSupportVision(settings)).toBe(false)
     settings.providers.genspark.model = 'claude-opus-4-7'

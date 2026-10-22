@@ -3,11 +3,11 @@
   <id>com.genoffice.app</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>Apache-2.0</project_license>
-  <name>GenOffice</name>
+  <name>OfficePilot Suite</name>
   <summary>AI-native office suite — Word, Excel, PowerPoint, PDF and Markdown in one app</summary>
   <description>
     <p>
-      GenOffice is a unified, AI-native office suite. One local app hosts the
+      OfficePilot Suite is a unified, AI-native office suite. One local app hosts the
       word processor, spreadsheet, presentation and PDF modules behind a home
       launcher, reads and writes the standard Office file formats, and puts an
       AI copilot beside every editor.
@@ -25,8 +25,8 @@
     <name>Mainfunc, Inc.</name>
   </developer>
   <launchable type="desktop-id">com.genoffice.app.desktop</launchable>
-  <url type="homepage">https://github.com/genspark-ai/genoffice</url>
-  <url type="bugtracker">https://github.com/genspark-ai/genoffice/issues</url>
+  <url type="homepage">https://github.com/CrstalLi02/officepilot-suite</url>
+  <url type="bugtracker">https://github.com/CrstalLi02/officepilot-suite/issues</url>
   <content_rating type="oars-1.1" />
   <provides>
     <mediatype type="application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
@@ -42,7 +42,7 @@
   </provides>
   <releases>
     <release version="0.11.0" date="2026-09-28">
-      <url type="details">https://github.com/genspark-ai/genoffice/releases/tag/v0.11.0</url>
+      <url type="details">https://github.com/CrstalLi02/officepilot-suite/releases/tag/v0.11.0</url>
     </release>
   </releases>
 </component>

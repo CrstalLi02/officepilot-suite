@@ -960,7 +960,7 @@ function runFindReplace(op: Op, env: RunEnv): OpResult {
     //    block with none is the document's own text, and a `{{token}}` in it
     //    is content to be filled in rather than a marker of ours — a mail
     //    merge template is the normal case, and policing it is what stopped
-    //    `genoffice merge` from filling a docx at all. Where a block is
+    //    `officepilot-suite merge` from filling a docx at all. Where a block is
     //    policed, the whole `{{...}}` bag has to match, so a marker cannot be
     //    renamed, split, or shadowed by a token the model invented.
     //

@@ -37,6 +37,8 @@ function writeSettings(mediaProvider: string): string {
     path,
     JSON.stringify({
       provider: mediaProvider,
+      // OfficePilot modification: these cases exercise the Genspark fallback, off by default here
+      gskToolsEnabled: true,
       providers: { [mediaProvider]: { apiKey: 'k', model: 'test-model' } },
       media: {
         provider: mediaProvider,

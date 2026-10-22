@@ -64,8 +64,8 @@ function baseStatus(): IntegrationsStatus {
       status: 'missing',
       location: '/usr/local/bin/genoffice',
       manual:
-        'sudo ln -sf /Applications/GenOffice.app/Contents/Resources/cli/genoffice /usr/local/bin/genoffice',
-      launcherDir: '/Applications/GenOffice.app/Contents/Resources/cli',
+        'sudo ln -sf /Applications/OfficePilot Suite.app/Contents/Resources/cli/genoffice /usr/local/bin/genoffice',
+      launcherDir: '/Applications/OfficePilot Suite.app/Contents/Resources/cli',
       ephemeral: false,
       version: '0.4.0',
     },
@@ -151,7 +151,7 @@ describe('Settings → Integrations', () => {
     expect(rows[2]!.textContent).toContain('Installed 2.1.0 (not by this app)')
     expect(rows[2]!.querySelectorAll('button')).toHaveLength(0)
     // CLI block: launcher path, PATH state in plain words, the manual command as copyable code
-    expect(host.textContent).toContain('/Applications/GenOffice.app/Contents/Resources/cli')
+    expect(host.textContent).toContain('/Applications/OfficePilot Suite.app/Contents/Resources/cli')
     expect(host.textContent).toContain("not on your terminal's PATH")
     expect(host.querySelector('.set-intg-cli code')?.textContent).toContain('sudo ln -sf')
     expect(host.textContent).toContain('skill 2.1.0')
@@ -160,16 +160,16 @@ describe('Settings → Integrations', () => {
     expect(host.textContent).toContain('Pick any one of these three ways')
     // the same three prompts appear under both the CLI and the MCP part
     expect(host.querySelectorAll('.set-intg-example')).toHaveLength(6)
-    expect(host.textContent).toContain('npx skills add genspark-ai/genoffice')
-    // MCP block: the launcher itself while genoffice is not on the PATH, as a command and as JSON
+    expect(host.textContent).toContain('npx skills add CrstalLi02/officepilot-suite')
+    // MCP block: the launcher itself while officepilot-suite is not on the PATH, as a command and as JSON
     const mcp = [...host.querySelectorAll('.set-intg-mcp code')].map((c) => c.textContent)
     expect(mcp[0]).toBe(
-      'claude mcp add --transport stdio genoffice -- /Applications/GenOffice.app/Contents/Resources/cli/genoffice mcp',
+      'claude mcp add --transport stdio officepilot-suite -- "/Applications/OfficePilot Suite.app/Contents/Resources/cli/genoffice" mcp',
     )
     expect(JSON.parse(mcp[1]!)).toEqual({
       mcpServers: {
         genoffice: {
-          command: '/Applications/GenOffice.app/Contents/Resources/cli/genoffice',
+          command: '/Applications/OfficePilot Suite.app/Contents/Resources/cli/genoffice',
           args: ['mcp'],
         },
       },
@@ -177,29 +177,29 @@ describe('Settings → Integrations', () => {
     expect(host.textContent).toContain('assistant picks one')
   })
 
-  it('names the bare command once genoffice is on the PATH and runs the app as Node on Windows', () => {
+  it('names the bare command once officepilot-suite is on the PATH and runs the app as Node on Windows', () => {
     expect(
       mcpLaunch({
         status: 'present',
-        launcherDir: '/Applications/GenOffice.app/Contents/Resources/cli',
+        launcherDir: '/Applications/OfficePilot Suite.app/Contents/Resources/cli',
       }),
-    ).toEqual({ command: 'genoffice', args: ['mcp'] })
-    const winDir = 'C:\\Users\\Jane Doe\\AppData\\Local\\Programs\\GenOffice\\resources\\cli'
+    ).toEqual({ command: 'officepilot-suite', args: ['mcp'] })
+    const winDir = 'C:\\Users\\Jane Doe\\AppData\\Local\\Programs\\OfficePilot Suite\\resources\\cli'
     const win = {
-      command: `${winDir}\\..\\..\\GenOffice.exe`,
+      command: `${winDir}\\..\\..\\OfficePilot Suite.exe`,
       args: [`${winDir}\\genoffice.cjs`, 'mcp'],
       env: { ELECTRON_RUN_AS_NODE: '1' },
     }
     expect(mcpLaunch({ status: 'missing', launcherDir: winDir })).toEqual(win)
     expect(mcpLaunch({ status: 'present', launcherDir: winDir })).toEqual(win)
     expect(mcpClaudeCommand(win)).toBe(
-      `claude mcp add -e ELECTRON_RUN_AS_NODE=1 --transport stdio genoffice -- "${win.command}" "${win.args[0]}" mcp`,
+      `claude mcp add -e ELECTRON_RUN_AS_NODE=1 --transport stdio officepilot-suite -- "${win.command}" "${win.args[0]}" mcp`,
     )
     expect(JSON.parse(mcpConfigJson(win))).toEqual({ mcpServers: { genoffice: win } })
     expect(
       mcpClaudeCommand({ command: '/Applications/Gen Office.app/cli/genoffice', args: ['mcp'] }),
     ).toBe(
-      'claude mcp add --transport stdio genoffice -- "/Applications/Gen Office.app/cli/genoffice" mcp',
+      'claude mcp add --transport stdio officepilot-suite -- "/Applications/Gen Office.app/cli/genoffice" mcp',
     )
   })
 

@@ -8,9 +8,10 @@ import {
 } from '../src/search-settings'
 
 describe('search settings', () => {
-  it('defaults to genspark with empty keys and rides along in defaultAiSettings', () => {
+  // OfficePilot modification: keyless Parallel is the default search provider
+  it('defaults to parallel with empty keys and rides along in defaultAiSettings', () => {
     expect(defaultAiSearchSettings()).toEqual({
-      provider: 'genspark',
+      provider: 'parallel',
       providers: {
         serper: { apiKey: '' },
         serply: { apiKey: '' },
@@ -21,7 +22,7 @@ describe('search settings', () => {
         keenable: { apiKey: '' },
       },
     })
-    expect(defaultAiSettings().search?.provider).toBe('genspark')
+    expect(defaultAiSettings().search?.provider).toBe('parallel')
     const resolved = resolveAiSettings(
       { provider: 'genspark', providers: {} as never },
       defaultAiSettings(),
@@ -227,8 +228,8 @@ describe('Keenable search settings', () => {
     expect(activeSearchProvider({ search: settings })).toBe('keenable')
   })
 
-  it('leaves the default provider on Genspark', () => {
-    expect(defaultAiSearchSettings().provider).toBe('genspark')
-    expect(activeSearchProvider({ search: defaultAiSearchSettings() })).toBe('genspark')
+  it('leaves the default provider on Parallel (OfficePilot modification)', () => {
+    expect(defaultAiSearchSettings().provider).toBe('parallel')
+    expect(activeSearchProvider({ search: defaultAiSearchSettings() })).toBe('parallel')
   })
 })

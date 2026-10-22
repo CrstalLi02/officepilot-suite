@@ -12,7 +12,7 @@ import type { CliRunner } from '../cli-runner'
  * Docx MCP tool surface.
  *
  * Headless generation/reading (create_docx, read_docx) delegates to the
- * bundled `genoffice` CLI — the same engines the app ships — instead of
+ * bundled `officepilot-suite` CLI — the same engines the app ships — instead of
  * reimplementing conversion here (see ../headless-cli.ts, ../cli-runner.ts).
  * The visible document session is the part the CLI cannot do: driving the
  * editor tab the user has open. Dependencies are injected so this module stays
@@ -26,7 +26,7 @@ export interface DocToolDeps {
   /** expose the headless create_docx tool (generation without opening the UI);
    *  default true — the shell passes the user's "background generation" setting */
   background?: boolean
-  /** open a file in the GenOffice UI; wired in M4 (optional in tests) */
+  /** open a file in the OfficePilot Suite UI; wired in M4 (optional in tests) */
   openInTab?: (filePath: string) => Promise<void> | void
   /** visible-editor control for the MCP-driven document session (optional in tests) */
   docs?: DocsControl
@@ -207,7 +207,7 @@ export function createDocumentTools(deps: DocToolDeps, host: SessionHost): McpTo
     },
     {
       name: 'open_in_genoffice',
-      description: 'Open an existing file in the running GenOffice app, focusing its tab.',
+      description: 'Open an existing file in the running OfficePilot Suite app, focusing its tab.',
       inputSchema: {
         path: z.string().describe('absolute path to the file to open'),
       },
@@ -223,11 +223,11 @@ export function createDocumentTools(deps: DocToolDeps, host: SessionHost): McpTo
     {
       name: 'get_app_info',
       description:
-        'Report GenOffice version, the default save folder, the document formats this server can ' +
+        'Report OfficePilot Suite version, the default save folder, the document formats this server can ' +
         "generate, and the editor's full open/save/export format matrix per family.",
       inputSchema: {},
       handler: () => ({
-        name: 'GenOffice',
+        name: 'OfficePilot Suite',
         version: deps.version,
         defaultSaveDir: deps.defaultSaveDir(),
         // Every format listed here is written by a headless create/read tool, and

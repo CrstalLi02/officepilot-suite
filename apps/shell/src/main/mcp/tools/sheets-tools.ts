@@ -11,7 +11,7 @@ import type { CliRunner } from '../cli-runner'
  * Sheets (xlsx) tool surface for the MCP server.
  *
  * Two paths, mirroring the docx/slides tools:
- * - headless `create_xlsx`: a row matrix handed to the bundled `genoffice` CLI
+ * - headless `create_xlsx`: a row matrix handed to the bundled `officepilot-suite` CLI
  *   (`create --type xlsx --from`), gated behind the "background generation"
  *   setting. The CLI writes through the app's xlsx gateway and evaluates
  *   formulas with the sidecar, so strings starting with "=" become real formula

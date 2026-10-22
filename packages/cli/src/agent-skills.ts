@@ -15,16 +15,17 @@ import { join } from 'node:path'
 import JSZip from 'jszip'
 
 /**
- * Installing the bundled `genoffice` skill into the coding agents found on this
- * machine, shared by Settings → Integrations and `genoffice skill`. Every write
+ * Installing the bundled `officepilot-suite` skill into the coding agents found on this
+ * machine, shared by Settings → Integrations and `officepilot-suite skill`. Every write
  * is a click in that pane or an explicit command; nothing installs on its own.
  * Pure functions over an injected home / env so the state table is
  * unit-testable without touching the real dotfolders.
  */
 
-export const SKILL_NAME = 'genoffice'
+// OfficePilot modification: the skill folder agents list
+export const SKILL_NAME = 'officepilot-suite'
 
-/** app-settings.json key under which every install this machine's GenOffice wrote is remembered */
+/** app-settings.json key under which every install this machine's OfficePilot Suite wrote is remembered */
 export const LEDGER_KEY = 'agentSkillInstalls'
 
 export type AgentId =

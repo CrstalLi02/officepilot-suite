@@ -1,6 +1,6 @@
-# Instalacja GenOffice
+# Instalacja OfficePilot Suite
 
-Każda kompilacja jest publikowana na [stronie Releases](https://github.com/genspark-ai/genoffice/releases/latest). Wszystkie pochodzą z `main`; instalatory dla macOS i Windows są podpisane.
+Każda kompilacja jest publikowana na [stronie Releases](https://github.com/CrstalLi02/officepilot-suite/releases/latest). Wszystkie pochodzą z `main`; instalatory dla macOS i Windows są podpisane.
 
 ## Wybierz plik dla swojego komputera
 
@@ -18,11 +18,11 @@ Starsze wersje pozostają na stronie Releases.
 
 ## W systemie macOS
 
-Otwórz plik `.dmg` i przeciągnij **GenOffice** do katalogu Aplikacje. W kompilacji Intel przy pierwszym uruchomieniu trzeba potwierdzić otwarcie: kliknij prawym przyciskiem aplikację w Aplikacjach ▸ Otwórz. To Gatekeeper reaguje na obraz dysku wyglądający na niepodpisany, a nie uszkodzone pobranie.
+Otwórz plik `.dmg` i przeciągnij **OfficePilot Suite** do katalogu Aplikacje. W kompilacji Intel przy pierwszym uruchomieniu trzeba potwierdzić otwarcie: kliknij prawym przyciskiem aplikację w Aplikacjach ▸ Otwórz. To Gatekeeper reaguje na obraz dysku wyglądający na niepodpisany, a nie uszkodzone pobranie.
 
 ## W systemie Windows
 
-Uruchom instalator `.exe`. Umieszcza GenOffice w menu Start i rejestruje `.docx`, `.xlsx`, `.pptx`, `.pdf` i podobne, więc dwuklik na plik go otwiera.
+Uruchom instalator `.exe`. Umieszcza OfficePilot Suite w menu Start i rejestruje `.docx`, `.xlsx`, `.pptx`, `.pdf` i podobne, więc dwuklik na plik go otwiera.
 
 ## W systemie Linux
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — działa tam, gdzie leży, bez żadnego etapu instalacji:
 
 ```sh
-chmod +x GenOffice-<version>.AppImage
-./GenOffice-<version>.AppImage
+chmod +x OfficePilot Suite-<version>.AppImage
+./OfficePilot Suite-<version>.AppImage
 ```
 
 Wymaga środowiska uruchomieniowego FUSE 2. Jeśli wolisz go nie instalować, uruchom go z `--appimage-extract-and-run`, a sandbox zadziała z katalogu wypakowanego.
@@ -64,4 +64,4 @@ Wszystkie trzy opakowują opublikowane artefakty zamiast przebudowywać aplikacj
 
 ## Wiersz poleceń jest w zestawie
 
-Każda instalacja zawiera polecenie `genoffice`, które komunikuje się z tymi samymi silnikami co okno, więc nigdy nie rozbieżą się w ocenie pliku. W systemach macOS i Windows znajduje się w pakiecie aplikacji; `genoffice install-cli` umieszcza je w `PATH`. Co potrafi, dowiesz się w rozdziale **Wiersz poleceń i agenci**.
+Każda instalacja zawiera polecenie `officepilot-suite`, które komunikuje się z tymi samymi silnikami co okno, więc nigdy nie rozbieżą się w ocenie pliku. W systemach macOS i Windows znajduje się w pakiecie aplikacji; `officepilot-suite install-cli` umieszcza je w `PATH`. Co potrafi, dowiesz się w rozdziale **Wiersz poleceń i agenci**.

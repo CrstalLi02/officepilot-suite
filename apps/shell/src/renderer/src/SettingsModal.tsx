@@ -2260,6 +2260,8 @@ export function SettingsModal({
               <>
                 <h3 className="set-pane-title">{t('setSecAbout')}</h3>
                 <Field label={t('versionLabel')} value={appVersion || '—'} />
+                {/* OfficePilot modification: attribution required by Apache-2.0 (NOTICE) */}
+                <Field label="License" value="Based on OfficePilot Suite by Mainfunc, Inc. (Apache-2.0); modified by OfficePilot" />
                 {updateState && (
                   <div className="set-field">
                     <div className="set-field-text">
@@ -2303,8 +2305,8 @@ export function SettingsModal({
                   label={t('setGithub')}
                   value={
                     githubStars === null
-                      ? 'github.com/genspark-ai/genoffice'
-                      : `github.com/genspark-ai/genoffice · ★ ${formatStars(githubStars)}`
+                      ? 'github.com/CrstalLi02/officepilot-suite'
+                      : `github.com/CrstalLi02/officepilot-suite · ★ ${formatStars(githubStars)}`
                   }
                   action={
                     <button

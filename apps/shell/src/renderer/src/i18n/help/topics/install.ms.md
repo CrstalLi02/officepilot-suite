@@ -1,6 +1,6 @@
-# Pemasangan GenOffice
+# Pemasangan OfficePilot Suite
 
-Setiap keluaran diterbitkan pada [halaman Keluaran](https://github.com/genspark-ai/genoffice/releases/latest). Semuanya datang daripada `main`; pemasang untuk macOS dan Windows adalah bertanda tangan.
+Setiap keluaran diterbitkan pada [halaman Keluaran](https://github.com/CrstalLi02/officepilot-suite/releases/latest). Semuanya datang daripada `main`; pemasang untuk macOS dan Windows adalah bertanda tangan.
 
 ## Memilih fail untuk mesin anda
 
@@ -18,11 +18,11 @@ Versi lama kekal pada halaman Keluaran.
 
 ## Pada macOS
 
-Buka `.dmg` itu dan seret **GenOffice** ke dalam Applications. Pada keluaran Intel, pelancaran pertama akan meminta anda mengesahkan membukanya: klik kanan aplikasi itu dalam Applications ▸ Open. Itu Gatekeeper bertemu imej cakera yang kelihatan tidak bertanda tangan, bukan muat turun yang rosak.
+Buka `.dmg` itu dan seret **OfficePilot Suite** ke dalam Applications. Pada keluaran Intel, pelancaran pertama akan meminta anda mengesahkan membukanya: klik kanan aplikasi itu dalam Applications ▸ Open. Itu Gatekeeper bertemu imej cakera yang kelihatan tidak bertanda tangan, bukan muat turun yang rosak.
 
 ## Pada Windows
 
-Jalankan pemasang `.exe`. Ia meletakkan GenOffice dalam menu Start dan mendaftarkan `.docx`, `.xlsx`, `.pptx`, `.pdf` dan yang lain supaya mengklik dua kali pada fail membukanya.
+Jalankan pemasang `.exe`. Ia meletakkan OfficePilot Suite dalam menu Start dan mendaftarkan `.docx`, `.xlsx`, `.pptx`, `.pdf` dan yang lain supaya mengklik dua kali pada fail membukanya.
 
 ## Pada Linux
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — ia berjalan di tempat ia berada, tanpa langkah pemasangan:
 
 ```sh
-chmod +x GenOffice-<version>.AppImage
-./GenOffice-<version>.AppImage
+chmod +x OfficePilot Suite-<version>.AppImage
+./OfficePilot Suite-<version>.AppImage
 ```
 
 Ia memerlukan masa larian FUSE 2. Jika anda lebih suka tidak memasangnya, jalankannya dengan `--appimage-extract-and-run` dan sandbox itu berfungsi daripada direktori yang diekstrak.
@@ -64,4 +64,4 @@ Ketiganya membalut artifak yang diterbitkan, bukan membina semula aplikasi, jadi
 
 ## Baris arahan yang disertakan
 
-Setiap pemasangan meliputi satu perintah `genoffice` yang bercakap dengan enjin yang sama seperti yang digunakan oleh tetingkap itu, jadi kedua-duanya tidak pernah berselisih tentang sesuatu fail. Pada macOS dan Windows ia berada dalam bungkus aplikasi; `genoffice install-cli` meletakkannya pada `PATH` anda. Lihat **Baris arahan dan ejen** untuk apa yang boleh ia lakukan.
+Setiap pemasangan meliputi satu perintah `officepilot-suite` yang bercakap dengan enjin yang sama seperti yang digunakan oleh tetingkap itu, jadi kedua-duanya tidak pernah berselisih tentang sesuatu fail. Pada macOS dan Windows ia berada dalam bungkus aplikasi; `officepilot-suite install-cli` meletakkannya pada `PATH` anda. Lihat **Baris arahan dan ejen** untuk apa yang boleh ia lakukan.

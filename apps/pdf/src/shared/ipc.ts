@@ -61,7 +61,7 @@ export const PDF_CHANNELS = {
   aiPanelPrefsChanged: 'app:ai-panel-prefs-changed',
 } as const
 
-export const VISUAL_SIGNATURE_CONTENT_PREFIX = 'GenOffice visual signature field: '
+export const VISUAL_SIGNATURE_CONTENT_PREFIX = 'OfficePilot Suite visual signature field: '
 
 /** Signature strokes: pad pixel coords, scaled proportionally and y-flipped when placed on the page */
 export interface SignatureStrokes {
@@ -330,7 +330,7 @@ export type DrawingInput =
       color: [number, number, number]
       at: [number, number]
       contents: string
-      /** Annotation author (/T); omitted → 'GenOffice' */
+      /** Annotation author (/T); omitted → 'OfficePilot Suite' */
       author?: string
       /** Creation time (ms since epoch) → /CreationDate and /M; omitted → save time */
       createdMs?: number
@@ -550,7 +550,7 @@ export interface PageImageRef {
   aboveText: boolean
 }
 
-/** Editable metadata for a GenOffice static form fill embedded as a page image. */
+/** Editable metadata for a OfficePilot Suite static form fill embedded as a page image. */
 export interface StaticFormFillRecord {
   id: string
   kind: 'text' | 'check' | 'cross'
@@ -743,7 +743,7 @@ export interface ValidateTextEditsRequest {
   edits: TextEditInput[]
 }
 
-/** Extract pages into a new PDF written to the GenOffice save dir and opened in a new tab */
+/** Extract pages into a new PDF written to the OfficePilot Suite save dir and opened in a new tab */
 export interface ExtractPagesRequest {
   path: string
   /** Page indices in the file as saved (the renderer flushes first, so visible positions) */
@@ -833,7 +833,7 @@ export interface SetPageSizeRequest {
 export type SetPageSizeResult = { ok: true } | { ok: false; error: string }
 
 /** Split every page into a grid of pages (inverse of merge pages), written to the
- * GenOffice save dir and opened in a new tab */
+ * OfficePilot Suite save dir and opened in a new tab */
 export interface SplitPagesRequest {
   path: string
   perPage: 2 | 4 | 9
@@ -932,7 +932,7 @@ export interface PdfApi {
   canDrawText(text: string, font?: string, bold?: boolean, italic?: boolean): Promise<boolean>
   /** Enumerate the content-stream images of every page (for image edit mode) */
   listPageImages(path: string): Promise<PageImageRef[]>
-  /** Read GenOffice static-fill metadata stored inside the PDF. */
+  /** Read OfficePilot Suite static-fill metadata stored inside the PDF. */
   listStaticFormFills(path: string): Promise<StaticFormFillRecord[]>
   /** System-OCR one rendered page image (PNG, base64); null when no engine is
       available on this platform, [] when recognition failed for this image */
@@ -1036,7 +1036,7 @@ export interface PdfApi {
   openAiModelSettings(): Promise<void>
   /** shell only: switch to Home and open Settings › Integrations (the skills list) */
   openSkillsSettings(): Promise<void>
-  /** the skills the user installed into GenOffice */
+  /** the skills the user installed into OfficePilot Suite */
   skillsList(): Promise<UserSkillEntry[]>
   /** one installed skill's body, by name */
   skillText(name: string): Promise<string>

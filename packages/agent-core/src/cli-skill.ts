@@ -3,8 +3,8 @@ import type { AgentSkill, ExecutedToolCall } from './skill'
 import { kbCiteHref } from './knowledge-base-skill'
 
 /**
- * The bundled `genoffice` command line as an agent skill: the same engine the
- * CLI, `genoffice mcp` and the app's own MCP server expose, driven here by the
+ * The bundled `officepilot-suite` command line as an agent skill: the same engine the
+ * CLI, `officepilot-suite mcp` and the app's own MCP server expose, driven here by the
  * in-app loop. The host owns the one dangerous operation (spawning the CLI):
  * it fixes the executable, confines reads and writes to the roots it hands
  * out, and stages the files the model writes into a per-conversation work
@@ -59,7 +59,7 @@ export interface CliSkill extends AgentSkill {
 const MAX_OUTPUT_CHARS = 24_000
 
 const CLI_SYSTEM_PROMPT = `## Building documents with genoffice
-run_genoffice runs the bundled genoffice command line (always with --json) and
+run_genoffice runs the bundled officepilot-suite command line (always with --json) and
 returns its JSON result. Use it whenever the user wants a real file built from
 their material: a Word report with headings and tables, a workbook with live
 formulas and charts, a slide deck. Plain prose a user only wants saved can go
@@ -152,7 +152,7 @@ export function createCliSkill(deps: CliSkillDeps): CliSkill {
   const runTool: AgentToolDef = {
     name: RUN_GENOFFICE_TOOL,
     description:
-      'Run the bundled genoffice command line and return its JSON result. args is the command ' +
+      'Run the bundled officepilot-suite command line and return its JSON result. args is the command ' +
       'and its arguments (--json is added), e.g. ["create","--type","docx","--from","report.md","--out","<output dir>/Report.docx"]. ' +
       'files stages inputs into the work directory first (relative names), so ops, specs and markdown ' +
       'never have to be quoted on the command line. Finished documents go under the output directory with --out.',
@@ -162,7 +162,7 @@ export function createCliSkill(deps: CliSkillDeps): CliSkill {
         args: {
           type: 'array',
           items: { type: 'string' },
-          description: 'the genoffice command and its arguments, one string each',
+          description: 'the officepilot-suite command and its arguments, one string each',
         },
         files: {
           type: 'array',
@@ -184,7 +184,7 @@ export function createCliSkill(deps: CliSkillDeps): CliSkill {
   const guideTool: AgentToolDef = {
     name: LOAD_GUIDE_TOOL,
     description:
-      'The op reference and design guides for one domain (what "genoffice guide" prints). ' +
+      'The op reference and design guides for one domain (what "officepilot-suite guide" prints). ' +
       'Call it before writing ops or a deck spec; topic narrows it to a group, one op, "design" or "spec" (slides).',
     inputSchema: {
       type: 'object',
@@ -232,7 +232,7 @@ export function createCliSkill(deps: CliSkillDeps): CliSkill {
     buildContext: () => {
       const ctx = deps.context()
       if (!ctx) return ''
-      return `genoffice directories:\n  work directory: ${ctx.workDir}\n  output directory: ${ctx.outDir}`
+      return `officepilot-suite directories:\n  work directory: ${ctx.workDir}\n  output directory: ${ctx.outDir}`
     },
     executeTool: async (call) => {
       if (call.name === LOAD_GUIDE_TOOL) {
@@ -268,11 +268,11 @@ export function createCliSkill(deps: CliSkillDeps): CliSkill {
         }
       }
       try {
-        return await execute({ args, files }, `genoffice ${args.slice(0, 3).join(' ')}`)
+        return await execute({ args, files }, `officepilot-suite ${args.slice(0, 3).join(' ')}`)
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error)
         return {
-          output: `genoffice could not run: ${message}`,
+          output: `officepilot-suite could not run: ${message}`,
           isError: true,
           summary: 'cli failed',
         }

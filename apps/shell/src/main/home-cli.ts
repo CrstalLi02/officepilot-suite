@@ -16,7 +16,7 @@ import type { CliRunRequest, CliRunResult, CliStagedFile } from '@genoffice/agen
 import type { CliRunner } from './mcp/cli-runner'
 
 /**
- * The home screen's Ask AI running the bundled `genoffice` CLI. The renderer
+ * The home screen's Ask AI running the bundled `officepilot-suite` CLI. The renderer
  * sends a command line and the files it wants staged; this module decides what
  * may run and where it may touch the disk:
  *

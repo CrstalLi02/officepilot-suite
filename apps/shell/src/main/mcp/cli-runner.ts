@@ -1,7 +1,7 @@
 import { spawn } from 'node:child_process'
 
 /**
- * Shell-main half of the MCP → `genoffice` CLI delegation.
+ * Shell-main half of the MCP → `officepilot-suite` CLI delegation.
  *
  * The app already ships the CLI (`@genoffice/cli`) and runs it on its own Node
  * runtime, so the headless MCP tools do not reimplement document engines: they
@@ -54,7 +54,7 @@ export interface CliRunOptions {
 }
 
 export interface CliRunner {
-  /** run `genoffice <args> --json`; never rejects — failures come back as `ok:false` */
+  /** run `officepilot-suite <args> --json`; never rejects — failures come back as `ok:false` */
   run(args: string[], options?: CliRunOptions): Promise<CliRunOutcome>
 }
 
@@ -151,5 +151,5 @@ export function createCliRunner(paths: CliRunnerPaths): CliRunner {
 export function cliErrorMessage(outcome: CliRunOutcome): string {
   if (outcome.json && outcome.json.status === 'error') return outcome.json.message
   const detail = outcome.stderr.trim() || outcome.stdout.trim()
-  return detail ? `genoffice failed: ${detail}` : `genoffice exited with code ${outcome.code}`
+  return detail ? `officepilot-suite failed: ${detail}` : `officepilot-suite exited with code ${outcome.code}`
 }

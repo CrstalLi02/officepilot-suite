@@ -9,12 +9,12 @@ const webResponse = () =>
   Response.json({
     results: [
       {
-        title: 'GenOffice',
-        link: 'https://genoffice.ai/',
+        title: 'OfficePilot Suite',
+        link: 'https://github.com/CrstalLi02/officepilot-suite',
         description: 'A free, open-source office suite.',
       },
       { title: 'Not a page', link: 'javascript:void(0)', description: 'dropped' },
-      { title: 'Docs', link: 'https://genoffice.ai/docs', description: 'Documentation.' },
+      { title: 'Docs', link: 'https://github.com/CrstalLi02/officepilot-suite', description: 'Documentation.' },
     ],
     answers: [],
   })
@@ -50,11 +50,11 @@ describe('Serply web search', () => {
     expect(r).toEqual({
       results: [
         {
-          title: 'GenOffice',
-          url: 'https://genoffice.ai/',
+          title: 'OfficePilot Suite',
+          url: 'https://github.com/CrstalLi02/officepilot-suite',
           snippet: 'A free, open-source office suite.',
         },
-        { title: 'Docs', url: 'https://genoffice.ai/docs', snippet: 'Documentation.' },
+        { title: 'Docs', url: 'https://github.com/CrstalLi02/officepilot-suite', snippet: 'Documentation.' },
       ],
       method: 'serply',
     })
@@ -76,7 +76,7 @@ describe('Serply web search', () => {
     )
     const r = await webSearch('genoffice', 1)
     expect(r.method).toBe('serply')
-    expect(r.results.map((x) => x.url)).toEqual(['https://genoffice.ai/'])
+    expect(r.results.map((x) => x.url)).toEqual(['https://github.com/CrstalLi02/officepilot-suite'])
   })
 
   it('falls through to the next backend when Serply rejects the key', async () => {

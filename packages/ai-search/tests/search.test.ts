@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, afterEach, beforeAll } from 'vitest'
 import { webSearch, imageSearch } from '../src/index'
 import { searchOptionsFromSettings, testSearchProvider } from '../src/search-tools'
-import { defaultAiSettings } from '@genoffice/ai-provider'
+import { defaultAiSearchSettings, defaultAiSettings } from '@genoffice/ai-provider'
 
 // These cases only test the Serper/DuckDuckGo paths; a local gsk login would take priority, so disable it explicitly
 beforeAll(() => {
@@ -501,7 +501,7 @@ describe('webSearch (Keenable)', () => {
     expect(urls).toEqual(['https://api.keenable.ai/v1/search/public'])
     expect(init?.headers).toEqual({
       'Content-Type': 'application/json',
-      'X-Keenable-Title': 'GenOffice',
+      'X-Keenable-Title': 'OfficePilot Suite',
     })
     expect(JSON.parse(String(init?.body))).toEqual({ query: 'q', max_results: 5 })
     expect(r.method).toBe('keenable')
@@ -548,7 +548,8 @@ describe('webSearch (Keenable)', () => {
 
 describe('search-tools', () => {
   it('maps the settings block onto SearchOptions', () => {
-    const base = defaultAiSettings()
+    // OfficePilot modification: opt into the Genspark route (off by default in this fork)
+    const base = { ...defaultAiSettings(), gskToolsEnabled: true, search: { ...defaultAiSearchSettings(), provider: 'genspark' as const } }
     expect(searchOptionsFromSettings(base)).toEqual({ useGsk: true })
     expect(searchOptionsFromSettings({ ...base, gskToolsEnabled: false })).toEqual({
       useGsk: false,

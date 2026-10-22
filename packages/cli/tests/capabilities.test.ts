@@ -26,7 +26,7 @@ function settingsFile(dir: string, settings: Record<string, unknown>): string {
   return path
 }
 
-describe('genoffice capabilities', () => {
+describe('officepilot-suite capabilities', () => {
   it('reports nothing configured when signed out with default settings', async () => {
     const dir = tempDir()
     const r = await run(['capabilities', '--json'], {
@@ -38,7 +38,8 @@ describe('genoffice capabilities', () => {
     })
     expect(r.code).toBe(0)
     const d = r.json().detail
-    expect(d.search.available).toBe(false)
+    // OfficePilot modification: keyless Parallel is the default web search
+    expect(d.search).toEqual({ available: true, via: 'parallel' })
     expect(d.image_search.available).toBe(false)
     expect(d.image_generation.available).toBe(false)
     expect(d.media_analysis.available).toBe(false)
@@ -115,8 +116,9 @@ describe('genoffice capabilities', () => {
       const d = r.json().detail
       expect(d.search).toEqual({ available: true, via: provider })
       expect(d.image_search).toEqual({ available: false, via: null })
-      expect(d.image_generation).toEqual({ available: true, via: 'genspark' })
-      expect(d.media_analysis).toEqual({ available: true, via: 'genspark' })
+      // OfficePilot modification: Genspark cloud tools are off by default, even with a gsk login
+      expect(d.image_generation).toEqual({ available: false, via: null })
+      expect(d.media_analysis).toEqual({ available: false, via: null })
     },
   )
 

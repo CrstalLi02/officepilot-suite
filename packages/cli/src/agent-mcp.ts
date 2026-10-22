@@ -5,22 +5,23 @@ import { realizedPath, writeOutput } from './fs'
 import type { McpLaunch } from './mcp-launch'
 
 /**
- * Registering `genoffice mcp` (stdio) in each coding agent's MCP config, the
+ * Registering `officepilot-suite mcp` (stdio) in each coding agent's MCP config, the
  * MCP twin of agent-skills.ts. One key per file is set or removed; an entry
- * named genoffice that starts something other than a genoffice launcher is
+ * named officepilot-suite that starts something other than a officepilot-suite launcher is
  * never replaced unless forced. Paths and shapes follow each agent's docs.
  */
 
-export const MCP_SERVER_NAME = 'genoffice'
+// OfficePilot modification: the server name MCP clients list
+export const MCP_SERVER_NAME = 'officepilot-suite'
 
 export type McpEntryStatus =
-  /** no genoffice entry in the file */
+  /** no officepilot-suite entry in the file */
   | 'absent'
-  /** genoffice entry starting our launcher, exactly as this CLI would write it */
+  /** officepilot-suite entry starting our launcher, exactly as this CLI would write it */
   | 'registered'
-  /** a genoffice launcher, but another path or extra fields */
+  /** a officepilot-suite launcher, but another path or extra fields */
   | 'stale'
-  /** an entry named genoffice that starts something else */
+  /** an entry named officepilot-suite that starts something else */
   | 'occupied'
   /** the file cannot be edited safely (unparsable, or a shape we do not know) */
   | 'manual'
@@ -187,7 +188,7 @@ export function readMcpEntry(id: AgentId, file: string, launch: McpLaunch): McpE
   return { status: isGenofficeLauncher(command, args) ? 'stale' : 'occupied', command }
 }
 
-/** Set the genoffice entry (replacing any existing one); the caller has already decided that is allowed. */
+/** Set the officepilot-suite entry (replacing any existing one); the caller has already decided that is allowed. */
 export function writeMcpEntry(id: AgentId, file: string, launch: McpLaunch): void {
   const def = MCP_AGENTS.find((a) => a.id === id)!
   const text = existsSync(file) ? readFileSync(file, 'utf-8') : ''
@@ -204,7 +205,7 @@ export function writeMcpEntry(id: AgentId, file: string, launch: McpLaunch): voi
   save(file, `${JSON.stringify(doc, null, 2)}\n`)
 }
 
-/** Remove the genoffice entry; false when there was none. Other keys stay. */
+/** Remove the officepilot-suite entry; false when there was none. Other keys stay. */
 export function removeMcpEntry(id: AgentId, file: string): boolean {
   const def = MCP_AGENTS.find((a) => a.id === id)!
   if (!existsSync(file)) return false
@@ -226,10 +227,11 @@ export function removeMcpEntry(id: AgentId, file: string): boolean {
   return true
 }
 
-const LAUNCHER_NAMES = new Set(['genoffice', 'genoffice.cmd', 'genoffice.exe'])
+// OfficePilot modification: the renamed command and app executable are ours too
+const LAUNCHER_NAMES = new Set(['genoffice', 'genoffice.cmd', 'genoffice.exe', 'officepilot-suite', 'officepilot suite.exe'])
 
 /**
- * Any genoffice launcher, whatever install it came from (an older app path is
+ * Any officepilot-suite launcher, whatever install it came from (an older app path is
  * ours to update): the launcher scripts, or the app run as Node on genoffice.cjs.
  */
 export function isGenofficeLauncher(command: string | null, args: string[] = []): boolean {
@@ -288,7 +290,7 @@ function isRecord(v: unknown): v is Record<string, unknown> {
 }
 
 const TOML_HEADER =
-  /^\s*\[\s*mcp_servers\s*\.\s*(?:"genoffice"|'genoffice'|genoffice)\s*(\.[^\]]*)?\]/
+  new RegExp(`^\\s*\\[\\s*mcp_servers\\s*\\.\\s*(?:"${MCP_SERVER_NAME}"|'${MCP_SERVER_NAME}'|${MCP_SERVER_NAME})\\s*(\\.[^\\]]*)?\\]`)
 
 /** `env` becomes the `[mcp_servers.genoffice.env]` sub-table Codex reads its `env` map from. */
 function tomlTable(launch: McpLaunch): string {

@@ -12,7 +12,7 @@ async function documentXml(path: string): Promise<string> {
   return zip.file('word/document.xml')!.async('string')
 }
 
-describe('genoffice docx (docs editor under jsdom)', () => {
+describe('officepilot-suite docx (docs editor under jsdom)', () => {
   it('creates a document from markdown and from a restricted-HTML fragment', async () => {
     const dir = tempDir()
     const md = join(dir, 'report.md')
@@ -63,7 +63,7 @@ describe('genoffice docx (docs editor under jsdom)', () => {
     writeFileSync(
       ops,
       JSON.stringify([
-        { op: 'findReplace', find: firstText.split(' ')[0], replace: 'GENOFFICE' },
+        { op: 'findReplace', find: firstText.split(' ')[0], replace: 'OFFICEPILOT SUITE' },
         { op: 'setFont', target: { blockIndexes: [0] }, color: 'FF0000', bold: true },
         { op: 'insert_content', afterBlockIndex: 0, html: '<p>Inserted by genoffice.</p>' },
         {
@@ -85,7 +85,7 @@ describe('genoffice docx (docs editor under jsdom)', () => {
     const xml = await documentXml(copy)
     expect(xml).toContain('Inserted by genoffice.')
     expect(xml).toContain('Replaced heading')
-    expect(xml).toContain('GENOFFICE')
+    expect(xml).toContain('OFFICEPILOT SUITE')
     expect(xml).toContain('<w:color w:val="FF0000"/>')
 
     const after = await run(['docs', 'read', copy, '--range', '1', '--json'])
@@ -483,7 +483,7 @@ describe('genoffice docx (docs editor under jsdom)', () => {
   })
 })
 
-describe('genoffice convert docx → md', () => {
+describe('officepilot-suite convert docx → md', () => {
   it('round-trips headings, marks, lists and tables through the two editors', async () => {
     const dir = tempDir()
     const md = join(dir, 'in.md')
@@ -615,7 +615,7 @@ async function zipOf(path: string): Promise<JSZip> {
   return JSZip.loadAsync(readFileSync(path))
 }
 
-describe('genoffice docs: comments, revisions, header/footer, images, charts', () => {
+describe('officepilot-suite docs: comments, revisions, header/footer, images, charts', () => {
   it('reads comment threads and tracked changes with block indexes', async () => {
     const dir = tempDir()
     const path = await reviewFixture(dir)

@@ -93,7 +93,7 @@ const HOME_ID = 'home'
  */
 export class TabManager {
   private readonly tabs: TabRecord[] = [
-    { id: HOME_ID, kind: 'home', view: null, title: 'GenOffice', lastActiveAt: Date.now() },
+    { id: HOME_ID, kind: 'home', view: null, title: 'OfficePilot Suite', lastActiveAt: Date.now() },
   ]
   private activeId: string = HOME_ID
   private nextId = 1
@@ -131,7 +131,7 @@ export class TabManager {
     // then once more on the next tick. On Linux/X11, `resize` fires before the
     // window manager applies the new size, so getContentBounds() is still the
     // pre-maximize size inside the handler and a follow-up layout is required.
-    // See https://github.com/genspark-ai/genoffice/issues/15
+    // See https://github.com/CrstalLi02/officepilot-suite/issues/15
     shellWindow.on('resize', () => {
       this.layout()
       setImmediate(() => this.layout())
@@ -352,7 +352,7 @@ export class TabManager {
       id,
       kind: 'help',
       view,
-      title: this.untitled('help', 'GenOffice Help'),
+      title: this.untitled('help', 'OfficePilot Suite Help'),
       lastActiveAt: Date.now(),
     })
     this.activateTab(id)
@@ -375,7 +375,7 @@ export class TabManager {
       lastActiveAt: Date.now(),
       kind: 'docs',
       view,
-      title: openPath ? basename(openPath) : this.untitled('docs', 'GenOffice Docs'),
+      title: openPath ? basename(openPath) : this.untitled('docs', 'OfficePilot Suite Docs'),
       filePath: openPath,
     })
     this.activateTab(id)

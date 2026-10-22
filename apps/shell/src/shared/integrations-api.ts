@@ -10,7 +10,7 @@ import type { FoundSkill, RecommendedSkill } from './found-skill'
 export type { AgentId, AgentTarget, SkillInstallState, SkillInstallStatus }
 
 export interface CliStatus extends InstallOutcome {
-  /** directory holding the genoffice launcher (what `~/.genoffice/launcher` points at) */
+  /** directory holding the officepilot-suite launcher (what `~/.genoffice/launcher` points at) */
   launcherDir: string
   /** app runs from a dmg / AppImage mount: the launcher path will not survive a restart */
   ephemeral: boolean
@@ -40,7 +40,7 @@ export interface IntegrationsApi {
   saveSkillZip(title: string): Promise<string | null>
   /** put text on the clipboard (paths, the manual PATH command) */
   copyText(text: string): Promise<void>
-  /** the skills in GenOffice's own folder; nothing else is scanned */
+  /** the skills in OfficePilot Suite's own folder; nothing else is scanned */
   listSkills(): Promise<FoundSkill[]>
   /** the body of one listed SKILL.md, frontmatter stripped */
   skillBody(path: string): Promise<string>
@@ -48,7 +48,7 @@ export interface IntegrationsApi {
   importSkillFolder(title: string): Promise<FoundSkill | null>
   /** open-dialog for a skill zip or a single SKILL.md, then bring it in; null when cancelled */
   importSkillZip(title: string): Promise<FoundSkill | null>
-  /** the skills GenOffice ships as suggestions, with each one's install state */
+  /** the skills OfficePilot Suite ships as suggestions, with each one's install state */
   listRecommendedSkills(): Promise<RecommendedSkill[]>
   /** copy (or, when outdated, replace) one recommended skill into our folder */
   installRecommendedSkill(name: string): Promise<FoundSkill>

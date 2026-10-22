@@ -97,7 +97,7 @@ describe('createCliSkill', () => {
       json: {
         status: 'ok',
         command: 'guide',
-        summary: 'Word ops (genoffice docs apply)\n  setFont {…}',
+        summary: 'Word ops (officepilot-suite docs apply)\n  setFont {…}',
       },
     })
     const skill = createCliSkill(deps)

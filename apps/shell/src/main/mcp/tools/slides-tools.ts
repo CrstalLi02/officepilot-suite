@@ -12,7 +12,7 @@ import type { CliRunner } from '../cli-runner'
  * Slides (pptx) tool surface for the MCP server.
  *
  * Two paths, mirroring the docx tools:
- * - headless `create_pptx`: outline -> ops, handed to the bundled `genoffice`
+ * - headless `create_pptx`: outline -> ops, handed to the bundled `officepilot-suite`
  *   CLI (`create --type pptx --ops`), gated behind the "background generation"
  *   setting. No deck-building code lives here;
  * - a visible deck session: the tools drive a real slides tab the user watches.

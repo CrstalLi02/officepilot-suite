@@ -1,6 +1,6 @@
-# GenOffice のインストール
+# OfficePilot Suite のインストール
 
-すべてのビルドは [Releases ページ](https://github.com/genspark-ai/genoffice/releases/latest) で公開されています。すべて `main` 由来で、macOS と Windows のインストーラーは署名済みです。
+すべてのビルドは [Releases ページ](https://github.com/CrstalLi02/officepilot-suite/releases/latest) で公開されています。すべて `main` 由来で、macOS と Windows のインストーラーは署名済みです。
 
 ## 自分のマシンに合わせてファイルを選ぶ
 
@@ -18,11 +18,11 @@
 
 ## macOS で
 
-`.dmg` を開いて **GenOffice** を Applications にドラッグします。Intel 版では初回起動時に開いてよいか確認されます。Applications でアプリを右クリック ▸ 開く の順です。これは未署名に見えるディスクイメージに対する Gatekeeper の動作で、ダウンロードの破損ではありません。
+`.dmg` を開いて **OfficePilot Suite** を Applications にドラッグします。Intel 版では初回起動時に開いてよいか確認されます。Applications でアプリを右クリック ▸ 開く の順です。これは未署名に見えるディスクイメージに対する Gatekeeper の動作で、ダウンロードの破損ではありません。
 
 ## Windows で
 
-`.exe` インストーラーを実行します。GenOffice がスタートメニューに追加され、`.docx`、`.xlsx`、`.pptx`、`.pdf` などが登録されるので、ファイルをダブルクリックすれば開きます。
+`.exe` インストーラーを実行します。OfficePilot Suite がスタートメニューに追加され、`.docx`、`.xlsx`、`.pptx`、`.pdf` などが登録されるので、ファイルをダブルクリックすれば開きます。
 
 ## Linux で
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — インストールはなしで、そのまま動きます：
 
 ```sh
-chmod +x GenOffice-<version>.AppImage
-./GenOffice-<version>.AppImage
+chmod +x OfficePilot Suite-<version>.AppImage
+./OfficePilot Suite-<version>.AppImage
 ```
 
 FUSE 2 ランタイムが必要です。インストールしたくない場合は `--appimage-extract-and-run` を付けて実行してください。展開されたディレクトリーからサンドボックスが動作します。
@@ -64,4 +64,4 @@ FUSE 2 ランタイムが必要です。インストールしたくない場合�
 
 ## コマンドラインも同梱されています
 
-どのインストールにも `genoffice` コマンドが含まれ、ウィンドウと同じエンジンを動かします。同じファイルをどちらがどう扱うかが変わることがないので、意见が分かれることはありません。macOS と Windows ではアプリバンドルの中にあり、`genoffice install-cli` で `PATH` に追加できます。何ができるかは **コマンドラインとエージェント** を参照してください。
+どのインストールにも `officepilot-suite` コマンドが含まれ、ウィンドウと同じエンジンを動かします。同じファイルをどちらがどう扱うかが変わることがないので、意见が分かれることはありません。macOS と Windows ではアプリバンドルの中にあり、`officepilot-suite install-cli` で `PATH` に追加できます。何ができるかは **コマンドラインとエージェント** を参照してください。

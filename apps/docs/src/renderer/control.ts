@@ -1,7 +1,7 @@
 import type { Editor } from '@tiptap/core'
 import { navigateToBlock } from './ai/doc-nav'
 
-/** Request/reply the shell relays from `genoffice open --block` and `genoffice selection`. */
+/** Request/reply the shell relays from `officepilot-suite open --block` and `officepilot-suite selection`. */
 export type ControlRequest =
   { cmd: 'goto'; target: { kind: string; block?: number } } | { cmd: 'selection' }
 

@@ -166,7 +166,8 @@ describe('media settings', () => {
   })
 
   it('gates the tools on gsk login + toggle without BYOK, and on the BYOK model with it', () => {
-    const genspark = defaultAiSettings()
+    // OfficePilot modification: cloud tools default off, so opt in for the Genspark route
+    const genspark = { ...defaultAiSettings(), gskToolsEnabled: true }
     expect(imageGenerationAvailable(genspark, true)).toBe(true)
     expect(imageGenerationAvailable(genspark, false)).toBe(false)
     expect(imageGenerationAvailable({ ...genspark, gskToolsEnabled: false }, true)).toBe(false)

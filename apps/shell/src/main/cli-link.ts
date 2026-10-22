@@ -5,6 +5,8 @@ import { app } from 'electron'
 import { installCliLink } from '@genoffice/cli/install'
 import { writeAppSetting } from './app-settings'
 
+const OFFICEPILOT_NO_AUTO_LINK = true
+
 const SETTING_KEY = 'cliLink'
 
 interface CliLinkRecord {
@@ -14,8 +16,8 @@ interface CliLinkRecord {
 }
 
 /**
- * Every launch: record where the genoffice launcher lives so agents can find it
- * without a PATH (the `genoffice` skill reads `~/.genoffice/launcher`), then
+ * Every launch: record where the officepilot-suite launcher lives so agents can find it
+ * without a PATH (the `officepilot-suite` skill reads `~/.genoffice/launcher`), then
  * try to expose it on the PATH. The dmg has no installer step to do that, so
  * macOS retries on each start until a writable directory turns up. Windows
  * gets its PATH entry from the NSIS installer on every install and update, so
@@ -24,6 +26,9 @@ interface CliLinkRecord {
  * on the first launch of each version (genoffice#2011). Silent and best effort.
  */
 export function installCliLinkBestEffort(settingsPath: string): void {
+  // OfficePilot modification: never touch the user's PATH without a click;
+  // the command is installed from Settings → Integrations instead.
+  if (OFFICEPILOT_NO_AUTO_LINK) return
   if (!app.isPackaged) return
   try {
     if (isEphemeralInstall(process.resourcesPath, process.env)) {

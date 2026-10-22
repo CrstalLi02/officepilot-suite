@@ -17,7 +17,7 @@ import { createCliRunner, type CliRunner } from './mcp/cli-runner'
  *   not chosen, and until they click Import the model does not see them.
  *   `ai:skill-text` takes a name, never a path: the model cannot name a file,
  *   it can only pick an entry from the list this process vouched for.
- * - `ai:run-cli` spawns the bundled `genoffice` CLI and nothing else — the
+ * - `ai:run-cli` spawns the bundled `officepilot-suite` CLI and nothing else — the
  *   executable is resolved here, so an argv is a command line for our own
  *   document tool, not a general shell. `--json` is appended by the runner,
  *   which is also what keeps the result a single parseable object instead of
