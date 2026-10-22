@@ -3867,7 +3867,8 @@ export function registerSheetsAiIpc(): void {
     if (!config || (provider !== 'codex' && !config.apiKey)) {
       return {
         ok: false,
-        error: provider === 'genspark' ? tm('errGskNotLoggedIn') : tm('errNoApiKey', { provider }),
+        // OfficePilot modification: no Genspark sign-in; ask for a model key instead
+        error: tm('errNoApiKey', { provider: provider === 'genspark' ? 'AI' : provider }),
       }
     }
     if (provider !== 'codex' && !config.model) return { ok: false, error: tm('errNoModel') }
@@ -3921,7 +3922,8 @@ export function registerSheetsAiIpc(): void {
       send({
         requestId,
         type: 'error',
-        error: provider === 'genspark' ? tm('errGskNotLoggedIn') : tm('errNoApiKey', { provider }),
+        // OfficePilot modification: no Genspark sign-in; ask for a model key instead
+        error: tm('errNoApiKey', { provider: provider === 'genspark' ? 'AI' : provider }),
       })
       return
     }

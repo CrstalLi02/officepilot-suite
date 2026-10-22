@@ -20,6 +20,9 @@ import { readAppSettings, writeAppSetting, writeAppSettings } from './app-settin
  */
 
 /** app-settings.json key: false = explicit opt-out; absent means enabled */
+/** OfficePilot modification: no analytics keys are ever honored in this fork. */
+export const OFFICEPILOT_ANALYTICS_DISABLED = true
+
 export const ANALYTICS_ENABLED_KEY = 'analyticsEnabled'
 /** app-settings.json key: random UUID identifying this install anonymously */
 export const ANALYTICS_CLIENT_ID_KEY = 'analyticsClientId'
@@ -51,6 +54,8 @@ export interface Analytics {
  * the no-op tracker.
  */
 export function extractAnalyticsKeys(pkg: unknown): AnalyticsKeys | null {
+  // OfficePilot modification: usage analytics is removed from this fork.
+  if (OFFICEPILOT_ANALYTICS_DISABLED) return null
   if (!pkg || typeof pkg !== 'object') return null
   const raw = (pkg as Record<string, unknown>).genofficeAnalytics
   if (!raw || typeof raw !== 'object') return null

@@ -204,7 +204,8 @@ export function registerAiIpc(): void {
       send({
         requestId,
         type: 'error',
-        error: provider === 'genspark' ? tm('errGskNotLoggedIn') : tm('errNoApiKey', { provider }),
+        // OfficePilot modification: no Genspark sign-in; ask for a model key instead
+        error: tm('errNoApiKey', { provider: provider === 'genspark' ? 'AI' : provider }),
       })
       return
     }

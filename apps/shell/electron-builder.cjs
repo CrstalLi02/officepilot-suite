@@ -43,13 +43,14 @@ function normalizeHttpsBaseUrl(name, value) {
   }
 }
 
-const updateUrl = process.env.GENOFFICE_UPDATE_URL
-const ga4MeasurementId = process.env.GENOFFICE_GA4_MEASUREMENT_ID
-const ga4ApiSecret = process.env.GENOFFICE_GA4_API_SECRET
-const fontCdnUrl = normalizeHttpsBaseUrl(
-  'GENOFFICE_FONT_CDN_URL',
-  process.env.GENOFFICE_FONT_CDN_URL,
-)
+// OfficePilot modification: this fork ships without the upstream update feed,
+// usage analytics and the hosted font catalog. OFFICEPILOT_UPDATE_URL may point
+// at an update channel the fork owns; analytics and the font CDN stay off.
+const updateUrl = process.env.OFFICEPILOT_UPDATE_URL
+const ga4MeasurementId = null
+const ga4ApiSecret = null
+const fontCdnUrl = null
+void normalizeHttpsBaseUrl
 
 // GENOFFICE_MAC_X64=1 — opt into packaging the Intel (x64) dmg/zip alongside
 // arm64. Off by default: Intel packages must only ever ship signed with the

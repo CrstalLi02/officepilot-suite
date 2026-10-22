@@ -25,7 +25,8 @@ export const AI_SEARCH_PROVIDERS: AiSearchProviderMeta[] = [
 
 export function defaultAiSearchSettings(): AiSearchSettings {
   return {
-    provider: 'genspark',
+    // OfficePilot modification: keyless Parallel instead of the Genspark proxy
+    provider: 'parallel',
     providers: {
       serper: { apiKey: '' },
       serply: { apiKey: '' },

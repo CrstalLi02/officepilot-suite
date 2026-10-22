@@ -454,9 +454,11 @@ export function defaultAiSettings(
     }
   }
   return {
-    provider: 'genspark',
+    // OfficePilot modification: default to a direct provider (the user's own
+    // key) instead of the Genspark proxy, and keep Genspark cloud tools off
+    provider: 'deepseek',
     providers,
-    gskToolsEnabled: true,
+    gskToolsEnabled: false,
     media: defaultAiMediaSettings(),
     search: defaultAiSearchSettings(),
   }

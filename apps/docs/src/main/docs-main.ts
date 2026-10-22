@@ -4157,7 +4157,8 @@ export function registerAiIpc(): void {
       send({
         requestId,
         type: 'error',
-        error: provider === 'genspark' ? tm('errGskNotLoggedIn') : tm('errNoApiKey', { provider }),
+        // OfficePilot modification: no Genspark sign-in; ask for a model key instead
+        error: tm('errNoApiKey', { provider: provider === 'genspark' ? 'AI' : provider }),
       })
       return
     }
@@ -4344,7 +4345,7 @@ export function registerAiIpc(): void {
   ipcMain.handle('ai:search-test', (_event, input: unknown) => {
     const { provider, apiKey } = (input ?? {}) as { provider?: AiSearchProviderId; apiKey?: string }
     if (!provider || provider === 'genspark') {
-      return hasGskAuth() ? { ok: true } : { ok: false, error: tm('errGskNotLoggedIn') }
+      return hasGskAuth() ? { ok: true } : { ok: false, error: tm('errNoApiKey', { provider: 'AI' }) }
     }
     return testSearchProvider(provider, String(apiKey ?? ''))
   })
@@ -4356,7 +4357,7 @@ export function registerAiIpc(): void {
       config?: AiMediaProviderConfig
     }
     if (!provider || provider === 'genspark') {
-      return hasGskAuth() ? { ok: true } : { ok: false, error: tm('errGskNotLoggedIn') }
+      return hasGskAuth() ? { ok: true } : { ok: false, error: tm('errNoApiKey', { provider: 'AI' }) }
     }
     if (!config) return { ok: false, error: 'No media provider configuration' }
     return testMediaProvider(provider, config)
@@ -4381,7 +4382,8 @@ export function registerAiIpc(): void {
     if (!config || (provider !== 'codex' && !config.apiKey)) {
       return {
         ok: false,
-        error: provider === 'genspark' ? tm('errGskNotLoggedIn') : tm('errNoApiKey', { provider }),
+        // OfficePilot modification: no Genspark sign-in; ask for a model key instead
+        error: tm('errNoApiKey', { provider: provider === 'genspark' ? 'AI' : provider }),
       }
     }
     if (provider !== 'codex' && !config.model) return { ok: false, error: tm('errNoModel') }

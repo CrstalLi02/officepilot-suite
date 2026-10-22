@@ -7,6 +7,7 @@ import {
   getProviderAdapter,
 } from '@genoffice/ai-provider/browser'
 import type { AiSettings, CodexModelCatalog } from '@genoffice/ai-provider/browser'
+import { HIDDEN_PROVIDER_IDS } from '../shared/officepilot'
 import { installDropOpenBridge } from '@genoffice/electron-utils/drop-open'
 import type { UpdateUiState } from '../shared/update-api'
 import { normalizeAiPanelPrefs } from '@genoffice/ui/ai-panel-prefs'
@@ -597,7 +598,8 @@ const homeApi: HomeApi = {
     await ipcRenderer.invoke('ai:set-settings', settings)
   },
   getAiProviders() {
-    return AI_PROVIDERS.map((meta) => {
+    // OfficePilot modification: the Genspark proxy is not offered
+    return AI_PROVIDERS.filter((meta) => !HIDDEN_PROVIDER_IDS.has(meta.id)).map((meta) => {
       let defaultBaseUrl = ''
       // genspark routes by model and custom has no default — both stay ''
       if (meta.id !== 'genspark' && !meta.needsBaseUrl && !meta.needsCliPath) {
@@ -631,10 +633,10 @@ const homeApi: HomeApi = {
       : { ok: false, error: typeof raw.error === 'string' ? raw.error : 'Connection failed' }
   },
   getAiMediaProviders() {
-    return AI_MEDIA_PROVIDERS
+    return AI_MEDIA_PROVIDERS.filter((meta) => !HIDDEN_PROVIDER_IDS.has(meta.id))
   },
   getAiSearchProviders() {
-    return AI_SEARCH_PROVIDERS
+    return AI_SEARCH_PROVIDERS.filter((meta) => !HIDDEN_PROVIDER_IDS.has(meta.id))
   },
   async testAiSearchSettings(input) {
     const raw = ((await ipcRenderer.invoke('ai:search-test', input)) ?? {}) as {

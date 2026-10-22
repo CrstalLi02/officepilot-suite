@@ -171,8 +171,8 @@ function CustomFontSizeInput({
 export type SectionId =
   'account' | 'aiModel' | 'aiMedia' | 'general' | 'integrations' | 'skills' | 'about'
 
+// OfficePilot modification: no Genspark account section; settings open on the AI model pane
 const SECTIONS: readonly { id: SectionId; labelKey: StringKey }[] = [
-  { id: 'account', labelKey: 'setSecAccount' },
   { id: 'aiModel', labelKey: 'setSecAiModel' },
   { id: 'aiMedia', labelKey: 'setSecAiMedia' },
   { id: 'general', labelKey: 'setSecGeneral' },
@@ -1753,7 +1753,7 @@ export function SettingsModal({
   target,
 }: SettingsModalProps) {
   const { lang, setLang, t } = useI18n()
-  const [section, setSection] = useState<SectionId>(target?.section ?? 'account')
+  const [section, setSection] = useState<SectionId>(target?.section && target.section !== 'account' ? target.section : 'aiModel')
   useEffect(() => {
     if (target) setSection(target.section)
   }, [target])

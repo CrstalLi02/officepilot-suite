@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { GENSPARK_ACCOUNT_ENABLED } from '../../shared/officepilot'
 import type { DragEvent as ReactDragEvent, ReactElement } from 'react'
 import logoLockup from './assets/genoffice-logo.svg'
 import { KbAskPanel } from './KbAskPanel'
@@ -1000,11 +1001,14 @@ function AccountEntry({
         aria-haspopup="dialog"
         aria-expanded={settingsOpen}
         data-tip={
-          loggedIn
-            ? email || t('loggedInGenspark')
-            : waiting
-              ? t('waitingLogin')
-              : (errorText ?? t('loginGenspark'))
+          // OfficePilot modification: no Genspark account, the button only opens settings
+          !GENSPARK_ACCOUNT_ENABLED
+            ? t('settings')
+            : loggedIn
+              ? email || t('loggedInGenspark')
+              : waiting
+                ? t('waitingLogin')
+                : (errorText ?? t('loginGenspark'))
         }
         aria-label={t('settings')}
       >

@@ -398,6 +398,7 @@ import {
   takeTornTab,
 } from './detached-windows'
 import { applyUpdateChannel, checkForUpdatesNow, initAutoUpdater } from './updater'
+import { GENSPARK_ACCOUNT_ENABLED } from '../shared/officepilot'
 import { isUpdateChannel, type UpdateChannel } from '../shared/update-api'
 
 /**
@@ -4617,6 +4618,9 @@ function registerHomeIpc(): void {
   // signed-in means GenOffice's own device-code login; the shared gsk CLI key
   // is only a silent fallback, deliberately not shown here to nudge users onto our key
   ipcMain.handle(HOME_CHANNELS.accountStatus, async () => {
+    // OfficePilot modification: the Genspark account (sign-in, credits, cloud
+    // projects) is not offered in this fork; AI runs on the user's own keys.
+    if (!GENSPARK_ACCOUNT_ENABLED) return { loggedIn: false }
     if (!loadGenofficeAuth()) return { loggedIn: false }
     await proxyBootstrap
     const info = await gskLoginInfo()
@@ -4629,6 +4633,7 @@ function registerHomeIpc(): void {
   // kept main-side so the "open manually" rescue never opens a renderer-supplied URL
   let pendingLoginUrl = ''
   ipcMain.handle(HOME_CHANNELS.accountLogin, async (event) => {
+    if (!GENSPARK_ACCOUNT_ENABLED) return false
     analytics.track('login_click')
     const sender = event.sender
     pendingLoginUrl = ''
