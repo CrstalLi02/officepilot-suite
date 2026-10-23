@@ -1,7 +1,8 @@
-export type TabKind = 'home' | 'docs' | 'sheets' | 'slides' | 'pdf' | 'markdown' | 'html' | 'help'
+// OfficePilot modification: 'assistant' hosts the OfficePilot assistant (its own web UI, served locally)
+export type TabKind = 'home' | 'docs' | 'sheets' | 'slides' | 'pdf' | 'markdown' | 'html' | 'help' | 'assistant'
 
 /** a tab that holds a document — every kind except the Home screen and the in-app manual */
-export type DocumentTabKind = Exclude<TabKind, 'home' | 'help'>
+export type DocumentTabKind = Exclude<TabKind, 'home' | 'help' | 'assistant'>
 
 /** one open tab in the top tab strip; Home is always id 'home' and not closable */
 export interface TabSummary {

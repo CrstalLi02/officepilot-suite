@@ -3,7 +3,8 @@
 //
 // The GenOffice and Genspark names and logos are trademarks of Mainfunc, Inc.
 // and are not licensed under Apache-2.0, so every user-visible surface of this
-// fork carries the OfficePilot Suite name instead. Internal identifiers that
+// fork carries the OfficePilot name instead (the editors are the OfficePilot desktop app;
+// earlier passes used "OfficePilot Suite", which the first rule below folds in). Internal identifiers that
 // users never see (npm scope @genoffice/*, module names, env vars, the
 // genoffice:// resource scheme) stay as they are to keep upstream merges cheap.
 //
@@ -18,7 +19,7 @@ import { join, relative } from 'node:path'
 const ROOT = new URL('..', import.meta.url).pathname
 const DRY = process.argv.includes('--dry-run')
 
-export const PRODUCT = 'OfficePilot Suite'
+export const PRODUCT = 'OfficePilot'
 export const COMMAND = 'officepilot-suite'
 export const REPO = 'CrstalLi02/officepilot-suite'
 
@@ -52,10 +53,13 @@ const SCOPES = [/^apps\/[^/]+\/src\//, /^apps\/[^/]+\/package\.json$/, /^apps\/s
 export const FONT_ALIASES = ['Hiragino Mincho', 'Hiragino Sans', 'SimSun Latin', 'Fullwidth TC', 'Hangul Space', 'Che Latin KR', 'Box Drawing', 'YaHei Latin', 'Grid Strut', 'UI Kana JP', 'PUA Blank', 'Songti SC', 'Songti TC', 'Gothic KR', 'MS Mincho', 'Serif KR', 'Hiragino', 'Heiti TC', 'Ethiopic', 'Sans KR', 'Myungjo', 'Poppins', 'DM Sans', 'Bengali', 'MingLiU', 'Batang', 'Tamil']
 
 const RULES = [
+  // earlier passes named the fork "OfficePilot Suite"; the app is now OfficePilot itself
+  [/\bOfficePilot Suite\b/g, PRODUCT],
+  [/\bOFFICEPILOT SUITE\b/g, 'OFFICEPILOT'],
   // product name in prose and UI strings; \b keeps identifiers such as GenOfficeConfig intact,
   // and the lookahead keeps the internal CSS font aliases ("GenOffice Sans KR", …) unchanged
   [new RegExp(`(?<!\\^)\\bGenOffice\\b(?! (?:${FONT_ALIASES.join('|')})\\b| \\[| \\/)`, 'g'), PRODUCT],
-  [/\bGENOFFICE\b(?!_)/g, 'OFFICEPILOT SUITE'],
+  [/\bGENOFFICE\b(?!_)/g, 'OFFICEPILOT'],
   // the command line users type
   [/\bnpx skills add genspark-ai\/genoffice\b/g, `npx skills add ${REPO}`],
   [/github\.com\/genspark-ai\/genoffice\b/g, `github.com/${REPO}`],
@@ -105,10 +109,19 @@ export function stripGensparkHelp(text) {
   return out.join('\n').replace(/\n{3,}/g, '\n\n')
 }
 
+/** attribution lines (Apache-2.0 NOTICE) must keep naming GenOffice — same rule as the brand check */
+const ATTRIBUTION = /Apache-2\.0|OfficePilot modification/
+
 export function rebrandText(text) {
-  let out = text
-  for (const [re, to] of RULES) out = out.replace(re, to)
-  return out
+  return text
+    .split('\n')
+    .map((line) => {
+      if (ATTRIBUTION.test(line)) return line
+      let out = line
+      for (const [re, to] of RULES) out = out.replace(re, to)
+      return out
+    })
+    .join('\n')
 }
 
 function main() {

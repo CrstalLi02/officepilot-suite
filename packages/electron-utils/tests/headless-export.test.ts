@@ -12,7 +12,7 @@ import {
 
 /** argv as Electron delivers it: binary first, then the app's own switches. */
 const argv = (...rest: string[]): string[] => [
-  '/Applications/OfficePilot Suite.app/Contents/MacOS/OfficePilot Suite',
+  '/Applications/OfficePilot.app/Contents/MacOS/OfficePilot',
   ...rest,
 ]
 

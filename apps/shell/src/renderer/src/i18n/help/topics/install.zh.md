@@ -1,4 +1,4 @@
-# 安装 OfficePilot Suite
+# 安装 OfficePilot
 
 每个构建都发布在 [Releases 页面](https://github.com/CrstalLi02/officepilot-suite/releases/latest)。它们全部出自 `main`；macOS 与 Windows 的安装包已签名。
 
@@ -18,11 +18,11 @@
 
 ## 在 macOS 上
 
-打开 `.dmg`，把 **OfficePilot Suite** 拖进「应用程序」文件夹。Intel 版首次启动时会请你确认打开：在「应用程序」里右键点这个应用 ▸ 打开。这只是 Gatekeeper 遇到一个看起来未签名的磁盘映像，并不是下载损坏。
+打开 `.dmg`，把 **OfficePilot** 拖进「应用程序」文件夹。Intel 版首次启动时会请你确认打开：在「应用程序」里右键点这个应用 ▸ 打开。这只是 Gatekeeper 遇到一个看起来未签名的磁盘映像，并不是下载损坏。
 
 ## 在 Windows 上
 
-运行 `.exe` 安装程序。它会把 OfficePilot Suite 放进开始菜单，并注册 `.docx`、`.xlsx`、`.pptx`、`.pdf` 等格式，双击文件就会用 OfficePilot Suite 打开。
+运行 `.exe` 安装程序。它会把 OfficePilot 放进开始菜单，并注册 `.docx`、`.xlsx`、`.pptx`、`.pdf` 等格式，双击文件就会用 OfficePilot 打开。
 
 ## 在 Linux 上
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — 免安装，放在哪儿就在哪儿运行：
 
 ```sh
-chmod +x OfficePilot Suite-<version>.AppImage
-./OfficePilot Suite-<version>.AppImage
+chmod +x OfficePilot-<version>.AppImage
+./OfficePilot-<version>.AppImage
 ```
 
 它需要 FUSE 2 运行时。如果不想安装它，可以用 `--appimage-extract-and-run` 来运行，沙箱会从解压出来的目录工作。

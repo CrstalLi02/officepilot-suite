@@ -139,6 +139,21 @@ function HtmlIcon() {
   )
 }
 
+// OfficePilot modification: the assistant tab
+function AssistantIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M14 10.5c0 .9-.7 1.6-1.6 1.6H5.4L2 14.5V3.6C2 2.7 2.7 2 3.6 2h8.8c.9 0 1.6.7 1.6 1.6z"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinejoin="round"
+      />
+      <path d="M8 4.6 8.8 6.6l2 .8-2 .8L8 10.2l-.8-2-2-.8 2-.8z" fill="currentColor" />
+    </svg>
+  )
+}
+
 const KIND_ICON: Record<TabSummary['kind'], ReactElement> = {
   home: <HomeIcon />,
   docs: <DocIcon />,
@@ -148,6 +163,7 @@ const KIND_ICON: Record<TabSummary['kind'], ReactElement> = {
   markdown: <MarkdownIcon />,
   html: <HtmlIcon />,
   help: <HelpIcon />,
+  assistant: <AssistantIcon />,
 }
 
 /**

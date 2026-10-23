@@ -1,5 +1,5 @@
 /**
- * OfficePilot modification of OfficePilot Suite (Apache-2.0): switches for features
+ * OfficePilot modification of GenOffice (Apache-2.0): switches for features
  * that depend on Genspark services. This fork runs on the user's own model
  * keys only, so the Genspark account (device-code sign-in, credits, cloud
  * projects) and the Genspark model / search / media proxy are not offered.

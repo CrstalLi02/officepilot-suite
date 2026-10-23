@@ -1,5 +1,5 @@
 #!/bin/sh
-# officepilot-suite launcher (OfficePilot modification of GenOffice, Apache-2.0). Inside a packaged OfficePilot Suite it runs the bundled CLI on the
+# officepilot-suite launcher (OfficePilot modification of GenOffice, Apache-2.0). Inside a packaged OfficePilot it runs the bundled CLI on the
 # app's own Node runtime (ELECTRON_RUN_AS_NODE); in a dev checkout it falls
 # back to the system node and the local build output. Usually reached through
 # a symlink on the PATH, so the real location is resolved first.
@@ -18,10 +18,10 @@ if [ -n "$GENOFFICE_NODE" ]; then
 fi
 
 case "$here" in
-  */Contents/Resources/cli) app="$here/../../MacOS/OfficePilot Suite" ;;
+  */Contents/Resources/cli) app="$here/../../MacOS/OfficePilot" ;;
   */resources/cli)
     # Linux install, or the Windows install reached from Git Bash / MSYS
-    if [ -x "$here/../../OfficePilot Suite.exe" ]; then app="$here/../../OfficePilot Suite.exe"; else app="$here/../../officepilot-suite"; fi
+    if [ -x "$here/../../OfficePilot.exe" ]; then app="$here/../../OfficePilot.exe"; else app="$here/../../officepilot-suite"; fi
     ;;
   *) app="" ;;
 esac

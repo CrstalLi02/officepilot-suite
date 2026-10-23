@@ -114,12 +114,12 @@ describe('officepilot-suite cli', () => {
   })
 
   it('open fails with exit code 4 when no app binary is available', async () => {
-    // A OfficePilot Suite already running on this machine publishes its control endpoint in the
+    // A OfficePilot already running on this machine publishes its control endpoint in the
     // user-data dir; `open` would then hand the file to that live instance and exit 0,
     // never reaching the missing-binary path. Isolate the lookup like control.test.ts does.
     const r = await run(['open', DOCX, '--json'], {
       env: {
-        GENOFFICE_APP_BIN: '/nonexistent/OfficePilot Suite',
+        GENOFFICE_APP_BIN: '/nonexistent/OfficePilot',
         GENOFFICE_USER_DATA: tempDir(),
         GENOFFICE_AUDIT_LOG: 'off',
       },

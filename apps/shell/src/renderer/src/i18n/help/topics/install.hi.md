@@ -1,4 +1,4 @@
-# OfficePilot Suite इंस्टॉल करना
+# OfficePilot इंस्टॉल करना
 
 हर बिल्ड [Releases पेज](https://github.com/CrstalLi02/officepilot-suite/releases/latest) पर प्रकाशित होता है। सभी `main` से बनी होती हैं; और macOS तथा Windows के इंस्टॉलर हस्ताक्षरित होते हैं।
 
@@ -18,11 +18,11 @@
 
 ## macOS पर
 
-`.dmg` खोलें और **OfficePilot Suite** को Applications में खींचें। Intel बिल्ड में पहली बार चलाने पर यह खोलने की पुष्टि माँगता है: Applications में ऐप पर राइट-क्लिक करके ▸ खोलें चुनें। यह बिना हस्ताक्षर वाली डिस्क इमेज के सामने Gatekeeper है, क्षतिग्रस्त डाउनलोड नहीं।
+`.dmg` खोलें और **OfficePilot** को Applications में खींचें। Intel बिल्ड में पहली बार चलाने पर यह खोलने की पुष्टि माँगता है: Applications में ऐप पर राइट-क्लिक करके ▸ खोलें चुनें। यह बिना हस्ताक्षर वाली डिस्क इमेज के सामने Gatekeeper है, क्षतिग्रस्त डाउनलोड नहीं।
 
 ## Windows पर
 
-`.exe` इंस्टॉलर चलाएँ। यह OfficePilot Suite को Start मेन्यू में रखता है और `.docx`, `.xlsx`, `.pptx`, `.pdf` तथा इन्हीं जैसे प्रकार पंजीकृत कर देता है, ताकि किसी फ़ाइल पर डबल-क्लिक उसे खोल दे।
+`.exe` इंस्टॉलर चलाएँ। यह OfficePilot को Start मेन्यू में रखता है और `.docx`, `.xlsx`, `.pptx`, `.pdf` तथा इन्हीं जैसे प्रकार पंजीकृत कर देता है, ताकि किसी फ़ाइल पर डबल-क्लिक उसे खोल दे।
 
 ## Linux पर
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — बिना किसी इंस्टॉल चरण के, जहाँ है वहीं चलता है:
 
 ```sh
-chmod +x OfficePilot Suite-<version>.AppImage
-./OfficePilot Suite-<version>.AppImage
+chmod +x OfficePilot-<version>.AppImage
+./OfficePilot-<version>.AppImage
 ```
 
 इसे FUSE 2 रनटाइम चाहिए। यदि आप इसे इंस्टॉल नहीं करना चाहते, तो `--appimage-extract-and-run` के साथ चलाएँ, और सैंडबॉक्स निकाली गई निर्देशिका से ही काम करेगी।

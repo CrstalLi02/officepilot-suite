@@ -9,7 +9,7 @@ const webResponse = () =>
   Response.json({
     results: [
       {
-        title: 'OfficePilot Suite',
+        title: 'OfficePilot',
         link: 'https://github.com/CrstalLi02/officepilot-suite',
         description: 'A free, open-source office suite.',
       },
@@ -50,7 +50,7 @@ describe('Serply web search', () => {
     expect(r).toEqual({
       results: [
         {
-          title: 'OfficePilot Suite',
+          title: 'OfficePilot',
           url: 'https://github.com/CrstalLi02/officepilot-suite',
           snippet: 'A free, open-source office suite.',
         },

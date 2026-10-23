@@ -1,4 +1,4 @@
-# Pemasangan OfficePilot Suite
+# Pemasangan OfficePilot
 
 Setiap keluaran diterbitkan pada [halaman Keluaran](https://github.com/CrstalLi02/officepilot-suite/releases/latest). Semuanya datang daripada `main`; pemasang untuk macOS dan Windows adalah bertanda tangan.
 
@@ -18,11 +18,11 @@ Versi lama kekal pada halaman Keluaran.
 
 ## Pada macOS
 
-Buka `.dmg` itu dan seret **OfficePilot Suite** ke dalam Applications. Pada keluaran Intel, pelancaran pertama akan meminta anda mengesahkan membukanya: klik kanan aplikasi itu dalam Applications ▸ Open. Itu Gatekeeper bertemu imej cakera yang kelihatan tidak bertanda tangan, bukan muat turun yang rosak.
+Buka `.dmg` itu dan seret **OfficePilot** ke dalam Applications. Pada keluaran Intel, pelancaran pertama akan meminta anda mengesahkan membukanya: klik kanan aplikasi itu dalam Applications ▸ Open. Itu Gatekeeper bertemu imej cakera yang kelihatan tidak bertanda tangan, bukan muat turun yang rosak.
 
 ## Pada Windows
 
-Jalankan pemasang `.exe`. Ia meletakkan OfficePilot Suite dalam menu Start dan mendaftarkan `.docx`, `.xlsx`, `.pptx`, `.pdf` dan yang lain supaya mengklik dua kali pada fail membukanya.
+Jalankan pemasang `.exe`. Ia meletakkan OfficePilot dalam menu Start dan mendaftarkan `.docx`, `.xlsx`, `.pptx`, `.pdf` dan yang lain supaya mengklik dua kali pada fail membukanya.
 
 ## Pada Linux
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — ia berjalan di tempat ia berada, tanpa langkah pemasangan:
 
 ```sh
-chmod +x OfficePilot Suite-<version>.AppImage
-./OfficePilot Suite-<version>.AppImage
+chmod +x OfficePilot-<version>.AppImage
+./OfficePilot-<version>.AppImage
 ```
 
 Ia memerlukan masa larian FUSE 2. Jika anda lebih suka tidak memasangnya, jalankannya dengan `--appimage-extract-and-run` dan sandbox itu berfungsi daripada direktori yang diekstrak.

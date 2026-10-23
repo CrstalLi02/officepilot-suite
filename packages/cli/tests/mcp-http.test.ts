@@ -121,7 +121,7 @@ describe('officepilot-suite mcp --http', () => {
     const first = (before.json().detail.items[0].text as string).split(' ')[0]!
     const r = await call('docs_apply', {
       file: url,
-      ops: [{ op: 'findReplace', find: first, replace: 'OFFICEPILOT SUITE' }],
+      ops: [{ op: 'findReplace', find: first, replace: 'OFFICEPILOT' }],
     })
     expect(r.isError).toBe(false)
     const ok = r.json()

@@ -63,7 +63,7 @@ describe('officepilot-suite docx (docs editor under jsdom)', () => {
     writeFileSync(
       ops,
       JSON.stringify([
-        { op: 'findReplace', find: firstText.split(' ')[0], replace: 'OFFICEPILOT SUITE' },
+        { op: 'findReplace', find: firstText.split(' ')[0], replace: 'OFFICEPILOT' },
         { op: 'setFont', target: { blockIndexes: [0] }, color: 'FF0000', bold: true },
         { op: 'insert_content', afterBlockIndex: 0, html: '<p>Inserted by genoffice.</p>' },
         {
@@ -85,7 +85,7 @@ describe('officepilot-suite docx (docs editor under jsdom)', () => {
     const xml = await documentXml(copy)
     expect(xml).toContain('Inserted by genoffice.')
     expect(xml).toContain('Replaced heading')
-    expect(xml).toContain('OFFICEPILOT SUITE')
+    expect(xml).toContain('OFFICEPILOT')
     expect(xml).toContain('<w:color w:val="FF0000"/>')
 
     const after = await run(['docs', 'read', copy, '--range', '1', '--json'])

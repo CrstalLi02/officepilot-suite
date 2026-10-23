@@ -161,7 +161,7 @@ describe('noteGskCallFailure (LLM proxy chat/stream)', () => {
       stubServer(() => response({ detail: FRESH_AUTH_REQUIRED }, 403))
       expect(gskApiKey()).toBe('gsk-env')
       noteGskCallFailure('gsk-env', 'HTTP 401: Unauthorized')
-      // falls through to OfficePilot Suite's own (still valid) key
+      // falls through to OfficePilot's own (still valid) key
       expect(gskApiKey()).toBe('gsk-expired')
     } finally {
       delete process.env.GSK_API_KEY

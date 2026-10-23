@@ -1,6 +1,6 @@
 # The Home screen: where your files live
 
-Home is OfficePilot Suite's start page: a navigation sidebar on the left, file lists and quick-create cards on the right.
+Home is OfficePilot's start page: a navigation sidebar on the left, file lists and quick-create cards on the right.
 
 ![The Home screen](img/home-screen.png)
 
@@ -35,7 +35,7 @@ Tick the checkbox on a row, or ⌘/ctrl-click, to build a selection; the header 
 The search box at the top matches two things at once:
 
 - **File names**: quick filtering by name.
-- **File contents**: OfficePilot Suite indexes your files in the background (text inside docx/xlsx/pptx/pdf/md/html), so searching body text finds files too. Scope and toggles live in the search settings.
+- **File contents**: OfficePilot indexes your files in the background (text inside docx/xlsx/pptx/pdf/md/html), so searching body text finds files too. Scope and toggles live in the search settings.
 
 ## Quick start cards
 

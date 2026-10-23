@@ -109,7 +109,7 @@ describe('installCliLink', () => {
 
   it('owns only launchers shipped with the app, not any path ending in /cli/genoffice (genoffice#895)', () => {
     const dir = tempDir()
-    const launcher = join(dir, 'OfficePilot Suite.app', 'Contents', 'Resources', 'cli', 'genoffice')
+    const launcher = join(dir, 'OfficePilot.app', 'Contents', 'Resources', 'cli', 'genoffice')
     mkdirSync(join(launcher, '..'), { recursive: true })
     writeFileSync(launcher, '#!/bin/sh\n')
     writeFileSync(join(launcher, '..', 'genoffice.cjs'), '')
@@ -139,7 +139,7 @@ describe('installCliLink', () => {
     )
     expect(readlinkSync(join(dead, 'officepilot-suite'))).toBe(launcher)
 
-    const older = join(dir, 'opt', 'OfficePilot Suite', 'resources', 'cli', 'genoffice')
+    const older = join(dir, 'opt', 'OfficePilot', 'resources', 'cli', 'genoffice')
     mkdirSync(join(older, '..'), { recursive: true })
     writeFileSync(older, '#!/bin/sh\n')
     writeFileSync(join(older, '..', 'genoffice.cjs'), '')
@@ -153,7 +153,7 @@ describe('installCliLink', () => {
     expect(readlinkSync(join(upgraded, 'officepilot-suite'))).toBe(launcher)
 
     const alias = join(dir, 'Applications')
-    symlinkSync(join(dir, 'OfficePilot Suite.app'), alias, 'dir')
+    symlinkSync(join(dir, 'OfficePilot.app'), alias, 'dir')
     const viaAlias = join(alias, 'Contents', 'Resources', 'cli', 'genoffice')
     expect(isOurLauncher(viaAlias, launcher)).toBe(true)
     const relative = join(dir, 'relative-bin')
@@ -259,8 +259,8 @@ describe('installCliLink', () => {
       return { ok: true, stdout: scripts.length === 1 ? 'linked\n' : 'present\n' }
     }
     const launcher =
-      "C:\\Users\\O'Brien\\AppData\\Local\\Programs\\OfficePilot Suite\\resources\\genoffice\\genoffice.cmd"
-    const dir = "C:\\Users\\O'Brien\\AppData\\Local\\Programs\\OfficePilot Suite\\resources\\genoffice"
+      "C:\\Users\\O'Brien\\AppData\\Local\\Programs\\OfficePilot\\resources\\genoffice\\genoffice.cmd"
+    const dir = "C:\\Users\\O'Brien\\AppData\\Local\\Programs\\OfficePilot\\resources\\genoffice"
     const first = installCliLink({ launcher, platform: 'win32', runPowerShell: run })
     expect(first).toEqual({ status: 'linked', location: dir })
     expect(scripts[0]).toContain("$dir = 'C:\\Users\\O''Brien\\AppData")
@@ -282,14 +282,14 @@ describe('installCliLink', () => {
 
   it('inspects the Windows PATH read-only', () => {
     const scripts: string[] = []
-    const launcher = 'C:\\OfficePilot Suite\\resources\\genoffice\\genoffice.cmd'
+    const launcher = 'C:\\OfficePilot\\resources\\genoffice\\genoffice.cmd'
     const present = inspectCliLink({
       launcher,
       platform: 'win32',
       runPowerShell: (s) => (scripts.push(s), { ok: true, stdout: 'present\n' }),
     })
     expect(present.status).toBe('present')
-    expect(present.location).toBe('C:\\OfficePilot Suite\\resources\\genoffice')
+    expect(present.location).toBe('C:\\OfficePilot\\resources\\genoffice')
     expect(scripts[0]).not.toContain('SetValue')
     const missing = inspectCliLink({
       launcher,

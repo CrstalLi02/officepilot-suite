@@ -1,8 +1,8 @@
 /**
- * OfficePilot Suite's own Genspark identity: device-code login (office_addin_auth,
+ * OfficePilot's own Genspark identity: device-code login (office_addin_auth,
  * app_type=genoffice) minting a gsk API key named "genoffice" — the key_name
  * lands in billing as billing_tag, attributing all traffic (incl. gsk CLI
- * subprocesses) to OfficePilot Suite. Stored in ~/.genoffice/auth.json, deliberately
+ * subprocesses) to OfficePilot. Stored in ~/.genoffice/auth.json, deliberately
  * NOT the shared config.json that Claw Desktop overwrites on every launch.
  *
  * Flow: POST /device_code → browser approve → poll /token for a 30-day Bearer
@@ -167,7 +167,7 @@ export function reloadGenofficeAuth(): void {
   cachedAuth = undefined
 }
 
-/** The OfficePilot Suite-named api key; '' when not signed in. Cached (invalidated by login/logout). */
+/** The OfficePilot-named api key; '' when not signed in. Cached (invalidated by login/logout). */
 export function genofficeApiKey(): string {
   return loadGenofficeAuth()?.apiKey ?? ''
 }
@@ -427,7 +427,7 @@ async function runDeviceLogin(
 let activeLogin: { cancel: () => void } | null = null
 
 /**
- * Starts the OfficePilot Suite device-code login, cancelling a previous in-flight one
+ * Starts the OfficePilot device-code login, cancelling a previous in-flight one
  * (its device code would otherwise be approved into a dead flow). The caller
  * opens `url` in the system browser. Returns whether the flow was started.
  */
@@ -496,7 +496,7 @@ export function setGenofficeLoginOpener(openUrl: ((url: string) => void) | null)
 }
 
 /**
- * Drops OfficePilot Suite's own key from memory and disk when it equals `key` (the
+ * Drops OfficePilot's own key from memory and disk when it equals `key` (the
  * server answered 401: expired or revoked), so hasGskAuth() turns false and
  * the existing sign-in UI shows. Returns whether our key was dropped.
  */
@@ -612,7 +612,7 @@ export function ensureGenofficeLogin(openUrl: (url: string) => void): void {
 }
 
 /**
- * Signs out of OfficePilot Suite only: best-effort server-side revoke of the
+ * Signs out of OfficePilot only: best-effort server-side revoke of the
  * officepilot-suite key, then local removal. The shared gsk CLI login
  * (~/.genspark-tool-cli) is untouched — terminal gsk and Claw keep working.
  */

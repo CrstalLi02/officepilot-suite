@@ -366,10 +366,10 @@ describe('helpers', () => {
   })
 
   it('describeRoot creates a missing root and reports it usable', () => {
-    const fresh = join(root, 'OfficePilot Suite')
+    const fresh = join(root, 'OfficePilot')
     expect(describeRoot(fresh)).toEqual({
       path: fresh,
-      name: 'OfficePilot Suite',
+      name: 'OfficePilot',
       usable: true,
       readable: true,
       removable: false,

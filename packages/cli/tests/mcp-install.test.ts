@@ -107,14 +107,14 @@ describe('officepilot-suite mcp install', () => {
 
     writeFileSync(
       file,
-      '[mcp_servers.officepilot-suite]\ncommand = "/old/OfficePilot Suite.app/Contents/Resources/cli/genoffice"\nargs = ["mcp"]\n\n' +
+      '[mcp_servers.officepilot-suite]\ncommand = "/old/OfficePilot.app/Contents/Resources/cli/genoffice"\nargs = ["mcp"]\n\n' +
         '[mcp_servers.officepilot-suite.env]\nFOO = "1"\n\n[mcp_servers.other]\ncommand = "npx"\n\n[projects."/tmp/x"]\ntrust_level = "trusted"\n',
     )
     const listed = await run(['mcp', 'list', '--json'], { env: m.env })
     expect(listed.json().detail.agents.find((a: any) => a.agent === 'codex')).toMatchObject({
       status: 'stale',
       registered: true,
-      command: '/old/OfficePilot Suite.app/Contents/Resources/cli/genoffice',
+      command: '/old/OfficePilot.app/Contents/Resources/cli/genoffice',
     })
     const replaced = await run(['mcp', 'install', 'codex', '--json'], { env: m.env })
     expect(replaced.code).toBe(0)

@@ -424,7 +424,7 @@ export interface MarkdownApi {
   openAiModelSettings(): Promise<void>
   /** shell only: switch to Home and open Settings › Integrations (the skills list) */
   openSkillsSettings(): Promise<void>
-  /** the skills the user installed into OfficePilot Suite (userData/skills) */
+  /** the skills the user installed into OfficePilot (userData/skills) */
   skillsList(): Promise<UserSkillEntry[]>
   /** the body of one installed skill, by name — the main process resolves the path */
   skillText(name: string): Promise<string>

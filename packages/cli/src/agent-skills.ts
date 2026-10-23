@@ -25,7 +25,7 @@ import JSZip from 'jszip'
 // OfficePilot modification: the skill folder agents list
 export const SKILL_NAME = 'officepilot-suite'
 
-/** app-settings.json key under which every install this machine's OfficePilot Suite wrote is remembered */
+/** app-settings.json key under which every install this machine's OfficePilot wrote is remembered */
 export const LEDGER_KEY = 'agentSkillInstalls'
 
 export type AgentId =

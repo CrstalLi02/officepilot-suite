@@ -53,7 +53,7 @@ describe('resolveDefaultSaveDir', () => {
   })
 
   it('creates and returns the fallback when nothing is configured', () => {
-    const fallback = join(root, 'Documents', 'OfficePilot Suite')
+    const fallback = join(root, 'Documents', 'OfficePilot')
     expect(resolveDefaultSaveDir(null, fallback)).toBe(fallback)
     expect(existsSync(fallback)).toBe(true)
   })
@@ -90,14 +90,14 @@ describe('configuredDefaultSaveDir', () => {
     expect(configuredDefaultSaveDir(app)).toBe(custom)
   })
 
-  it('falls back to <Documents>/OfficePilot Suite without a setting', () => {
+  it('falls back to <Documents>/OfficePilot without a setting', () => {
     const userData = join(root, 'userData')
     const documents = join(root, 'Documents')
     mkdirSync(userData, { recursive: true })
     const app = {
       getPath: (name: 'userData' | 'documents') => (name === 'userData' ? userData : documents),
     }
-    expect(configuredDefaultSaveDir(app)).toBe(join(documents, 'OfficePilot Suite'))
-    expect(existsSync(join(documents, 'OfficePilot Suite'))).toBe(true)
+    expect(configuredDefaultSaveDir(app)).toBe(join(documents, 'OfficePilot'))
+    expect(existsSync(join(documents, 'OfficePilot'))).toBe(true)
   })
 })

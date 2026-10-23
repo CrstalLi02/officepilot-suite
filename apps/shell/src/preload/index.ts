@@ -8,6 +8,7 @@ import {
 } from '@genoffice/ai-provider/browser'
 import type { AiSettings, CodexModelCatalog } from '@genoffice/ai-provider/browser'
 import { HIDDEN_PROVIDER_IDS } from '../shared/officepilot'
+import { OFFICEPILOT_CHANNELS } from '../shared/officepilot-api'
 import { installDropOpenBridge } from '@genoffice/electron-utils/drop-open'
 import type { UpdateUiState } from '../shared/update-api'
 import { normalizeAiPanelPrefs } from '@genoffice/ui/ai-panel-prefs'
@@ -166,6 +167,10 @@ const homeApi: HomeApi = {
   },
   async openHelp() {
     await ipcRenderer.invoke(HOME_CHANNELS.openHelp)
+  },
+  officepilotStatus: () => ipcRenderer.invoke(OFFICEPILOT_CHANNELS.status),
+  async openAssistant(path) {
+    await ipcRenderer.invoke(OFFICEPILOT_CHANNELS.openAssistant, path ?? '/')
   },
   // knowledge-base ask panel (handlers live in the shell main, same process
   // that owns the index and the shared ai:stream registration)

@@ -23,7 +23,7 @@ Licht / Donker / Systeem volgen. Systeem volgen volgt het uiterlijk van het best
 - **Positie AI-zijbalk** (links of rechts), **Tekstgrootte AI-paneel** en **Spellingcontrole in AI-chat**.
 - **AI-paneel openen in nieuwe documenten** — uit, een nieuw document begint met het paneel ingeklapt, één klik verderop.
 - **Alle documenten automatisch opslaan** zet AutoSave standaard aan in elke editor; u kunt het voor één venster nog steeds uitschakelen.
-- **Opslaglocatie** met de knop **Wijzigen** en **Standaardapp voor Office-documenten** om .docx / .xlsx / .pptx aan OfficePilot Suite toe te kennen.
+- **Opslaglocatie** met de knop **Wijzigen** en **Standaardapp voor Office-documenten** om .docx / .xlsx / .pptx aan OfficePilot toe te kennen.
 
 ## AI-media en zoeken
 
@@ -39,7 +39,7 @@ Geen schakelaars — elke functie kiest de leverancier die haar bedient, en de s
 
 ## Standaardapp-koppelingen
 
-Met de instellingen kun je OfficePilot Suite registreren als verwerker van .docx / .xlsx / .pptx / .pdf en vergelijkbare bestanden (registratie van de standaardapp op systeemniveau; bevestiging wanneer daarom wordt gevraagd).
+Met de instellingen kun je OfficePilot registreren als verwerker van .docx / .xlsx / .pptx / .pdf en vergelijkbare bestanden (registratie van de standaardapp op systeemniveau; bevestiging wanneer daarom wordt gevraagd).
 
 ## Mededelingen over software van derden en updates
 
@@ -48,7 +48,7 @@ Met de instellingen kun je OfficePilot Suite registreren als verwerker van .docx
 
 ## MCP-integratie (voor gevorderde gebruikers / AI-clients)
 
-**Integraties** is het paneel dat OfficePilot Suite met een coding agent verbindt, en daarvoor is er een eigen artikel: Verbinden met een coding agent. De korte versie — kies een route (de opdrachtregel, of MCP), volg dat onderdeel en start daarna een nieuw gesprek en stel je vraag.
+**Integraties** is het paneel dat OfficePilot met een coding agent verbindt, en daarvoor is er een eigen artikel: Verbinden met een coding agent. De korte versie — kies een route (de opdrachtregel, of MCP), volg dat onderdeel en start daarna een nieuw gesprek en stel je vraag.
 
 ![Instellingen ▸ Integraties: de drie stappen, daarna de skill-rijen en de MCP-opties](img/settings-integrations.png)
 

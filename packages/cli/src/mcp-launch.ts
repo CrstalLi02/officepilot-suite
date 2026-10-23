@@ -28,7 +28,7 @@ export function mcpLaunch(cli: {
 
 function windowsAppLaunch(dir: string): McpLaunch {
   return {
-    command: `${dir}\\..\\..\\OfficePilot Suite.exe`,
+    command: `${dir}\\..\\..\\OfficePilot.exe`,
     args: [`${dir}\\genoffice.cjs`, 'mcp'],
     env: { ELECTRON_RUN_AS_NODE: '1' },
   }
@@ -43,7 +43,7 @@ export interface LauncherLaunchOptions {
 /**
  * `mcp install`: always the absolute launcher, never the bare name. On Windows
  * the packaged app is run as Node (same entry as the app's snippet); a checkout
- * has no OfficePilot Suite.exe beside it and runs the bundle on the system node, as the
+ * has no OfficePilot.exe beside it and runs the bundle on the system node, as the
  * bin/genoffice script does.
  */
 export function mcpLaunchFromLauncher(
@@ -55,7 +55,7 @@ export function mcpLaunchFromLauncher(
   const sep = isWindowsPath(launcher) ? '\\' : '/'
   const dir = launcher.slice(0, Math.max(launcher.lastIndexOf('\\'), launcher.lastIndexOf('/')))
   const exists = opts.exists ?? (() => false)
-  if (exists(`${dir}${sep}..${sep}..${sep}OfficePilot Suite.exe`)) return windowsAppLaunch(dir)
+  if (exists(`${dir}${sep}..${sep}..${sep}OfficePilot.exe`)) return windowsAppLaunch(dir)
   const bundle = exists(`${dir}${sep}genoffice.cjs`)
     ? `${dir}${sep}genoffice.cjs`
     : `${dir}${sep}..${sep}dist${sep}genoffice.cjs`

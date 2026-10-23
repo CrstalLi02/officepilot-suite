@@ -244,7 +244,7 @@ describe('checkUpdatesMenuItem / manual update check wiring', () => {
   it('About dialog copy button still copies name + version', async () => {
     electronMock.showMessageBox.mockResolvedValue({ response: 1 })
     await (aboutMenuItem(en) as { click: () => Promise<void> }).click()
-    expect(electronMock.writeText).toHaveBeenCalledWith('OfficePilot Suite 1.2.3')
+    expect(electronMock.writeText).toHaveBeenCalledWith('OfficePilot 1.2.3')
   })
 })
 

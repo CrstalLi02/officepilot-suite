@@ -11,7 +11,7 @@ describe('officepilot-suite pdf read', () => {
     const pdf = writeMinimalPdf(
       join(tempDir(), 'three.pdf'),
       ['Alpha page', 'Beta page', 'Gamma page'],
-      { title: 'Quarterly notes', author: 'OfficePilot Suite' },
+      { title: 'Quarterly notes', author: 'OfficePilot' },
     )
     const r = await run(['pdf', 'read', pdf, '--json'])
     expect(r.code).toBe(0)
@@ -21,7 +21,7 @@ describe('officepilot-suite pdf read', () => {
       pages: 3,
       encrypted: false,
       title: 'Quarterly notes',
-      author: 'OfficePilot Suite',
+      author: 'OfficePilot',
       range: '1-3',
     })
     expect(detail.truncated).toBeUndefined()

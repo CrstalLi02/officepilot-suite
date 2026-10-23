@@ -61,7 +61,7 @@ function fakeSpawn(script: Script, calls: { command: string; args: string[] }[])
   }) as unknown as typeof import('node:child_process').spawn
 }
 
-const env = { GENOFFICE_APP_BIN: '/Applications/OfficePilot Suite.app/Contents/MacOS/OfficePilot Suite' }
+const env = { GENOFFICE_APP_BIN: '/Applications/OfficePilot.app/Contents/MacOS/OfficePilot' }
 
 describe('exportViaApp', () => {
   it('spawns the app in headless-export mode and returns the envelope', async () => {
@@ -112,7 +112,7 @@ describe('exportViaApp', () => {
     ).rejects.toBeInstanceOf(CliError)
   })
 
-  it('keeps a finished export when OfficePilot Suite crashes while quitting', async () => {
+  it('keeps a finished export when OfficePilot crashes while quitting', async () => {
     const dir = tempDir()
     const out = join(dir, 'crash-ok.pdf')
     const logs: string[] = []
@@ -138,11 +138,11 @@ describe('exportViaApp', () => {
     ).rejects.toMatchObject({
       code: 4,
       reason: 'app_crashed',
-      message: 'OfficePilot Suite crashed (SIGSEGV) while exporting /tmp/a.docx: boom',
+      message: 'OfficePilot crashed (SIGSEGV) while exporting /tmp/a.docx: boom',
     })
   })
 
-  it('keeps the error envelope when OfficePilot Suite crashes after reporting a failure', async () => {
+  it('keeps the error envelope when OfficePilot crashes after reporting a failure', async () => {
     const dir = tempDir()
     await expect(
       exportViaApp('/tmp/a.docx', 'pdf', join(dir, 'err.pdf'), {

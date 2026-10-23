@@ -95,7 +95,7 @@ export interface AppLaunch {
   args: string[]
 }
 
-/** How to start the OfficePilot Suite GUI: the app binary that hosts this CLI, an installed app, or the dev checkout. */
+/** How to start the OfficePilot GUI: the app binary that hosts this CLI, an installed app, or the dev checkout. */
 export function appLaunch(env: NodeJS.ProcessEnv = process.env): AppLaunch | null {
   if (env.GENOFFICE_APP_BIN) return { command: env.GENOFFICE_APP_BIN, args: [] }
   if (packagedResourcesDir() && process.versions.electron) {
@@ -122,24 +122,24 @@ function installedAppBinaries(
     case 'darwin':
       return [
         ...(shipped ? [shipped] : []),
-        '/Applications/OfficePilot Suite.app/Contents/MacOS/OfficePilot Suite',
-        join(homedir(), 'Applications/OfficePilot Suite.app/Contents/MacOS/OfficePilot Suite'),
+        '/Applications/OfficePilot.app/Contents/MacOS/OfficePilot',
+        join(homedir(), 'Applications/OfficePilot.app/Contents/MacOS/OfficePilot'),
       ]
     case 'win32':
       return [
         ...(shipped ? [shipped] : []),
-        env.LOCALAPPDATA ? join(env.LOCALAPPDATA, 'Programs', 'OfficePilot Suite', 'OfficePilot Suite.exe') : '',
-        env.ProgramFiles ? join(env.ProgramFiles, 'OfficePilot Suite', 'OfficePilot Suite.exe') : '',
+        env.LOCALAPPDATA ? join(env.LOCALAPPDATA, 'Programs', 'OfficePilot', 'OfficePilot.exe') : '',
+        env.ProgramFiles ? join(env.ProgramFiles, 'OfficePilot', 'OfficePilot.exe') : '',
       ].filter(Boolean)
     default:
-      return [...(shipped ? [shipped] : []), '/opt/OfficePilot Suite/genoffice', '/usr/bin/genoffice']
+      return [...(shipped ? [shipped] : []), '/opt/OfficePilot/genoffice', '/usr/bin/genoffice']
   }
 }
 
 export function appBinaryForResources(resources: string, platform: NodeJS.Platform): string {
   const install = dirname(resources)
-  if (platform === 'darwin') return join(install, 'MacOS', 'OfficePilot Suite')
-  if (platform === 'win32') return join(install, 'OfficePilot Suite.exe')
+  if (platform === 'darwin') return join(install, 'MacOS', 'OfficePilot')
+  if (platform === 'win32') return join(install, 'OfficePilot.exe')
   return join(install, 'genoffice')
 }
 

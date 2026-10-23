@@ -1,4 +1,4 @@
-# Cài đặt OfficePilot Suite
+# Cài đặt OfficePilot
 
 Mọi bản dựng đều được công bố trên [trang phát hành](https://github.com/CrstalLi02/officepilot-suite/releases/latest). Tất cả đều đến từ `main`; và trình cài đặt cho macOS và Windows đã được ký.
 
@@ -18,11 +18,11 @@ Các bản cũ hơn vẫn nằm trên trang phát hành.
 
 ## Trên macOS
 
-Mở tệp `.dmg` rồi kéo **OfficePilot Suite** vào Applications. Với bản dựng Intel, lần chạy đầu tiên sẽ yêu cầu bạn xác nhận việc mở: nhấp phải vào ứng dụng trong Applications ▸ Mở. Đó là Gatekeeper gặp một đĩa ảnh trông như không có chữ ký, chứ không phải tệp tải về bị hỏng.
+Mở tệp `.dmg` rồi kéo **OfficePilot** vào Applications. Với bản dựng Intel, lần chạy đầu tiên sẽ yêu cầu bạn xác nhận việc mở: nhấp phải vào ứng dụng trong Applications ▸ Mở. Đó là Gatekeeper gặp một đĩa ảnh trông như không có chữ ký, chứ không phải tệp tải về bị hỏng.
 
 ## Trên Windows
 
-Chạy trình cài đặt `.exe`. Nó đưa OfficePilot Suite vào menu Start và đăng ký `.docx`, `.xlsx`, `.pptx`, `.pdf` cùng các định dạng tương tự, để nhấp đúp vào một tệp là mở được tệp đó.
+Chạy trình cài đặt `.exe`. Nó đưa OfficePilot vào menu Start và đăng ký `.docx`, `.xlsx`, `.pptx`, `.pdf` cùng các định dạng tương tự, để nhấp đúp vào một tệp là mở được tệp đó.
 
 ## Trên Linux
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — chạy ngay tại chỗ, không cần bước cài đặt:
 
 ```sh
-chmod +x OfficePilot Suite-<version>.AppImage
-./OfficePilot Suite-<version>.AppImage
+chmod +x OfficePilot-<version>.AppImage
+./OfficePilot-<version>.AppImage
 ```
 
 Nó cần môi trường chạy FUSE 2. Nếu bạn không muốn cài đặt, hãy chạy với `--appimage-extract-and-run`, và hộp cát sẽ hoạt động từ thư mục đã giải nén.

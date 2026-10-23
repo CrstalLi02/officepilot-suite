@@ -169,10 +169,19 @@ function CustomFontSizeInput({
 }
 
 export type SectionId =
-  'account' | 'aiModel' | 'aiMedia' | 'general' | 'integrations' | 'skills' | 'about'
+  | 'account'
+  | 'aiModel'
+  | 'aiMedia'
+  | 'general'
+  | 'integrations'
+  | 'skills'
+  | 'about'
+  // OfficePilot modification: the OfficePilot assistant's own settings
+  | 'officepilot'
 
 // OfficePilot modification: no Genspark account section; settings open on the AI model pane
 const SECTIONS: readonly { id: SectionId; labelKey: StringKey }[] = [
+  { id: 'officepilot', labelKey: 'navAssistant' },
   { id: 'aiModel', labelKey: 'setSecAiModel' },
   { id: 'aiMedia', labelKey: 'setSecAiMedia' },
   { id: 'general', labelKey: 'setSecGeneral' },
@@ -181,7 +190,49 @@ const SECTIONS: readonly { id: SectionId; labelKey: StringKey }[] = [
   { id: 'about', labelKey: 'setSecAbout' },
 ]
 
+/** OfficePilot modification: the assistant keeps its settings (model services, plugins,
+ *  skills, schedules, Feishu, command-line integrations) in its own UI; this pane links there */
+function OfficePilotPane({ t, onClose }: { t: (key: StringKey) => string; onClose: () => void }) {
+  const [status, setStatus] = useState<{ available: boolean; running: boolean; version: string } | null>(null)
+  useEffect(() => {
+    void window.aiOffice.officepilotStatus?.().then(setStatus)
+  }, [])
+  return (
+    <>
+      <h3 className="set-pane-title">{t('navAssistant')}</h3>
+      <div className="set-field">
+        <div className="set-field-text">
+          <div className="set-field-label">OfficePilot{status?.version ? ` ${status.version}` : ''}</div>
+          <div className="set-field-desc">{status && !status.running ? t('setOpUnavailable') : t('setOpIntro')}</div>
+        </div>
+        <button
+          className="set-btn primary"
+          disabled={!status?.running}
+          onClick={() => {
+            void window.aiOffice.openAssistant('/?settings=llm')
+            onClose()
+          }}
+        >
+          {t('setOpOpen')}
+        </button>
+      </div>
+    </>
+  )
+}
+
 function SectionIcon({ id }: { id: SectionId }) {
+  if (id === 'officepilot') {
+    return (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path
+          d="M14 10.5c0 .9-.7 1.6-1.6 1.6H5.4L2 14.5V3.6C2 2.7 2.7 2 3.6 2h8.8c.9 0 1.6.7 1.6 1.6z"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinejoin="round"
+        />
+      </svg>
+    )
+  }
   if (id === 'aiModel') {
     return (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -2256,12 +2307,13 @@ export function SettingsModal({
               <IntegrationsPane t={t} onStatus={(st) => onSkillUpdateDue?.(skillUpdateDue(st))} />
             )}
             {section === 'skills' && <FoundSkills t={t} />}
+            {section === 'officepilot' && <OfficePilotPane t={t} onClose={onClose} />}
             {section === 'about' && (
               <>
                 <h3 className="set-pane-title">{t('setSecAbout')}</h3>
                 <Field label={t('versionLabel')} value={appVersion || '—'} />
                 {/* OfficePilot modification: attribution required by Apache-2.0 (NOTICE) */}
-                <Field label="License" value="Based on OfficePilot Suite by Mainfunc, Inc. (Apache-2.0); modified by OfficePilot" />
+                <Field label="License" value="Based on OfficePilot by Mainfunc, Inc. (Apache-2.0); modified by OfficePilot" />
                 {updateState && (
                   <div className="set-field">
                     <div className="set-field-text">

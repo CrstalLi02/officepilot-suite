@@ -229,7 +229,7 @@ function globalHelp(registry: CommandRegistry): string {
   const defs = registry.list()
   const width = Math.max(...defs.map((d) => d.name.length))
   return [
-    `officepilot-suite ${VERSION} — OfficePilot Suite command line`,
+    `officepilot-suite ${VERSION} — OfficePilot command line`,
     '',
     'Usage: officepilot-suite <command> [options]',
     '',

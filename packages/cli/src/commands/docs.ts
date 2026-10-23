@@ -101,7 +101,7 @@ export const docsCommand: CommandDef = {
     {
       name: 'force',
       description:
-        'apply: overwrite an existing --out file, or write while OfficePilot Suite has the file open',
+        'apply: overwrite an existing --out file, or write while OfficePilot has the file open',
     },
   ],
   async run(args, ctx) {

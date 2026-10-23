@@ -228,7 +228,7 @@ export function removeMcpEntry(id: AgentId, file: string): boolean {
 }
 
 // OfficePilot modification: the renamed command and app executable are ours too
-const LAUNCHER_NAMES = new Set(['genoffice', 'genoffice.cmd', 'genoffice.exe', 'officepilot-suite', 'officepilot suite.exe'])
+const LAUNCHER_NAMES = new Set(['genoffice', 'genoffice.cmd', 'genoffice.exe', 'officepilot-suite', 'officepilot suite.exe', 'officepilot.exe'])
 
 /**
  * Any officepilot-suite launcher, whatever install it came from (an older app path is

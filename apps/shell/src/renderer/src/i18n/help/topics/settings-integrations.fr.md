@@ -23,7 +23,7 @@ Clair / Sombre / Suivre le système. Suivre le système suit l’apparence de l�
 - **Position de la barre latérale IA** (à gauche ou à droite), **Taille du texte du panneau IA** et **Correction orthographique dans le chat IA**.
 - **Ouvrir le panneau IA dans les nouveaux documents** — désactivé, un nouveau document démarre avec le panneau replié, à un clic de là.
 - **Enregistrer automatiquement tous les documents** active l'enregistrement automatique par défaut dans tous les éditeurs ; vous pouvez toujours le désactiver pour une fenêtre.
-- **Emplacement d'enregistrement** avec un bouton **Modifier** et **Application par défaut pour les documents Office** pour attribuer .docx / .xlsx / .pptx à OfficePilot Suite.
+- **Emplacement d'enregistrement** avec un bouton **Modifier** et **Application par défaut pour les documents Office** pour attribuer .docx / .xlsx / .pptx à OfficePilot.
 
 ## Médias IA et recherche
 
@@ -39,7 +39,7 @@ Ce ne sont pas des interrupteurs : chaque capacité choisit le fournisseur qui l
 
 ## Associations d’applications par défaut
 
-Les paramètres peuvent enregistrer OfficePilot Suite comme gestionnaire de .docx / .xlsx / .pptx / .pdf et formats similaires (enregistrement d’application par défaut au niveau de la plateforme ; confirmez lorsque l’on vous le demande).
+Les paramètres peuvent enregistrer OfficePilot comme gestionnaire de .docx / .xlsx / .pptx / .pdf et formats similaires (enregistrement d’application par défaut au niveau de la plateforme ; confirmez lorsque l’on vous le demande).
 
 ## Mentions relatives aux logiciels tiers et mises à jour
 
@@ -48,7 +48,7 @@ Les paramètres peuvent enregistrer OfficePilot Suite comme gestionnaire de .doc
 
 ## Intégration MCP (pour les utilisateurs avancés / clients IA)
 
-**Intégrations** est le panneau qui relie OfficePilot Suite à un agent de codage, et il a son propre article : Connecter un agent de codage. La version courte — choisissez une voie (la ligne de commande, ou MCP), suivez la section correspondante, puis ouvrez une nouvelle conversation et posez votre question.
+**Intégrations** est le panneau qui relie OfficePilot à un agent de codage, et il a son propre article : Connecter un agent de codage. La version courte — choisissez une voie (la ligne de commande, ou MCP), suivez la section correspondante, puis ouvrez une nouvelle conversation et posez votre question.
 
 ![Paramètres ▸ Intégrations : les trois étapes, puis les lignes de compétences et les options MCP](img/settings-integrations.png)
 

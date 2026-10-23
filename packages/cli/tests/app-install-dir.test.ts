@@ -4,23 +4,23 @@ import { appBinaryForResources } from '../src/resources'
 
 describe('appBinaryForResources', () => {
   it('finds the app in a custom Windows install directory', () => {
-    expect(appBinaryForResources(join('D:\\Apps\\OfficePilot Suite', 'resources'), 'win32')).toBe(
-      join('D:\\Apps\\OfficePilot Suite', 'OfficePilot Suite.exe'),
+    expect(appBinaryForResources(join('D:\\Apps\\OfficePilot', 'resources'), 'win32')).toBe(
+      join('D:\\Apps\\OfficePilot', 'OfficePilot.exe'),
     )
   })
 
   it('resolves the same binary for the default Windows install directory', () => {
     const localAppData = 'C:\\Users\\test\\AppData\\Local'
-    const resources = join(localAppData, 'Programs', 'OfficePilot Suite', 'resources')
+    const resources = join(localAppData, 'Programs', 'OfficePilot', 'resources')
     expect(appBinaryForResources(resources, 'win32')).toBe(
-      join(localAppData, 'Programs', 'OfficePilot Suite', 'OfficePilot Suite.exe'),
+      join(localAppData, 'Programs', 'OfficePilot', 'OfficePilot.exe'),
     )
   })
 
   it('finds the app in a custom macOS bundle location', () => {
     expect(
-      appBinaryForResources(join('/Volumes/Work/OfficePilot Suite.app/Contents/Resources'), 'darwin'),
-    ).toBe(join('/Volumes/Work/OfficePilot Suite.app/Contents/MacOS/OfficePilot Suite'))
+      appBinaryForResources(join('/Volumes/Work/OfficePilot.app/Contents/Resources'), 'darwin'),
+    ).toBe(join('/Volumes/Work/OfficePilot.app/Contents/MacOS/OfficePilot'))
   })
 
   it('finds the app in a custom Linux prefix', () => {

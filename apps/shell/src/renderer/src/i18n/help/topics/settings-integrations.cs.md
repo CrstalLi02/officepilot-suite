@@ -23,7 +23,7 @@ Světlý / Tmavý / Podle systému. Volba Podle systému sleduje vzhled operačn
 - **Pozice postranního panelu AI** (vlevo nebo vpravo), **Velikost textu panelu AI** a **Kontrola pravopisu v chatu AI**.
 - **Otevírat panel AI v nových dokumentech** — vypnuto, nový dokument začíná se složeným panelem, na jedno kliknutí.
 - **Automaticky ukládat všechny dokumenty** zapne ve výchozím stavu automatické ukládání v každém editoru; pro jedno okno ho můžete i nadále vypnout.
-- **Umístění pro ukládání** s tlačítkem **Změnit** a **Výchozí aplikace pro dokumenty Office**, aby OfficePilot Suite přebíral .docx / .xlsx / .pptx.
+- **Umístění pro ukládání** s tlačítkem **Změnit** a **Výchozí aplikace pro dokumenty Office**, aby OfficePilot přebíral .docx / .xlsx / .pptx.
 
 ## AI média a vyhledávání
 
@@ -39,7 +39,7 @@ Nejsou to přepínače — každá schopnost si vybere dodavatele, který ji pos
 
 ## Přiřazení jako výchozí aplikace
 
-Nastavení může zaregistrovat OfficePilot Suite jako aplikaci pro soubory .docx / .xlsx / .pptx / .pdf a podobné (registrace výchozí aplikace na úrovni systému; potvrzení, když o něj systém požádá).
+Nastavení může zaregistrovat OfficePilot jako aplikaci pro soubory .docx / .xlsx / .pptx / .pdf a podobné (registrace výchozí aplikace na úrovni systému; potvrzení, když o něj systém požádá).
 
 ## Informace o softwaru třetích stran a aktualizace
 
@@ -48,7 +48,7 @@ Nastavení může zaregistrovat OfficePilot Suite jako aplikaci pro soubory .doc
 
 ## Integrace MCP (pro pokročilé uživatele a klienty AI)
 
-**Integrace** je panel, který propojí OfficePilot Suite s programovým agentem, a má o tom vlastní kapitolu: Připojení programového agenta. Zkrátka — vyberte cestu (příkazová řádka, nebo MCP), řiďte se danou částí a pak začněte nový chat a zeptejte se.
+**Integrace** je panel, který propojí OfficePilot s programovým agentem, a má o tom vlastní kapitolu: Připojení programového agenta. Zkrátka — vyberte cestu (příkazová řádka, nebo MCP), řiďte se danou částí a pak začněte nový chat a zeptejte se.
 
 ![Nastavení ▸ Integrace: tři kroky, pak řádky dovedností a možnosti MCP](img/settings-integrations.png)
 

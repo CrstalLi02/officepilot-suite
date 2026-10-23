@@ -1481,6 +1481,11 @@ export function Home() {
   const [cloudMode, setCloudMode] = useState(false)
   // the knowledge-base ask panel takes over the content area the same way
   const [askMode, setAskMode] = useState(false)
+  // OfficePilot modification: the OfficePilot assistant (shown when this build ships its service)
+  const [assistantAvailable, setAssistantAvailable] = useState(false)
+  useEffect(() => {
+    void window.aiOffice.officepilotStatus?.().then((s) => setAssistantAvailable(s.available))
+  }, [])
   const [filter, setFilter] = useState('all')
   // ── Starred groups (named buckets the Starred view can filter on) ──
   // groups that currently have at least one starred file (drives the pills)
@@ -3404,7 +3409,7 @@ export function Home() {
     <div className="home">
       <aside className="sidebar">
         <div className="sidebar-logo">
-          <img className="logo-lockup" src={logoLockup} alt="OfficePilot Suite" />
+          <img className="logo-lockup" src={logoLockup} alt="OfficePilot" />
         </div>
         <nav className="sidebar-nav">
           <button
@@ -3464,6 +3469,20 @@ export function Home() {
             </svg>
             <span className="nav-label">{t('navAsk')}</span>
           </button>
+          {assistantAvailable && (
+            <button className="nav-item" onClick={() => void window.aiOffice.openAssistant()}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path
+                  d="M14 10.5c0 .9-.7 1.6-1.6 1.6H5.4L2 14.5V3.6C2 2.7 2.7 2 3.6 2h8.8c.9 0 1.6.7 1.6 1.6z"
+                  stroke="currentColor"
+                  strokeWidth="1.3"
+                  strokeLinejoin="round"
+                />
+                <path d="M8 4.4l.9 2.1 2.1.9-2.1.9L8 10.4l-.9-2.1-2.1-.9 2.1-.9z" fill="currentColor" />
+              </svg>
+              <span className="nav-label">{t('navAssistant')}</span>
+            </button>
+          )}
           {loggedIn && (
             <button
               className={`nav-item${cloudMode && !selectedFolder ? ' active' : ''}`}

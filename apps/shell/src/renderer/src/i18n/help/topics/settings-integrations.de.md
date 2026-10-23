@@ -23,7 +23,7 @@ Hell / Dunkel / System folgen. „System folgen“ richtet sich nach dem Erschei
 - **Position der KI-Seitenleiste** (links oder rechts), **Textgröße im KI-Bereich** und **Rechtschreibprüfung im KI-Chat**.
 - **KI-Panel in neuen Dokumenten öffnen** — aus, ein neues Dokument startet mit eingeklapptem Panel, einen Klick entfernt.
 - **Alle Dokumente automatisch speichern** schaltet AutoSave in jedem Editor standardmäßig ein; für ein einzelnes Fenster können Sie es weiterhin abschalten.
-- **Speicherort** mit der Schaltfläche **Ändern** und **Standard-App für Office-Dokumente**, um .docx / .xlsx / .pptx für OfficePilot Suite zu beanspruchen.
+- **Speicherort** mit der Schaltfläche **Ändern** und **Standard-App für Office-Dokumente**, um .docx / .xlsx / .pptx für OfficePilot zu beanspruchen.
 
 ## KI-Medien & Suche
 
@@ -39,7 +39,7 @@ Keine Schalter — jede Fähigkeit wählt den Anbieter, der sie bedient, und Sch
 
 ## Standard-App-Zuordnungen
 
-Die Einstellungen können OfficePilot Suite als Programm für .docx / .xlsx / .pptx / .pdf und verwandte Formate hinterlegen (Registrierung als Standard-App auf Plattformebene; bestätigen Sie, wenn Sie dazu aufgefordert werden).
+Die Einstellungen können OfficePilot als Programm für .docx / .xlsx / .pptx / .pdf und verwandte Formate hinterlegen (Registrierung als Standard-App auf Plattformebene; bestätigen Sie, wenn Sie dazu aufgefordert werden).
 
 ## Hinweise zu Drittanbietersoftware und Updates
 
@@ -48,7 +48,7 @@ Die Einstellungen können OfficePilot Suite als Programm für .docx / .xlsx / .p
 
 ## MCP-Integration (für erfahrene Anwender / KI-Clients)
 
-**Integrationen** ist der Bereich, der OfficePilot Suite mit einem Coding-Agenten verbindet, und er hat einen eigenen Artikel: Einen Coding-Agenten anbinden. Die Kurzfassung — wählen Sie einen Weg (die Kommandozeile oder MCP), folgen Sie dem jeweiligen Abschnitt und starten Sie dann einen neuen Chat.
+**Integrationen** ist der Bereich, der OfficePilot mit einem Coding-Agenten verbindet, und er hat einen eigenen Artikel: Einen Coding-Agenten anbinden. Die Kurzfassung — wählen Sie einen Weg (die Kommandozeile oder MCP), folgen Sie dem jeweiligen Abschnitt und starten Sie dann einen neuen Chat.
 
 ![Einstellungen ▸ Integrationen: die drei Schritte, dann die Skill-Zeilen und die MCP-Optionen](img/settings-integrations.png)
 

@@ -1,6 +1,6 @@
 <svg width="1091" height="240" viewBox="0 0 1091 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- OfficePilot Suite wordmark (OfficePilot modification; replaces the upstream logo) -->
+  <!-- OfficePilot wordmark (OfficePilot modification; replaces the upstream logo) -->
   <rect x="24" y="48" width="144" height="144" rx="36" fill="#000"/>
   <path d="M60 120c0-24 16-40 36-40s36 16 36 40-16 40-36 40-36-16-36-40Zm22 0c0 13 6 22 14 22s14-9 14-22-6-22-14-22-14 9-14 22Z" fill="#fff"/>
-  <text x="200" y="152" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="96" font-weight="700" fill="#000">OfficePilot Suite</text>
+  <text x="200" y="152" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="96" font-weight="700" fill="#000">OfficePilot</text>
 </svg>

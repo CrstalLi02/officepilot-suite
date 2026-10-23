@@ -1,4 +1,4 @@
-# การติดตั้ง OfficePilot Suite
+# การติดตั้ง OfficePilot
 
 ทุกเวอร์ชันถูกเผยแพร่ไว้ที่ [หน้าเผยแพร่](https://github.com/CrstalLi02/officepilot-suite/releases/latest) ทุกเวอร์ชันมาจาก `main` ตัวติดตั้งสำหรับ macOS และ Windows มีลายเซ็นกำกับ
 
@@ -18,11 +18,11 @@
 
 ## บน macOS
 
-เปิดไฟล์ `.dmg` แล้วลาก **OfficePilot Suite** ไปไว้ใน Applications ถ้าเป็นเวอร์ชัน Intel การเปิดครั้งแรกจะถามให้คุณยืนยันการเปิด คลิกขวาที่แอปใน Applications แล้วเลือก เปิด นี่คือ Gatekeeper ที่กำลังเจออิมเมจดิสก์ที่ดูเหมือนไม่ได้ลงลายเซ็น ไม่ใช่ไฟล์ที่ดาวน์โหลดเสีย
+เปิดไฟล์ `.dmg` แล้วลาก **OfficePilot** ไปไว้ใน Applications ถ้าเป็นเวอร์ชัน Intel การเปิดครั้งแรกจะถามให้คุณยืนยันการเปิด คลิกขวาที่แอปใน Applications แล้วเลือก เปิด นี่คือ Gatekeeper ที่กำลังเจออิมเมจดิสก์ที่ดูเหมือนไม่ได้ลงลายเซ็น ไม่ใช่ไฟล์ที่ดาวน์โหลดเสีย
 
 ## บน Windows
 
-รันตัวติดตั้ง `.exe` ตัวนี้จะวาง OfficePilot Suite ไว้ในเมนู Start และลงทะเบียน `.docx`, `.xlsx`, `.pptx`, `.pdf` และไฟล์อื่น ๆ ให้เป็นค่าเริ่มต้น ดังนั้นดับเบิลคลิกที่ไฟล์ก็จะเปิดขึ้นมา
+รันตัวติดตั้ง `.exe` ตัวนี้จะวาง OfficePilot ไว้ในเมนู Start และลงทะเบียน `.docx`, `.xlsx`, `.pptx`, `.pdf` และไฟล์อื่น ๆ ให้เป็นค่าเริ่มต้น ดังนั้นดับเบิลคลิกที่ไฟล์ก็จะเปิดขึ้นมา
 
 ## บน Linux
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — รันจากที่วางไว้ได้เลย ไม่ต้องมีขั้นตอนติดตั้ง
 
 ```sh
-chmod +x OfficePilot Suite-<version>.AppImage
-./OfficePilot Suite-<version>.AppImage
+chmod +x OfficePilot-<version>.AppImage
+./OfficePilot-<version>.AppImage
 ```
 
 ตัวนี้ต้องมีรันไทม์ FUSE 2 ถ้าไม่อยากติดตั้ง ให้รันด้วย `--appimage-extract-and-run` แซนด์บ็อกซ์จะทำงานได้จากโฟลเดอร์ที่แตกออกมา

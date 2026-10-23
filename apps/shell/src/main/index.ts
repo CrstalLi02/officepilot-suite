@@ -1,3 +1,5 @@
+// OfficePilot modification: must load before anything reads userData
+import './officepilot-user-data'
 import { execSync, spawn } from 'node:child_process'
 import {
   cpSync,
@@ -127,6 +129,7 @@ import {
 } from './cloud-projects'
 import { handleDroppedFiles } from './dropped-files'
 import { collectLaunchPaths } from './launch-paths'
+import { installOfficePilot, officePilotKeepsRunning, stopOfficePilot } from './officepilot-integration'
 import {
   genofficeLogout,
   gskLoginInfo,
@@ -402,7 +405,7 @@ import { GENSPARK_ACCOUNT_ENABLED } from '../shared/officepilot'
 import { isUpdateChannel, type UpdateChannel } from '../shared/update-api'
 
 /**
- * OfficePilot Suite unified shell: ONE Electron app, ONE BrowserWindow, hosting the
+ * OfficePilot unified shell: ONE Electron app, ONE BrowserWindow, hosting the
  * docs and sheets modules as WebContentsView tabs behind a WPS-style tab
  * strip. The shell owns the lifecycle — single-instance lock, file-
  * association routing by extension, and per-active-tab menu switching.
@@ -423,22 +426,22 @@ for (const stream of [process.stdout, process.stderr]) {
 
 // ANY unpacked run (`npm run shell`, `npm run dev`, `npx electron .`) must not
 // share the installed app's userData or single-instance lock — otherwise a dev
-// run silently quits and forwards its argv to the running installed OfficePilot Suite.
+// run silently quits and forwards its argv to the running installed OfficePilot.
 // GENOFFICE_USER_DATA: test drivers point this at a scratch dir so an
 // automated instance can run alongside the dev instance (separate lock).
 if (!app.isPackaged) {
   if (process.env.GENOFFICE_USER_DATA) {
     app.setPath('userData', process.env.GENOFFICE_USER_DATA)
   } else {
-    // The dev profile used to live in "OfficePilot Suite Dev"; the space breaks
+    // The dev profile used to live in "OfficePilot Dev"; the space breaks
     // unquoted shell expansions, rsync targets and .desktop Exec= lines, and
-    // XDG config entries are single tokens (genoffice#1817). "OfficePilot Suite-Dev" keeps the
-    // family naming of the packaged profile ("OfficePilot Suite"). The old directory
+    // XDG config entries are single tokens (genoffice#1817). "OfficePilot-Dev" keeps the
+    // family naming of the packaged profile ("OfficePilot"). The old directory
     // moves once — it sits on the same volume as appData, so the rename is
     // atomic, and a concurrent dev instance keeps its open file handles.
     const appData = app.getPath('appData')
-    const devDir = join(appData, 'OfficePilot Suite-Dev')
-    const oldDevDir = join(appData, 'OfficePilot Suite Dev')
+    const devDir = join(appData, 'OfficePilot-Dev')
+    const oldDevDir = join(appData, 'OfficePilot Dev')
     let userData = devDir
     if (existsSync(oldDevDir) && !existsSync(devDir)) {
       try {
@@ -465,7 +468,7 @@ if (headlessArgv.kind !== 'none') {
   app.dock?.hide()
 }
 
-// The product rename from "AI Office" to OfficePilot Suite changed the userData path; migrate old user data once
+// The product rename from "AI Office" to OfficePilot changed the userData path; migrate old user data once
 if (app.isPackaged) {
   const oldDir = join(app.getPath('appData'), 'AI Office')
   const newDir = app.getPath('userData')
@@ -886,6 +889,10 @@ const tMain = createI18n({
     copySuffix: '副本',
     menuHelp: '帮助',
     menuUserGuide: '使用手册',
+    trayShow: '显示 OfficePilot',
+    trayQuit: '退出 OfficePilot',
+    assistantTab: '智能助手',
+    officepilotStartFailed: 'OfficePilot 服务没有启动：{error}',
     thirdPartyNotices: '第三方软件声明',
     menuExportDocx: '导出为 Word…',
     btnCancel: '取消',
@@ -1007,6 +1014,10 @@ const tMain = createI18n({
     copySuffix: 'copy',
     menuHelp: 'Help',
     menuUserGuide: 'User Guide',
+    trayShow: 'Show OfficePilot',
+    trayQuit: 'Quit OfficePilot',
+    assistantTab: 'Assistant',
+    officepilotStartFailed: 'The OfficePilot service did not start: {error}',
     thirdPartyNotices: 'Third-Party Notices',
     menuExportDocx: 'Export as Word…',
     btnCancel: 'Cancel',
@@ -1138,6 +1149,10 @@ const tMain = createI18n({
     copySuffix: 'bản sao',
     menuHelp: 'Trợ giúp',
     menuUserGuide: 'Hướng dẫn sử dụng',
+    trayShow: 'Hiện OfficePilot',
+    trayQuit: 'Thoát OfficePilot',
+    assistantTab: 'Trợ lý',
+    officepilotStartFailed: 'Dịch vụ OfficePilot chưa khởi động: {error}',
     thirdPartyNotices: 'Thông báo của bên thứ ba',
     menuExportDocx: 'Xuất dưới dạng Word…',
     btnCancel: 'Hủy',
@@ -1269,6 +1284,10 @@ const tMain = createI18n({
     copySuffix: 'コピー',
     menuHelp: 'ヘルプ',
     menuUserGuide: 'ユーザーガイド',
+    trayShow: 'OfficePilot を表示',
+    trayQuit: 'OfficePilot を終了',
+    assistantTab: 'アシスタント',
+    officepilotStartFailed: 'OfficePilot サービスが起動しませんでした: {error}',
     thirdPartyNotices: 'サードパーティソフトウェアに関する通知',
     menuExportDocx: 'Word として書き出す…',
     btnCancel: 'キャンセル',
@@ -1400,6 +1419,10 @@ const tMain = createI18n({
     copySuffix: '복사본',
     menuHelp: '도움말',
     menuUserGuide: '사용자 가이드',
+    trayShow: 'OfficePilot 표시',
+    trayQuit: 'OfficePilot 종료',
+    assistantTab: '어시스턴트',
+    officepilotStartFailed: 'OfficePilot 서비스가 시작되지 않았습니다: {error}',
     thirdPartyNotices: '타사 소프트웨어 고지',
     menuExportDocx: 'Word로 내보내기…',
     btnCancel: '취소',
@@ -1530,6 +1553,10 @@ const tMain = createI18n({
     copySuffix: 'copie',
     menuHelp: 'Aide',
     menuUserGuide: "Guide de l'utilisateur",
+    trayShow: 'Afficher OfficePilot',
+    trayQuit: 'Quitter OfficePilot',
+    assistantTab: 'Assistant',
+    officepilotStartFailed: 'Le service OfficePilot n’a pas démarré : {error}',
     thirdPartyNotices: 'Mentions relatives aux logiciels tiers',
     menuExportDocx: 'Exporter en Word…',
     btnCancel: 'Annuler',
@@ -1663,6 +1690,10 @@ const tMain = createI18n({
     copySuffix: 'Kopie',
     menuHelp: 'Hilfe',
     menuUserGuide: 'Benutzerhandbuch',
+    trayShow: 'OfficePilot anzeigen',
+    trayQuit: 'OfficePilot beenden',
+    assistantTab: 'Assistent',
+    officepilotStartFailed: 'Der OfficePilot-Dienst wurde nicht gestartet: {error}',
     thirdPartyNotices: 'Hinweise zu Drittanbietersoftware',
     menuExportDocx: 'Als Word exportieren…',
     btnCancel: 'Abbrechen',
@@ -1795,6 +1826,10 @@ const tMain = createI18n({
     copySuffix: 'copia',
     menuHelp: 'Ayuda',
     menuUserGuide: 'Guía del usuario',
+    trayShow: 'Mostrar OfficePilot',
+    trayQuit: 'Salir de OfficePilot',
+    assistantTab: 'Asistente',
+    officepilotStartFailed: 'El servicio de OfficePilot no se inició: {error}',
     thirdPartyNotices: 'Avisos de software de terceros',
     menuExportDocx: 'Exportar como Word…',
     btnCancel: 'Cancelar',
@@ -1927,6 +1962,10 @@ const tMain = createI18n({
     copySuffix: 'สำเนา',
     menuHelp: 'วิธีใช้',
     menuUserGuide: 'คู่มือผู้ใช้',
+    trayShow: 'แสดง OfficePilot',
+    trayQuit: 'ออกจาก OfficePilot',
+    assistantTab: 'ผู้ช่วย',
+    officepilotStartFailed: 'บริการ OfficePilot ไม่ได้เริ่มทำงาน: {error}',
     thirdPartyNotices: 'ประกาศเกี่ยวกับซอฟต์แวร์ของบุคคลที่สาม',
     menuExportDocx: 'ส่งออกเป็น Word…',
     btnCancel: 'ยกเลิก',
@@ -2055,6 +2094,10 @@ const tMain = createI18n({
     copySuffix: 'salinan',
     menuHelp: 'Bantuan',
     menuUserGuide: 'Panduan Pengguna',
+    trayShow: 'Tampilkan OfficePilot',
+    trayQuit: 'Keluar dari OfficePilot',
+    assistantTab: 'Asisten',
+    officepilotStartFailed: 'Layanan OfficePilot tidak berjalan: {error}',
     thirdPartyNotices: 'Pemberitahuan Perangkat Lunak Pihak Ketiga',
     menuExportDocx: 'Ekspor sebagai Word…',
     btnCancel: 'Batal',
@@ -2187,6 +2230,10 @@ const tMain = createI18n({
     copySuffix: 'копия',
     menuHelp: 'Справка',
     menuUserGuide: 'Руководство пользователя',
+    trayShow: 'Показать OfficePilot',
+    trayQuit: 'Выйти из OfficePilot',
+    assistantTab: 'Ассистент',
+    officepilotStartFailed: 'Служба OfficePilot не запустилась: {error}',
     thirdPartyNotices: 'Уведомления о стороннем ПО',
     menuExportDocx: 'Экспортировать в Word…',
     btnCancel: 'Отмена',
@@ -2319,6 +2366,10 @@ const tMain = createI18n({
     copySuffix: 'نسخة',
     menuHelp: 'تعليمات',
     menuUserGuide: 'دليل المستخدم',
+    trayShow: 'إظهار OfficePilot',
+    trayQuit: 'إنهاء OfficePilot',
+    assistantTab: 'المساعد',
+    officepilotStartFailed: 'لم تبدأ خدمة OfficePilot: {error}',
     thirdPartyNotices: 'إشعارات برامج الجهات الخارجية',
     menuExportDocx: 'تصدير كملف Word…',
     btnCancel: 'إلغاء',
@@ -2447,6 +2498,10 @@ const tMain = createI18n({
     copySuffix: 'cópia',
     menuHelp: 'Ajuda',
     menuUserGuide: 'Guia do Usuário',
+    trayShow: 'Mostrar OfficePilot',
+    trayQuit: 'Sair do OfficePilot',
+    assistantTab: 'Assistente',
+    officepilotStartFailed: 'O serviço do OfficePilot não iniciou: {error}',
     thirdPartyNotices: 'Avisos de software de terceiros',
     menuExportDocx: 'Exportar como Word…',
     btnCancel: 'Cancelar',
@@ -2579,6 +2634,10 @@ const tMain = createI18n({
     copySuffix: 'copia',
     menuHelp: 'Aiuto',
     menuUserGuide: "Guida dell'utente",
+    trayShow: 'Mostra OfficePilot',
+    trayQuit: 'Esci da OfficePilot',
+    assistantTab: 'Assistente',
+    officepilotStartFailed: 'Il servizio OfficePilot non è partito: {error}',
     thirdPartyNotices: 'Note sul software di terze parti',
     menuExportDocx: 'Esporta come Word…',
     btnCancel: 'Annulla',
@@ -2711,6 +2770,10 @@ const tMain = createI18n({
     copySuffix: 'kopia',
     menuHelp: 'Pomoc',
     menuUserGuide: 'Podręcznik użytkownika',
+    trayShow: 'Pokaż OfficePilot',
+    trayQuit: 'Zakończ OfficePilot',
+    assistantTab: 'Asystent',
+    officepilotStartFailed: 'Usługa OfficePilot nie uruchomiła się: {error}',
     thirdPartyNotices: 'Informacje o oprogramowaniu innych firm',
     menuExportDocx: 'Eksportuj jako Word…',
     btnCancel: 'Anuluj',
@@ -2843,6 +2906,10 @@ const tMain = createI18n({
     copySuffix: 'kopie',
     menuHelp: 'Nápověda',
     menuUserGuide: 'Uživatelská příručka',
+    trayShow: 'Zobrazit OfficePilot',
+    trayQuit: 'Ukončit OfficePilot',
+    assistantTab: 'Asistent',
+    officepilotStartFailed: 'Služba OfficePilot se nespustila: {error}',
     thirdPartyNotices: 'Informace o softwaru třetích stran',
     menuExportDocx: 'Exportovat jako Word…',
     btnCancel: 'Zrušit',
@@ -2973,6 +3040,10 @@ const tMain = createI18n({
     copySuffix: 'kopie',
     menuHelp: 'Help',
     menuUserGuide: 'Gebruikershandleiding',
+    trayShow: 'OfficePilot tonen',
+    trayQuit: 'OfficePilot afsluiten',
+    assistantTab: 'Assistent',
+    officepilotStartFailed: 'De OfficePilot-dienst is niet gestart: {error}',
     thirdPartyNotices: 'Kennisgevingen over software van derden',
     menuExportDocx: 'Exporteren als Word…',
     btnCancel: 'Annuleren',
@@ -3105,6 +3176,10 @@ const tMain = createI18n({
     copySuffix: 'salinan',
     menuHelp: 'Bantuan',
     menuUserGuide: 'Panduan Pengguna',
+    trayShow: 'Tunjukkan OfficePilot',
+    trayQuit: 'Keluar OfficePilot',
+    assistantTab: 'Pembantu',
+    officepilotStartFailed: 'Perkhidmatan OfficePilot tidak bermula: {error}',
     thirdPartyNotices: 'Notis Perisian Pihak Ketiga',
     menuExportDocx: 'Eksport sebagai Word…',
     btnCancel: 'Batal',
@@ -3236,6 +3311,10 @@ const tMain = createI18n({
     copySuffix: 'עותק',
     menuHelp: 'עזרה',
     menuUserGuide: 'מדריך למשתמש',
+    trayShow: 'הצג את OfficePilot',
+    trayQuit: 'צא מ-OfficePilot',
+    assistantTab: 'עוזר',
+    officepilotStartFailed: 'שירות OfficePilot לא הופעל: {error}',
     thirdPartyNotices: 'הודעות על תוכנות צד שלישי',
     menuExportDocx: 'ייצוא כ-Word…',
     btnCancel: 'ביטול',
@@ -3364,6 +3443,10 @@ const tMain = createI18n({
     copySuffix: 'प्रतिलिपि',
     menuHelp: 'सहायता',
     menuUserGuide: 'उपयोगकर्ता गाइड',
+    trayShow: 'OfficePilot दिखाएँ',
+    trayQuit: 'OfficePilot बंद करें',
+    assistantTab: 'सहायक',
+    officepilotStartFailed: 'OfficePilot सेवा शुरू नहीं हुई: {error}',
     thirdPartyNotices: 'तृतीय-पक्ष सॉफ़्टवेयर सूचनाएँ',
     menuExportDocx: 'Word के रूप में निर्यात करें…',
     btnCancel: 'रद्द करें',
@@ -3496,6 +3579,10 @@ const tMain = createI18n({
     copySuffix: '副本',
     menuHelp: '說明',
     menuUserGuide: '使用手冊',
+    trayShow: '顯示 OfficePilot',
+    trayQuit: '結束 OfficePilot',
+    assistantTab: '智慧助理',
+    officepilotStartFailed: 'OfficePilot 服務沒有啟動：{error}',
     thirdPartyNotices: '第三方軟體聲明',
     menuExportDocx: '匯出為 Word…',
     btnCancel: '取消',
@@ -3945,7 +4032,7 @@ function createShellWindow(): void {
     ...(restored ? { x: restored.x, y: restored.y } : {}),
     minWidth: SHELL_WINDOW_MIN_WIDTH,
     minHeight: SHELL_WINDOW_MIN_HEIGHT,
-    title: 'OfficePilot Suite',
+    title: 'OfficePilot',
     // vibrancy: editor modules punch translucent regions (e.g. the slides
     // thumbnail pane) through to the desktop
     ...(process.platform === 'darwin'
@@ -3995,7 +4082,9 @@ function createShellWindow(): void {
     // no extension: these tabs have no file on disk yet; the title becomes the
     // real filename (the localized untitled default + .docx etc.) once the first save lands
     (kind) =>
-      kind === 'help'
+      kind === 'assistant'
+        ? tm('assistantTab')
+        : kind === 'help'
         ? tm('menuUserGuide')
         : kind === 'docs'
           ? tm('untitledDoc')
@@ -4432,7 +4521,7 @@ function newDocTab(): void {
 
 /** MCP: open a blank docs tab and return its webContents id, for the visible-editor bridge */
 function openBlankDocsTabForMcp(): number {
-  if (!tabManager) throw new Error('OfficePilot Suite is not ready')
+  if (!tabManager) throw new Error('OfficePilot is not ready')
   const tabId = tabManager.openDocsTab(undefined, { newBlank: true })
   const view = tabManager.docsTabs().find((t) => t.id === tabId)
   if (!view) throw new Error('the new document tab could not be opened')
@@ -4449,7 +4538,7 @@ function openBlankDocsTabForMcp(): number {
  * marking is skipped, the file name is the agent's business.
  */
 async function openBlankSheetsTabForMcp(): Promise<number> {
-  if (!tabManager) throw new Error('OfficePilot Suite is not ready')
+  if (!tabManager) throw new Error('OfficePilot is not ready')
   const filePath = uniquePathIn(defaultSaveDir(), `${tm('untitledSheet')}.xlsx`)
   await atomicWriteFile(filePath, await blankXlsxBuffer())
   const tabId = tabManager.openSheetsTab(filePath)
@@ -4520,7 +4609,7 @@ function abandonBlankTabForMcp(
 
 /** MCP: open a blank slides tab and return its webContents id, for the visible-deck bridge */
 function openBlankSlidesTabForMcp(): number {
-  if (!tabManager) throw new Error('OfficePilot Suite is not ready')
+  if (!tabManager) throw new Error('OfficePilot is not ready')
   const tabId = tabManager.openSlidesTab()
   const view = tabManager.slidesTabs().find((t) => t.id === tabId)
   if (!view) throw new Error('the new presentation tab could not be opened')
@@ -4615,7 +4704,7 @@ function statEntries(paths: string[]): RecentEntry[] {
 }
 
 function registerHomeIpc(): void {
-  // signed-in means OfficePilot Suite's own device-code login; the shared gsk CLI key
+  // signed-in means OfficePilot's own device-code login; the shared gsk CLI key
   // is only a silent fallback, deliberately not shown here to nudge users onto our key
   ipcMain.handle(HOME_CHANNELS.accountStatus, async () => {
     // OfficePilot modification: the Genspark account (sign-in, credits, cloud
@@ -5512,6 +5601,7 @@ const TAB_MENU_ICON: Record<TabKind, keyof MenuIconSet> = {
   markdown: 'md',
   html: 'html',
   help: 'home',
+  assistant: 'home',
 }
 
 // tab views see neither DOM events nor a focus change when the user clicks the
@@ -6925,7 +7015,7 @@ app.whenReady().then(async () => {
     app.quit()
     return
   }
-  // another OfficePilot Suite-family app re-logging in rotates the shared key; the
+  // another OfficePilot-family app re-logging in rotates the shared key; the
   // home page re-reads its account status. A logout that leaves only the
   // gsk CLI fallback key is not a login
   stopAuthWatch = watchGskApiKey(() => {
@@ -7070,6 +7160,17 @@ app.whenReady().then(async () => {
   })
   installUiScale()
   createShellWindow()
+  // OfficePilot modification: the OfficePilot service (assistant, workspace, tasks) runs beside the shell
+  installOfficePilot({
+    shellWindow: () => shellWindow,
+    revealShellWindow,
+    openAssistantTab: (url) => {
+      revealShellWindow()
+      tabManager?.openAssistantTab(url)
+    },
+    isAssistantWebContents: (id) => tabManager?.isAssistantWebContents(id) ?? false,
+    tm: (key, params) => tm(key, params),
+  })
   // deferred to ready: labels need currentLang(), which reads app.getLocale()
   installBackToHomeItems()
   installDockMenu()
@@ -7123,7 +7224,8 @@ app.on('window-all-closed', () => {
   // A headless export destroys its hidden window between documents; only
   // runHeadlessExportEntry decides when that run is over.
   if (headlessArgv.kind !== 'none') return
-  if (process.platform !== 'darwin') app.quit()
+  // OfficePilot modification: with the service running the app stays in the tray
+  if (process.platform !== 'darwin' && !officePilotKeepsRunning()) app.quit()
 })
 
 app.on('before-quit', () => {
@@ -7133,6 +7235,8 @@ app.on('before-quit', () => {
   // release the MCP port synchronously (macOS keeps the process alive after
   // the last window closes, so window-all-closed is not enough)
   stopMcpSync()
+  // OfficePilot modification: the service goes with the app
+  stopOfficePilot()
 })
 
 // after every window has closed, so the shell window's own 'closed' republish cannot revive the file

@@ -141,7 +141,7 @@ export function tabMenuTemplate(input: TabMenuInput): MenuItemConstructorOptions
   const others = tabs.filter((other) => other.id !== tab.id && closable(other))
   const right = tabs.slice(index + 1).filter(closable)
   const everything = tabs.filter(closable)
-  const document = input.canDetach && tab.kind !== 'home' && tab.kind !== 'help'
+  const document = input.canDetach && tab.kind !== 'home' && tab.kind !== 'help' && tab.kind !== 'assistant'
 
   const template: MenuItemConstructorOptions[] = [
     // where the file is, at a glance (the menu is the place people look when they ask "which one is this?")

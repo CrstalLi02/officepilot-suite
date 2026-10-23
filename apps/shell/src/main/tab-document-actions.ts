@@ -32,6 +32,7 @@ export function runTabDocumentAction(
     !tab ||
     tab.kind === 'home' ||
     tab.kind === 'help' ||
+    tab.kind === 'assistant' ||
     !deps.tabs.canDetachTab(id) ||
     !contents ||
     contents.isDestroyed()

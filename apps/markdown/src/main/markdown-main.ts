@@ -379,7 +379,7 @@ interface RuntimePaths {
   preloadPath: string
   rendererUrl?: string
   rendererFile?: string
-  /** Shell router used to open exported PDFs in a new OfficePilot Suite tab. */
+  /** Shell router used to open exported PDFs in a new OfficePilot tab. */
   openGeneratedPath?: (path: string) => boolean
 }
 

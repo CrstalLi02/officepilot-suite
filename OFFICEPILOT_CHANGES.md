@@ -31,10 +31,22 @@ Base: upstream commit 58dfd0b ("Sync snapshot (2026-10-22)").
 
 ## Branding
 
-- `tools/officepilot-rebrand.mjs` — rewrites user-visible product names ("GenOffice" → "OfficePilot Suite"), the typed command (`genoffice` → `officepilot-suite`) and upstream links across UI strings, help, main-process dialogs, CLI help, skills, packaging metadata and their tests. Internal identifiers (`@genoffice/*` packages, env vars, `genoffice://` resources) are unchanged.
+- `tools/officepilot-rebrand.mjs` — rewrites user-visible product names ("GenOffice" → "OfficePilot"; earlier passes used "OfficePilot Suite"), the typed command (`genoffice` → `officepilot-suite`) and upstream links across UI strings, help, main-process dialogs, CLI help, skills, packaging metadata and their tests. Internal identifiers (`@genoffice/*` packages, env vars, `genoffice://` resources) are unchanged.
 - `tools/check-officepilot-brand.mjs` — fails the build if upstream branding reaches a user-visible surface.
-- App id `com.officepilot.suite`, executable `officepilot-suite`, maintainer / vendor, icons (`apps/*/build/icon*`), logo (`officepilot-logo.svg` replaces the upstream logo).
+- Product name `OfficePilot`, app id `com.officepilot.desktop` (the OfficePilot desktop app this build replaces), Linux executable `officepilot-suite`, maintainer / vendor, icons (`apps/*/build/icon*`), logo (`officepilot-logo.svg` replaces the upstream logo).
 - `packages/cli/src/install.ts` — the command on `PATH` is `officepilot-suite`.
-- `packages/cli/bin/genoffice`, `genoffice.cmd` — the packaged launchers start the `OfficePilot Suite` binary (they still pointed at the upstream `GenOffice` binary and fell back to a system Node).
+- `packages/cli/bin/genoffice`, `genoffice.cmd` — the packaged launchers start the `OfficePilot` binary (they still pointed at the upstream `GenOffice` binary and fell back to a system Node).
 - `skills/genoffice/SKILL.md` — skill name `officepilot-suite`.
 - `README.md` — rewritten for the fork; the original README is kept in `docs/UPSTREAM-README.md`.
+
+## OfficePilot desktop app
+
+The shell is the OfficePilot desktop app: the editors plus the OfficePilot service (assistant, workspace, tasks, schedules, plugins) running beside it.
+
+- `apps/shell/src/main/officepilot-server.ts` — starts the service (`walioffice desktop`) as a background process, reads its port and token from a ready file (0600), restarts it after an unexpected exit (at most three times in five minutes); the service exits when the shell does.
+- `apps/shell/src/main/officepilot-integration.ts` — data directory shared with the earlier OfficePilot desktop app, tray icon (closing every window keeps background work running), the assistant tab's desktop hooks (confined to the OfficePilot data directory), the shared model key for the editors' AI.
+- `apps/shell/src/preload/officepilot.ts`, `src/shared/officepilot-api.ts` — the assistant tab's preload and IPC.
+- `apps/shell/src/main/tab-manager.ts`, `src/shared/tabs-api.ts`, `tab-menu.ts`, `tab-lifecycle.ts`, `tab-document-actions.ts`, `mcp/tools/open-documents-tools.ts`, `src/renderer/src/TabBar.tsx` — an `assistant` tab kind (not a document) that shows the OfficePilot UI served locally.
+- `apps/shell/src/renderer/src/Home.tsx`, `SettingsModal.tsx`, `strings.ts`, `src/main/index.ts` — an Assistant entry in the home sidebar and a settings pane linking to the assistant's own settings, in every locale.
+- `apps/shell/electron-builder.cjs` — ships the service and the `officepilot` command line in `Resources/officepilot/` when `OFFICEPILOT_BIN_DIR` is set.
+

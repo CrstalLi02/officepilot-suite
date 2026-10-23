@@ -1,4 +1,4 @@
-# Instalace OfficePilot Suite
+# Instalace OfficePilot
 
 Každá sestavení je zveřejněno na [stránce Releases](https://github.com/CrstalLi02/officepilot-suite/releases/latest). Všechna pocházejí z `main`; instalátory pro macOS a Windows jsou podepsané.
 
@@ -18,11 +18,11 @@ Starší verze zůstávají na stránce Releases.
 
 ## V systému macOS
 
-Otevřete soubor `.dmg` a přetáhněte **OfficePilot Suite** do složky Aplikace. U sestavení Intel vás při prvním spuštění požádá o potvrzení otevření: klikněte na aplikaci v Aplikacích pravým tlačítkem ▸ Otevřít. To je Gatekeeper, který narazí na obraz disku, který vypadá jako nepodepsaný, a ne poškozené stažení.
+Otevřete soubor `.dmg` a přetáhněte **OfficePilot** do složky Aplikace. U sestavení Intel vás při prvním spuštění požádá o potvrzení otevření: klikněte na aplikaci v Aplikacích pravým tlačítkem ▸ Otevřít. To je Gatekeeper, který narazí na obraz disku, který vypadá jako nepodepsaný, a ne poškozené stažení.
 
 ## V systému Windows
 
-Spusťte instalátor `.exe`. Umístí OfficePilot Suite do nabídky Start a zaregistruje `.docx`, `.xlsx`, `.pptx`, `.pdf` a podobné, takže dvojklik na soubor jej otevře.
+Spusťte instalátor `.exe`. Umístí OfficePilot do nabídky Start a zaregistruje `.docx`, `.xlsx`, `.pptx`, `.pdf` a podobné, takže dvojklik na soubor jej otevře.
 
 ## V systému Linux
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — běží tam, kde je, bez žádného instalačního kroku:
 
 ```sh
-chmod +x OfficePilot Suite-<version>.AppImage
-./OfficePilot Suite-<version>.AppImage
+chmod +x OfficePilot-<version>.AppImage
+./OfficePilot-<version>.AppImage
 ```
 
 Potřebuje běhové prostředí FUSE 2. Pokud jej nechcete instalovat, spusťte jej s `--appimage-extract-and-run` a izolovaný proces poběží z rozbalené složky.

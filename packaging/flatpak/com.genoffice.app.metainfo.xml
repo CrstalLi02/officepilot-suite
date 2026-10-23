@@ -3,11 +3,11 @@
   <id>com.genoffice.app</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>Apache-2.0</project_license>
-  <name>OfficePilot Suite</name>
+  <name>OfficePilot</name>
   <summary>AI-native office suite — Word, Excel, PowerPoint, PDF and Markdown in one app</summary>
   <description>
     <p>
-      OfficePilot Suite is a unified, AI-native office suite. One local app hosts the
+      OfficePilot is a unified, AI-native office suite. One local app hosts the
       word processor, spreadsheet, presentation and PDF modules behind a home
       launcher, reads and writes the standard Office file formats, and puts an
       AI copilot beside every editor.

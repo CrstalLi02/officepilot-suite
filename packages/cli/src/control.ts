@@ -74,9 +74,9 @@ export function controlRequest(
     const unavailable = (why: string) =>
       settle(() =>
         reject(
-          new CliError(EXIT.app, `OfficePilot Suite did not answer: ${why}`, undefined, {
+          new CliError(EXIT.app, `OfficePilot did not answer: ${why}`, undefined, {
             reason: 'app_unavailable',
-            suggestion: 'start OfficePilot Suite (or `officepilot-suite open <file>`) and retry',
+            suggestion: 'start OfficePilot (or `officepilot-suite open <file>`) and retry',
           }),
         ),
       )

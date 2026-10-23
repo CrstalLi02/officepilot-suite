@@ -19,6 +19,8 @@ export default defineConfig({
           update: resolve(__dirname, 'src/preload/update.ts'),
           // dedicated preload for the PDF password prompt window
           'pdf-password': resolve(__dirname, 'src/preload/pdf-password.ts'),
+          // OfficePilot modification: the assistant tab (OfficePilot web UI)
+          officepilot: resolve(__dirname, 'src/preload/officepilot.ts'),
         },
       },
     },

@@ -14,7 +14,7 @@ link="/usr/bin/officepilot-suite"
 # same ownership rule as the post-install: only a link into our install dir is ours
 if [ -L "$link" ]; then
   case "$(readlink "$link")" in
-    "/opt/OfficePilot Suite"/*) rm -f "$link" ;;
+    "/opt/OfficePilot"/*) rm -f "$link" ;;
   esac
 fi
 exit 0

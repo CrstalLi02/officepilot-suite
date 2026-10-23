@@ -46,6 +46,7 @@ import {
   slidesIsDirty,
 } from '../../../slides/src/main/slides-main'
 import { rendererUrl, safeExternalUrl } from '@genoffice/electron-utils'
+import { isLocalServiceUrl } from './officepilot-server'
 import type { DocumentTabKind, OpenDocumentTab, TabKind, TabSummary } from '../shared/tabs-api'
 import { isSettledRect, tabStripHeight } from '../shared/tab-drag-geometry'
 import {
@@ -93,7 +94,7 @@ const HOME_ID = 'home'
  */
 export class TabManager {
   private readonly tabs: TabRecord[] = [
-    { id: HOME_ID, kind: 'home', view: null, title: 'OfficePilot Suite', lastActiveAt: Date.now() },
+    { id: HOME_ID, kind: 'home', view: null, title: 'OfficePilot', lastActiveAt: Date.now() },
   ]
   private activeId: string = HOME_ID
   private nextId = 1
@@ -352,11 +353,42 @@ export class TabManager {
       id,
       kind: 'help',
       view,
-      title: this.untitled('help', 'OfficePilot Suite Help'),
+      title: this.untitled('help', 'OfficePilot Help'),
       lastActiveAt: Date.now(),
     })
     this.activateTab(id)
     return id
+  }
+
+  /** OfficePilot modification: the OfficePilot assistant (served by the local OfficePilot
+      service) in a closable tab; one copy, navigated to `url` when it is already open. */
+  openAssistantTab(url: string): string {
+    // only the local OfficePilot service; anything else opens no tab
+    if (!isLocalServiceUrl(url)) return ''
+    const existing = this.tabs.find((t) => t.kind === 'assistant')
+    if (existing?.view) {
+      if (existing.view.webContents.getURL() !== url) void existing.view.webContents.loadURL(url)
+      this.activateTab(existing.id)
+      return existing.id
+    }
+    const view = createAssistantView(url)
+    const id = `t${this.nextId++}`
+    this.shellWindow.contentView.addChildView(view)
+    view.setVisible(false)
+    this.tabs.push({
+      id,
+      kind: 'assistant',
+      view,
+      title: this.untitled('assistant', 'OfficePilot'),
+      lastActiveAt: Date.now(),
+    })
+    this.activateTab(id)
+    return id
+  }
+
+  /** the assistant tab's page, if open (the OfficePilot preload answers only this) */
+  isAssistantWebContents(webContentsId: number): boolean {
+    return this.tabs.some((t) => t.kind === 'assistant' && t.view?.webContents.id === webContentsId)
   }
 
   openDocsTab(
@@ -375,7 +407,7 @@ export class TabManager {
       lastActiveAt: Date.now(),
       kind: 'docs',
       view,
-      title: openPath ? basename(openPath) : this.untitled('docs', 'OfficePilot Suite Docs'),
+      title: openPath ? basename(openPath) : this.untitled('docs', 'OfficePilot Docs'),
       filePath: openPath,
     })
     this.activateTab(id)
@@ -804,6 +836,7 @@ export class TabManager {
       !!tab.filePath &&
       tab.kind !== 'home' &&
       tab.kind !== 'help' &&
+      tab.kind !== 'assistant' &&
       !this.closingIds.has(tab.id) &&
       this.htmlFullScreenId !== tab.id
     )
@@ -1106,5 +1139,32 @@ function createHelpView(): WebContentsView {
   void view.webContents.loadURL(
     rendererUrl(process.env.ELECTRON_RENDERER_URL, 'help', { mode: 'help' }),
   )
+  return view
+}
+
+/** OfficePilot modification: the assistant page stays on the local OfficePilot service;
+    links elsewhere open in the browser */
+function createAssistantView(url: string): WebContentsView {
+  const view = new WebContentsView({
+    webPreferences: {
+      preload: join(__dirname, '../preload/officepilot.js'),
+      contextIsolation: true,
+      nodeIntegration: false,
+      sandbox: true,
+    },
+  })
+  const origin = new URL(url).origin
+  view.webContents.setWindowOpenHandler(({ url: target }) => {
+    const external = safeExternalUrl(target)
+    if (external) void shell.openExternal(external)
+    return { action: 'deny' }
+  })
+  view.webContents.on('will-navigate', (event, target) => {
+    if (new URL(target).origin === origin) return
+    event.preventDefault()
+    const external = safeExternalUrl(target)
+    if (external) void shell.openExternal(external)
+  })
+  void view.webContents.loadURL(url)
   return view
 }

@@ -1,4 +1,4 @@
-# OfficePilot Suite installieren
+# OfficePilot installieren
 
 Jeder Build wird auf der [Releases-Seite](https://github.com/CrstalLi02/officepilot-suite/releases/latest) veröffentlicht. Alle stammen aus `main`; die Installer für macOS und Windows sind signiert.
 
@@ -18,11 +18,11 @@ Jeder Build wird auf der [Releases-Seite](https://github.com/CrstalLi02/officepi
 
 ## Unter macOS
 
-Öffnen Sie die `.dmg` und ziehen Sie **OfficePilot Suite** in Applications. Bei einem Intel-Build fragt der erste Start das Öffnen ab: Rechtsklick auf die App in Applications ▸ Öffnen. Das ist Gatekeeper bei einem scheinbar nicht signierten Datenträgerabbild und keine beschädigte Datei.
+Öffnen Sie die `.dmg` und ziehen Sie **OfficePilot** in Applications. Bei einem Intel-Build fragt der erste Start das Öffnen ab: Rechtsklick auf die App in Applications ▸ Öffnen. Das ist Gatekeeper bei einem scheinbar nicht signierten Datenträgerabbild und keine beschädigte Datei.
 
 ## Unter Windows
 
-Führen Sie das Installationsprogramm `.exe` aus. Es legt OfficePilot Suite im Startmenü ab und registriert `.docx`, `.xlsx`, `.pptx`, `.pdf` und Verwandte, sodass ein Doppelklick auf eine Datei sie öffnet.
+Führen Sie das Installationsprogramm `.exe` aus. Es legt OfficePilot im Startmenü ab und registriert `.docx`, `.xlsx`, `.pptx`, `.pdf` und Verwandte, sodass ein Doppelklick auf eine Datei sie öffnet.
 
 ## Unter Linux
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — läuft ohne Installationsschritt direkt von dort:
 
 ```sh
-chmod +x OfficePilot Suite-<version>.AppImage
-./OfficePilot Suite-<version>.AppImage
+chmod +x OfficePilot-<version>.AppImage
+./OfficePilot-<version>.AppImage
 ```
 
 Er benötigt die FUSE-2-Laufzeit. Wenn Sie sie lieber nicht installieren, starten Sie ihn mit `--appimage-extract-and-run`; die Sandbox arbeitet dann aus dem entpackten Verzeichnis.

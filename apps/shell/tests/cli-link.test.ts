@@ -17,23 +17,23 @@ describe('officepilot-suite launcher file', () => {
   it('writes one line, creates the directory, and only rewrites on change', () => {
     const dir = mkdtempSync(join(tmpdir(), 'genoffice-launcher-'))
     const file = join(dir, 'nested', 'launcher')
-    expect(writeLauncherFile(file, '/Applications/OfficePilot Suite.app/Contents/Resources/cli')).toBe(true)
-    expect(readFileSync(file, 'utf-8')).toBe('/Applications/OfficePilot Suite.app/Contents/Resources/cli\n')
+    expect(writeLauncherFile(file, '/Applications/OfficePilot.app/Contents/Resources/cli')).toBe(true)
+    expect(readFileSync(file, 'utf-8')).toBe('/Applications/OfficePilot.app/Contents/Resources/cli\n')
     const before = statSync(file).mtimeMs
-    expect(writeLauncherFile(file, '/Applications/OfficePilot Suite.app/Contents/Resources/cli')).toBe(
+    expect(writeLauncherFile(file, '/Applications/OfficePilot.app/Contents/Resources/cli')).toBe(
       false,
     )
     expect(statSync(file).mtimeMs).toBe(before)
-    expect(writeLauncherFile(file, 'C:\\Programs\\OfficePilot Suite\\resources\\genoffice')).toBe(true)
-    expect(readFileSync(file, 'utf-8')).toBe('C:\\Programs\\OfficePilot Suite\\resources\\genoffice\n')
+    expect(writeLauncherFile(file, 'C:\\Programs\\OfficePilot\\resources\\genoffice')).toBe(true)
+    expect(readFileSync(file, 'utf-8')).toBe('C:\\Programs\\OfficePilot\\resources\\genoffice\n')
   })
 
   it('treats dmg and AppImage mounts as temporary', () => {
-    expect(isEphemeralInstall('/Volumes/OfficePilot Suite/OfficePilot Suite.app/Contents/Resources', {})).toBe(true)
+    expect(isEphemeralInstall('/Volumes/OfficePilot/OfficePilot.app/Contents/Resources', {})).toBe(true)
     expect(isEphemeralInstall('/tmp/.mount_GenOfxyz/resources', {})).toBe(true)
-    expect(isEphemeralInstall('/opt/OfficePilot Suite/resources', { APPIMAGE: '/home/u/G.AppImage' })).toBe(
+    expect(isEphemeralInstall('/opt/OfficePilot/resources', { APPIMAGE: '/home/u/G.AppImage' })).toBe(
       true,
     )
-    expect(isEphemeralInstall('/Applications/OfficePilot Suite.app/Contents/Resources', {})).toBe(false)
+    expect(isEphemeralInstall('/Applications/OfficePilot.app/Contents/Resources', {})).toBe(false)
   })
 })

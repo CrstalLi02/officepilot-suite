@@ -64,7 +64,7 @@ export const createCommand: CommandDef = {
       name: 'from',
       value: 'file',
       description:
-        'xlsx: a .csv, or a .json holding a 2-D array of cell values or { "sheets": [{ "name", "rows" }] }; strings starting with "=" are formulas. docx: a .md file, or a .html file holding a restricted-HTML fragment (see `officepilot-suite guide docs`). pdf: any .md/.html/.docx/.xlsx/.pptx file, printed by the OfficePilot Suite renderer',
+        'xlsx: a .csv, or a .json holding a 2-D array of cell values or { "sheets": [{ "name", "rows" }] }; strings starting with "=" are formulas. docx: a .md file, or a .html file holding a restricted-HTML fragment (see `officepilot-suite guide docs`). pdf: any .md/.html/.docx/.xlsx/.pptx file, printed by the OfficePilot renderer',
     },
     {
       name: 'header',
@@ -83,7 +83,7 @@ export const createCommand: CommandDef = {
       name: 'render',
       value: 'dir',
       description:
-        'pptx: after writing, render one PNG per slide into <dir> (default: <output name>-previews beside the file) and list them in detail.previews; starts a hidden OfficePilot Suite process for a few seconds',
+        'pptx: after writing, render one PNG per slide into <dir> (default: <output name>-previews beside the file) and list them in detail.previews; starts a hidden OfficePilot process for a few seconds',
     },
     {
       name: 'audit',

@@ -1,6 +1,6 @@
 # Obrazovka domovské stránky: kde žijí vaše soubory
 
-Domů je startovní stránka OfficePilot Suite: navigační panel vlevo, seznamy souborů a karty pro rychlé vytvoření vpravo.
+Domů je startovní stránka OfficePilot: navigační panel vlevo, seznamy souborů a karty pro rychlé vytvoření vpravo.
 
 ![Obrazovka domovské stránky](img/home-screen.png)
 
@@ -35,7 +35,7 @@ Zaškrtněte pole u řádku nebo klepněte s ⌘/ctrl, abyste vytvořili výběr
 Vyhledávací pole nahoře filtruje najednou dvě věci:
 
 - **Názvy souborů**: rychlé filtrování podle názvu.
-- **Obsah souborů**: OfficePilot Suite na pozadí indexuje vaše soubory (text uvnitř docx/xlsx/pptx/pdf/md/html), takže hledáním v textu najdete i soubory. Rozsah a přepínače se nastavují v nastavení vyhledávání.
+- **Obsah souborů**: OfficePilot na pozadí indexuje vaše soubory (text uvnitř docx/xlsx/pptx/pdf/md/html), takže hledáním v textu najdete i soubory. Rozsah a přepínače se nastavují v nastavení vyhledávání.
 
 ## Karty rychlého startu
 

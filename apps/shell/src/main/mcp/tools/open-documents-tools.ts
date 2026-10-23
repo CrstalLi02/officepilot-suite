@@ -18,7 +18,7 @@ import { sanitizeFileBase, uniquePathIn } from './document-tools'
  */
 
 /** tab kind -> format family (the registry's vocabulary, for the type label) */
-const FAMILY_BY_KIND: Record<Exclude<TabKind, 'home' | 'help'>, EditorFamily> = {
+const FAMILY_BY_KIND: Record<Exclude<TabKind, 'home' | 'help' | 'assistant'>, EditorFamily> = {
   docs: 'docx',
   sheets: 'xlsx',
   slides: 'pptx',
@@ -129,7 +129,7 @@ export function resolveOpenDocumentOfFamily(
 /** a guided "no such document" error listing what is actually open */
 function noMatch(target: string, documents: readonly OpenDocumentTab[]): Error {
   if (documents.length === 0) {
-    return new Error(`no document is open in OfficePilot Suite, so "${target}" cannot be resolved`)
+    return new Error(`no document is open in OfficePilot, so "${target}" cannot be resolved`)
   }
   const listing = documents
     .map((doc) => `  ${doc.id}  ${doc.filePath ?? '(never saved)'}  — ${typeLabel(doc)}`)
@@ -172,7 +172,7 @@ export function createOpenDocumentTools(deps: OpenDocumentsDeps): McpToolDefinit
     {
       name: 'open_documents',
       description:
-        'Work with the documents the user currently has open in OfficePilot Suite tabs — not just the ' +
+        'Work with the documents the user currently has open in OfficePilot tabs — not just the ' +
         'one a session opened. Actions: "list" (no target) returns every open document with its ' +
         'id, type, path, title, whether it has ever been saved, and whether it has unsaved ' +
         'changes; "read" returns one document\'s live content including unsaved edits; "save" ' +
@@ -203,7 +203,7 @@ export function createOpenDocumentTools(deps: OpenDocumentsDeps): McpToolDefinit
       },
       handler: async (args) => {
         if (!control) {
-          throw new Error('OfficePilot Suite is not running, so its open documents are unreachable')
+          throw new Error('OfficePilot is not running, so its open documents are unreachable')
         }
         const action = String(args.action ?? '')
         if (action === 'list') {

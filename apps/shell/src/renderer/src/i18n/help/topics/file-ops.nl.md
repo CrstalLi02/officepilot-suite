@@ -17,7 +17,7 @@ Regels: de extensie blijft automatisch behouden; ongeldige tekens, afsluitende p
 
 ## Verwijderen
 
-- **⋯ ▸ Verwijderen** op Start: vraagt welke bestanden, verplaatst ze daarna naar de **prullenbak van het systeem**, waar het besturingssysteem ze kan herstellen. OfficePilot Suite bewaart hiervoor zelf geen ongedaan maken — herstel is de taak van de prullenbak, niet van een melding.
+- **⋯ ▸ Verwijderen** op Start: vraagt welke bestanden, verplaatst ze daarna naar de **prullenbak van het systeem**, waar het besturingssysteem ze kan herstellen. OfficePilot bewaart hiervoor zelf geen ongedaan maken — herstel is de taak van de prullenbak, niet van een melding.
 
 ## Dupliceren
 

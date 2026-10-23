@@ -1,4 +1,4 @@
-# התקנת OfficePilot Suite
+# התקנת OfficePilot
 
 כל גרסה מתפרסמת ב[עמוד ההפצות](https://github.com/CrstalLi02/officepilot-suite/releases/latest). כולן מגיעות מ-`main`; ומתקיני macOS ו-Windows חתומים.
 
@@ -18,11 +18,11 @@
 
 ## ב-macOS
 
-פתחו את ה-`.dmg` וגררו את **OfficePilot Suite** אל Applications. בגרסת Intel ההפעלה הראשונה מבקשת אישור לפתיחה: לחצו לחיצה ימנית על האפליקציה ב-Applications ▸ פתיחה. זה Gatekeeper מול דיסק-אימג' שנראה לא חתום, לא הורדה פגומה.
+פתחו את ה-`.dmg` וגררו את **OfficePilot** אל Applications. בגרסת Intel ההפעלה הראשונה מבקשת אישור לפתיחה: לחצו לחיצה ימנית על האפליקציה ב-Applications ▸ פתיחה. זה Gatekeeper מול דיסק-אימג' שנראה לא חתום, לא הורדה פגומה.
 
 ## ב-Windows
 
-הפעילו את מתקין ה-`.exe`. הוא מוסיף את OfficePilot Suite לתפריט ההתחלה ורושם `.docx`, `.xlsx`, `.pptx`, `.pdf` ודומים, כך שלחיצה כפולה על קובץ פותחת אותו.
+הפעילו את מתקין ה-`.exe`. הוא מוסיף את OfficePilot לתפריט ההתחלה ורושם `.docx`, `.xlsx`, `.pptx`, `.pdf` ודומים, כך שלחיצה כפולה על קובץ פותחת אותו.
 
 ## ב-Linux
 
@@ -42,8 +42,8 @@ sudo zypper install ./genoffice-<version>.x86_64.rpm  # openSUSE
 **AppImage** — רץ מהמקום שבו הוא נמצא, בלי שום שלב התקנה:
 
 ```sh
-chmod +x OfficePilot Suite-<version>.AppImage
-./OfficePilot Suite-<version>.AppImage
+chmod +x OfficePilot-<version>.AppImage
+./OfficePilot-<version>.AppImage
 ```
 
 הוא זקוק לסביבת הריצה FUSE 2. אם אתם מעדיפים לא להתקין אותה, הפעילו אותו עם `--appimage-extract-and-run`, ואז החולקה המבודדת עובדת מהתיקייה שחולצה.

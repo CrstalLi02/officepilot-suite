@@ -6,7 +6,7 @@ describe('collectLaunchPaths', () => {
   it('collects supported argv files in order and removes duplicates', () => {
     expect(
       collectLaunchPaths(
-        ['OfficePilot Suite.exe', 'first.docx', 'notes.rtf', 'second.xlsx', 'first.docx'],
+        ['OfficePilot.exe', 'first.docx', 'notes.rtf', 'second.xlsx', 'first.docx'],
         undefined,
         () => true,
       ),
@@ -15,7 +15,7 @@ describe('collectLaunchPaths', () => {
 
   it('accepts a .tsv from argv or the second-instance payload', () => {
     expect(
-      collectLaunchPaths(['OfficePilot Suite.app', '/data/variants.tsv'], undefined, () => true),
+      collectLaunchPaths(['OfficePilot.app', '/data/variants.tsv'], undefined, () => true),
     ).toEqual(['/data/variants.tsv'])
   })
 
@@ -26,36 +26,36 @@ describe('collectLaunchPaths', () => {
    * a path and then thrown away before it ever reached the open route.
    */
   it('accepts the text app extensions from argv', () => {
-    expect(collectLaunchPaths(['OfficePilot Suite.app', '/notes.txt'], undefined, () => true)).toEqual([
+    expect(collectLaunchPaths(['OfficePilot.app', '/notes.txt'], undefined, () => true)).toEqual([
       '/notes.txt',
     ])
-    expect(collectLaunchPaths(['OfficePilot Suite.app', '/data.json'], undefined, () => true)).toEqual([
+    expect(collectLaunchPaths(['OfficePilot.app', '/data.json'], undefined, () => true)).toEqual([
       '/data.json',
     ])
-    expect(collectLaunchPaths(['OfficePilot Suite.app', '/NOTES.TXT'], undefined, () => true)).toEqual([
+    expect(collectLaunchPaths(['OfficePilot.app', '/NOTES.TXT'], undefined, () => true)).toEqual([
       '/NOTES.TXT',
     ])
-    expect(collectLaunchPaths(['OfficePilot Suite.app', '/data.json.md'], undefined, () => true)).toEqual([
+    expect(collectLaunchPaths(['OfficePilot.app', '/data.json.md'], undefined, () => true)).toEqual([
       '/data.json.md',
     ])
   })
 
   it('accepts the text app extensions from the second-instance payload', () => {
     expect(
-      collectLaunchPaths(['OfficePilot Suite.exe'], { launchPaths: ['/notes.txt'] }, () => true),
+      collectLaunchPaths(['OfficePilot.exe'], { launchPaths: ['/notes.txt'] }, () => true),
     ).toEqual(['/notes.txt'])
   })
 
   it('still drops a path nothing opens', () => {
     // a file that exists but is not a document the shell can route
-    expect(collectLaunchPaths(['OfficePilot Suite.app', '/photo.png'], undefined, () => true)).toEqual([])
-    expect(collectLaunchPaths(['OfficePilot Suite.app', '/notes.txt'], undefined, () => false)).toEqual([])
+    expect(collectLaunchPaths(['OfficePilot.app', '/photo.png'], undefined, () => true)).toEqual([])
+    expect(collectLaunchPaths(['OfficePilot.app', '/notes.txt'], undefined, () => false)).toEqual([])
   })
 
   it('collects argv and second-instance payload files without duplicates', () => {
     expect(
       collectLaunchPaths(
-        ['OfficePilot Suite.exe', 'first.docx', 'second.pptx'],
+        ['OfficePilot.exe', 'first.docx', 'second.pptx'],
         {
           launchPaths: ['first.docx', 'third.pdf', 42, ''],
           launchPath: 'legacy.md',
@@ -67,14 +67,14 @@ describe('collectLaunchPaths', () => {
 
   it('accepts a legacy launchPath payload', () => {
     expect(
-      collectLaunchPaths(['OfficePilot Suite.exe'], { launchPath: 'legacy.docx' }, () => true),
+      collectLaunchPaths(['OfficePilot.exe'], { launchPath: 'legacy.docx' }, () => true),
     ).toEqual(['legacy.docx'])
   })
 
   it('falls back to the first existing unsupported argv file', () => {
     expect(
       collectLaunchPaths(
-        ['OfficePilot Suite.exe', 'missing.doc', 'legacy.rtf'],
+        ['OfficePilot.exe', 'missing.doc', 'legacy.rtf'],
         undefined,
         (path) => path === 'legacy.rtf',
       ),

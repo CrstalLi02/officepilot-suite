@@ -1,9 +1,9 @@
 # Docker: headless batch conversion
 
 A self-contained image that converts a whole tree of Office/Markdown/HTML
-documents to PDF with OfficePilot Suite's own headless export pipeline
+documents to PDF with OfficePilot's own headless export pipeline
 (`<app binary> --headless-export`, see `docs/headless-pdf-export.md`). It wraps
-the official release deb — no OfficePilot Suite source is rebuilt — so every output is
+the official release deb — no OfficePilot source is rebuilt — so every output is
 what the desktop app's File ▸ Export would produce.
 
 This is the batch-conversion slice of the Docker ask (genoffice#1808); it is

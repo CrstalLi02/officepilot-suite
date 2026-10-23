@@ -275,7 +275,7 @@ export interface HomeApi {
   // ---- knowledge-base ask panel: the reader's starred corpus, askable ----
   /** the starred corpus as the AI's knowledge base */
   kbList(): Promise<KbFileInfo[]>
-  /** the skills the user installed into OfficePilot Suite */
+  /** the skills the user installed into OfficePilot */
   skillsList(): Promise<UserSkillEntry[]>
   /** one installed skill's body, by name */
   skillText(name: string): Promise<string>
@@ -316,6 +316,10 @@ export interface HomeApi {
   aiGskStatus(): Promise<{ loggedIn: boolean; email?: string }>
   /** open an existing file, routing to the right module by extension */
   openHelp(): Promise<void>
+  /** OfficePilot modification: the OfficePilot service behind the assistant */
+  officepilotStatus(): Promise<import('./officepilot-api').OfficePilotStatus>
+  /** OfficePilot modification: open the assistant tab at a path of its UI ('/' by default) */
+  openAssistant(path?: string): Promise<void>
   openPath(path: string): Promise<void>
   /** file picker accepting every supported extension, then routes */
   browse(): Promise<void>
@@ -440,7 +444,7 @@ export interface HomeApi {
   getAiPanelPrefs(): Promise<AiPanelPrefs>
   /** merge + persist; broadcasts 'app:ai-panel-prefs-changed' to all web contents */
   setAiPanelPrefs(patch: Partial<AiPanelPrefs>): Promise<AiPanelPrefs>
-  /** effective default save folder for new/untitled files (configured in userData/app-settings.json, falls back to <Documents>/OfficePilot Suite) */
+  /** effective default save folder for new/untitled files (configured in userData/app-settings.json, falls back to <Documents>/OfficePilot) */
   getDefaultSaveDir(): Promise<string>
   /** directory picker to change the default save folder; resolves to the new folder, or null when canceled or the pick was unusable */
   pickDefaultSaveDir(): Promise<string | null>
