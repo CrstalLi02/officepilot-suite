@@ -94,9 +94,6 @@ const WIN_SIDECAR =
 
 function assertExtraResourceSources() {
   for (const rel of [
-    '../../node_modules/@genspark/cli',
-    '../../node_modules/@genspark/cli/node_modules/commander',
-    '../../node_modules/ws',
     '../../node_modules/electron/dist/LICENSES.chromium.html',
     '../../node_modules/@embedpdf/pdfium/dist/pdfium.wasm',
     '../pdf/node_modules/harfbuzzjs/hb-subset.wasm',
@@ -532,12 +529,10 @@ const config = {
       from: '../../packages/pdf2docx/ocr-helper/win-ocr.exe',
       to: 'ocr/win-ocr.exe',
     },
-    {
-      from: '../../node_modules/@genspark/cli',
-      to: 'gsk/node_modules/@genspark/cli',
-    },
-    // officepilot-suite command line: runs on the app binary with ELECTRON_RUN_AS_NODE (as
-    // the gsk CLI above already does), so the RunAsNode fuse must stay enabled.
+    // OfficePilot: the Genspark CLI (gsk) is not shipped in this fork (no Genspark account);
+    // the search / image / media code finds no gsk entry and uses the configured providers.
+    // officepilot-suite command line: runs on the app binary with ELECTRON_RUN_AS_NODE,
+    // so the RunAsNode fuse must stay enabled.
     // Layout (Resources/cli next to wasm/, native/, ocr/) is what
     // packages/cli/src/resources.ts expects.
     {
@@ -571,14 +566,6 @@ const config = {
     {
       from: '../../packages/cli/dist/node_modules',
       to: 'cli/node_modules',
-    },
-    {
-      from: '../../node_modules/@genspark/cli/node_modules/commander',
-      to: 'gsk/node_modules/commander',
-    },
-    {
-      from: '../../node_modules/ws',
-      to: 'gsk/node_modules/ws',
     },
   ],
   // `mimeType` is read only by the Linux target, where it becomes the

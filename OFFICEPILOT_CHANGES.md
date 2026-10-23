@@ -14,6 +14,7 @@ Base: upstream commit 58dfd0b ("Sync snapshot (2026-10-22)").
 ## Genspark services
 
 - `apps/shell/src/shared/officepilot.ts` — switches: Genspark account disabled, Genspark provider hidden.
+- `apps/shell/electron-builder.cjs` — the Genspark CLI (`@genspark/cli`, "gsk") is no longer copied into the installer; search, image and media features use the providers configured in settings.
 - `apps/shell/src/main/index.ts` — account status and sign-in IPC report signed-out / refuse while disabled.
 - `apps/shell/src/preload/index.ts` — the Genspark provider is filtered out of the model, media and search pickers.
 - `apps/shell/src/renderer/src/SettingsModal.tsx` — no account section; settings open on the AI model pane; About shows the license attribution.
@@ -34,5 +35,6 @@ Base: upstream commit 58dfd0b ("Sync snapshot (2026-10-22)").
 - `tools/check-officepilot-brand.mjs` — fails the build if upstream branding reaches a user-visible surface.
 - App id `com.officepilot.suite`, executable `officepilot-suite`, maintainer / vendor, icons (`apps/*/build/icon*`), logo (`officepilot-logo.svg` replaces the upstream logo).
 - `packages/cli/src/install.ts` — the command on `PATH` is `officepilot-suite`.
+- `packages/cli/bin/genoffice`, `genoffice.cmd` — the packaged launchers start the `OfficePilot Suite` binary (they still pointed at the upstream `GenOffice` binary and fell back to a system Node).
 - `skills/genoffice/SKILL.md` — skill name `officepilot-suite`.
 - `README.md` — rewritten for the fork; the original README is kept in `docs/UPSTREAM-README.md`.

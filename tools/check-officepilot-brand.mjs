@@ -48,6 +48,11 @@ for (const rel of files) {
 const builder = readFileSync(join(ROOT, 'apps/shell/electron-builder.cjs'), 'utf8')
 if (/com\.genoffice\.app/.test(builder)) problems.push('apps/shell/electron-builder.cjs: appId com.genoffice.app')
 if (files.some((f) => /genoffice-logo\.svg$/.test(f))) problems.push('upstream logo asset genoffice-logo.svg still present')
+// the CLI launchers start the app binary, which carries the product name
+for (const rel of ['packages/cli/bin/genoffice', 'packages/cli/bin/genoffice.cmd']) {
+  if (/GenOffice(\.exe)?"/.test(readFileSync(join(ROOT, rel), 'utf8'))) problems.push(`${rel}: launcher still starts the upstream GenOffice binary`)
+}
+if (/@genspark\/cli/.test(builder)) problems.push('apps/shell/electron-builder.cjs: the Genspark CLI (gsk) must not ship in this fork')
 if (files.some((f) => f.startsWith('ee/'))) problems.push('ee/ (GenOffice Enterprise License) must not ship in this fork')
 
 if (problems.length) {
