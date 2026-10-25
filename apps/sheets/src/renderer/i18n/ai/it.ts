@@ -50,6 +50,7 @@ export const it = {
     'SHA-256 {sha}\nIl salvataggio riscrive solo le voci modificate; tutto il resto viene conservato.',
   aiFileMeta: '{sheets} fogli · {entries} voci',
   aiGensparkAccount: 'Account Genspark',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: 'Verifica in corso…',
   aiLoggedIn: 'Accesso effettuato',
   aiLoggedInAs: 'Accesso effettuato: {email}',
@@ -68,7 +69,7 @@ export const it = {
   aiNetworkError:
     'Problema di rete: impossibile raggiungere il servizio IA. Controlla la connessione e riprova',
   aiCreditsExhausted:
-    'I tuoi crediti Genspark sono esauriti. Ricarica su genspark.ai/pricing e riprova',
+    'Il tuo provider di modelli segnala che crediti o saldo sono esauriti. Ricarica presso il provider, quindi riprova',
   aiToolWorkbookContext: 'Lettura delle informazioni della cartella di lavoro',
   aiToolReadRange: "Lettura dell'intervallo",
   aiToolReadRangeOf: "Lettura dell'intervallo {range}",

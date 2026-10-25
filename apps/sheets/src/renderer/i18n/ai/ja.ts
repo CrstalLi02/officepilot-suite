@@ -49,6 +49,7 @@ export const ja = {
     'SHA-256 {sha}\n保存時は編集されたエントリのみを書き換え、その他はそのまま保持します。',
   aiFileMeta: 'シート {sheets} 件 · エントリ {entries} 件',
   aiGensparkAccount: 'Genspark アカウント',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: '確認中…',
   aiLoggedIn: 'サインイン済み',
   aiLoggedInAs: 'サインイン済み: {email}',
@@ -67,7 +68,7 @@ export const ja = {
   aiNetworkError:
     'ネットワークに問題があり、AI サービスに接続できません。接続を確認して再試行してください',
   aiCreditsExhausted:
-    'Gensparkクレジットを使い切りました。genspark.ai/pricing でチャージしてから再試行してください',
+    'モデルプロバイダーからクレジットまたは残高の不足が報告されました。プロバイダーでチャージしてから再試行してください',
   aiToolWorkbookContext: 'ブック情報を読み取り',
   aiToolReadRange: '範囲を読み取り',
   aiToolReadRangeOf: '範囲 {range} を読み取り',

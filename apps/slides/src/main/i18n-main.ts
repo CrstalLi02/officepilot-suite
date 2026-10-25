@@ -80,7 +80,7 @@ export const tMain = createI18n({
     errGskNotLoggedIn: '未登录 Genspark:请点击下方「登录 Genspark」完成登录后重试',
     errNoApiKey: '未配置 {provider} 的 API Key',
     errNoModel: '未配置模型名称',
-    errGskCli: 'gsk 未登录:请先运行 gsk login 登录 Genspark 账号',
+    errGskCli: '尚未配置生图或媒体解析服务：请在「设置 → 生图、媒体与搜索」中添加',
     errNoDeckAppend:
       '当前没有可追加的文稿（会话不存在）。请先用 mode:"replace" 生成首页，或改用原生工具新增页面。',
     errAppendFailed: '追加失败：{reason}',
@@ -199,7 +199,7 @@ export const tMain = createI18n({
       'Not signed in to Genspark: click “Sign in to Genspark” below, sign in, then retry',
     errNoApiKey: 'No API key configured for {provider}',
     errNoModel: 'No model name configured',
-    errGskCli: 'gsk not signed in: run gsk login to sign in to your Genspark account first',
+    errGskCli: 'No image or media provider is set up: add one under Settings → AI Media & Search',
     errNoDeckAppend:
       'No deck to append to (session missing). Generate the first page with mode:"replace" or add pages with the native tools.',
     errAppendFailed: 'Append failed: {reason}',
@@ -320,7 +320,7 @@ export const tMain = createI18n({
     errNoApiKey: 'Chưa cấu hình khóa API cho {provider}',
     errNoModel: 'Chưa cấu hình tên mô hình',
     errGskCli:
-      'gsk chưa đăng nhập: trước tiên hãy chạy gsk login để đăng nhập vào tài khoản Genspark của bạn',
+      'Chưa thiết lập nhà cung cấp hình ảnh hoặc phương tiện: hãy thêm trong Cài đặt → Phương tiện AI & Tìm kiếm',
     errNoDeckAppend:
       'Không có bản trình bày để nối thêm vào (thiếu phiên làm việc). Hãy tạo trang đầu tiên với mode:"replace" hoặc thêm trang bằng các công cụ gốc.',
     errAppendFailed: 'Nối thêm thất bại: {reason}',
@@ -444,7 +444,7 @@ export const tMain = createI18n({
     errNoApiKey: '{provider} の API キーが設定されていません',
     errNoModel: 'モデル名が設定されていません',
     errGskCli:
-      'gsk が未サインインです。先に gsk login を実行して Genspark アカウントにサインインしてください',
+      '画像・メディアのプロバイダーが未設定です。「設定 → AI メディアと検索」で追加してください',
     errNoDeckAppend:
       '追加先のプレゼンテーションがありません（セッションが存在しません）。まず mode:"replace" で最初のページを生成するか、ネイティブ ツールでページを追加してください。',
     errAppendFailed: '追加に失敗しました: {reason}',
@@ -568,7 +568,7 @@ export const tMain = createI18n({
     errNoApiKey: '{provider}의 API 키가 설정되지 않았습니다',
     errNoModel: '모델 이름이 설정되지 않았습니다',
     errGskCli:
-      'gsk가 로그인되어 있지 않습니다. 먼저 gsk login을 실행해 Genspark 계정에 로그인하세요',
+      '이미지 또는 미디어 제공자가 설정되지 않았습니다. 설정 → AI 미디어 및 검색에서 추가하세요',
     errNoDeckAppend:
       '추가할 수 있는 문서가 없습니다(세션 없음). 먼저 mode:"replace"로 첫 페이지를 생성하거나 네이티브 도구로 페이지를 추가하세요.',
     errAppendFailed: '추가 실패: {reason}',
@@ -690,7 +690,7 @@ export const tMain = createI18n({
     errNoApiKey: 'Aucune clé API configurée pour {provider}',
     errNoModel: 'Aucun nom de modèle configuré',
     errGskCli:
-      "gsk non connecté : exécutez d'abord gsk login pour vous connecter à votre compte Genspark",
+      'Aucun fournisseur d’images ou de médias n’est configuré : ajoutez-en un dans Paramètres → Médias IA et recherche',
     errNoDeckAppend:
       'Aucune présentation à compléter (session inexistante). Générez d\'abord la première page avec mode:"replace" ou ajoutez des pages avec les outils natifs.',
     errAppendFailed: "Échec de l'ajout : {reason}",
@@ -817,7 +817,7 @@ export const tMain = createI18n({
     errNoApiKey: 'Kein API-Schlüssel für {provider} konfiguriert',
     errNoModel: 'Kein Modellname konfiguriert',
     errGskCli:
-      'gsk nicht angemeldet: Führen Sie zuerst gsk login aus, um sich bei Ihrem Genspark-Konto anzumelden',
+      'Kein Bild- oder Medienanbieter eingerichtet: Fügen Sie einen unter Einstellungen → KI-Medien & Suche hinzu',
     errNoDeckAppend:
       'Keine Präsentation zum Anfügen vorhanden (Sitzung fehlt). Generieren Sie zuerst die erste Seite mit mode:"replace" oder fügen Sie Seiten mit den nativen Tools hinzu.',
     errAppendFailed: 'Anfügen fehlgeschlagen: {reason}',
@@ -942,7 +942,7 @@ export const tMain = createI18n({
     errNoApiKey: 'No hay clave de API configurada para {provider}',
     errNoModel: 'No hay nombre de modelo configurado',
     errGskCli:
-      'gsk sin sesión iniciada: ejecuta primero gsk login para iniciar sesión en tu cuenta de Genspark',
+      'No hay ningún proveedor de imágenes o medios configurado: añade uno en Ajustes → Medios de IA y búsqueda',
     errNoDeckAppend:
       'No hay ninguna presentación a la que anexar (no existe la sesión). Genera primero la primera página con mode:"replace" o añade páginas con las herramientas nativas.',
     errAppendFailed: 'Error al anexar: {reason}',
@@ -1065,7 +1065,8 @@ export const tMain = createI18n({
       'ยังไม่ได้ลงชื่อเข้าใช้ Genspark: แตะ “ลงชื่อเข้าใช้ Genspark” ด้านล่าง แล้วลองอีกครั้ง',
     errNoApiKey: 'ยังไม่ได้ตั้งค่า API Key ของ {provider}',
     errNoModel: 'ยังไม่ได้ตั้งค่าชื่อโมเดล',
-    errGskCli: 'gsk ยังไม่ได้เข้าสู่ระบบ: โปรดรัน gsk login เพื่อเข้าสู่ระบบบัญชี Genspark ก่อน',
+    errGskCli:
+      'ยังไม่ได้ตั้งค่าผู้ให้บริการภาพหรือสื่อ: เพิ่มได้ที่ การตั้งค่า → สื่อ AI และการค้นหา',
     errNoDeckAppend:
       'ไม่มีเอกสารให้เพิ่มต่อท้าย (ไม่มีเซสชัน) โปรดสร้างหน้าแรกด้วย mode:"replace" ก่อน หรือใช้เครื่องมือเนทีฟเพิ่มหน้าแทน',
     errAppendFailed: 'เพิ่มต่อท้ายไม่สำเร็จ: {reason}',
@@ -1184,7 +1185,8 @@ export const tMain = createI18n({
     errGskNotLoggedIn: 'Belum masuk ke Genspark: klik “Masuk ke Genspark” di bawah, lalu coba lagi',
     errNoApiKey: 'API Key untuk {provider} belum dikonfigurasi',
     errNoModel: 'Nama model belum dikonfigurasi',
-    errGskCli: 'gsk belum masuk: jalankan gsk login dulu untuk masuk ke akun Genspark',
+    errGskCli:
+      'Belum ada penyedia gambar atau media: tambahkan di Pengaturan → Media & Pencarian AI',
     errNoDeckAppend:
       'Tidak ada dokumen yang bisa ditambahi (sesi tidak ada). Buat halaman pertama dengan mode:"replace" dulu, atau tambahkan halaman dengan alat bawaan.',
     errAppendFailed: 'Gagal menambahkan: {reason}',
@@ -1309,7 +1311,7 @@ export const tMain = createI18n({
     errNoApiKey: 'API-ключ для {provider} не настроен',
     errNoModel: 'Не указано имя модели',
     errGskCli:
-      'gsk не авторизован: сначала выполните gsk login, чтобы войти в учётную запись Genspark',
+      'Поставщик изображений или медиа не настроен: добавьте его в разделе «Настройки → Медиа и поиск ИИ»',
     errNoDeckAppend:
       'Нет презентации для добавления страниц (сессия отсутствует). Сначала создайте первую страницу с mode:"replace" или добавьте страницы нативными инструментами.',
     errAppendFailed: 'Сбой добавления: {reason}',
@@ -1432,7 +1434,8 @@ export const tMain = createI18n({
       'لم تسجّل الدخول إلى Genspark: انقر على «تسجيل الدخول إلى Genspark» أدناه ثم أعد المحاولة',
     errNoApiKey: 'لم يتم تكوين مفتاح API لـ {provider}',
     errNoModel: 'لم يتم تكوين اسم النموذج',
-    errGskCli: 'gsk غير مسجَّل الدخول: شغّل gsk login أولًا لتسجيل الدخول إلى حساب Genspark',
+    errGskCli:
+      'لم يتم إعداد مزوّد للصور أو الوسائط: أضف واحدًا من الإعدادات ← وسائط الذكاء الاصطناعي والبحث',
     errNoDeckAppend:
       'لا يوجد مستند يمكن الإلحاق به (الجلسة غير موجودة). أنشئ الصفحة الأولى باستخدام mode:"replace" أولًا، أو أضف صفحات بالأدوات الأصلية.',
     errAppendFailed: 'فشل الإلحاق: {reason}',
@@ -1552,7 +1555,8 @@ export const tMain = createI18n({
       'Não conectado ao Genspark: clique em “Entrar no Genspark” abaixo, entre e tente novamente',
     errNoApiKey: 'Nenhuma chave de API configurada para {provider}',
     errNoModel: 'Nenhum nome de modelo configurado',
-    errGskCli: 'gsk não conectado: execute gsk login primeiro para entrar na sua conta Genspark',
+    errGskCli:
+      'Nenhum provedor de imagem ou mídia configurado: adicione um em Configurações → Mídia e busca de IA',
     errNoDeckAppend:
       'Não há apresentação para anexar (sessão inexistente). Gere a primeira página com mode:"replace" ou adicione páginas com as ferramentas nativas.',
     errAppendFailed: 'Falha ao anexar: {reason}',
@@ -1678,7 +1682,7 @@ export const tMain = createI18n({
     errNoApiKey: 'Nessuna chiave API configurata per {provider}',
     errNoModel: 'Nessun nome di modello configurato',
     errGskCli:
-      "gsk non ha effettuato l'accesso: esegui prima gsk login per accedere al tuo account Genspark",
+      'Nessun provider di immagini o media configurato: aggiungine uno in Impostazioni → Media e ricerca IA',
     errNoDeckAppend:
       'Nessuna presentazione a cui aggiungere pagine (sessione mancante). Genera la prima pagina con mode:"replace" o aggiungi pagine con gli strumenti nativi.',
     errAppendFailed: 'Aggiunta non riuscita: {reason}',
@@ -1804,7 +1808,7 @@ export const tMain = createI18n({
     errNoApiKey: 'Nie skonfigurowano klucza API dla {provider}',
     errNoModel: 'Nie skonfigurowano nazwy modelu',
     errGskCli:
-      'gsk nie jest zalogowany: najpierw uruchom gsk login, aby zalogować się na konto Genspark',
+      'Nie skonfigurowano dostawcy obrazów ani multimediów: dodaj go w Ustawienia → Media i wyszukiwanie AI',
     errNoDeckAppend:
       'Brak prezentacji do rozszerzenia (brak sesji). Najpierw wygeneruj pierwszą stronę z mode:"replace" albo dodaj strony narzędziami natywnymi.',
     errAppendFailed: 'Dołączanie nie powiodło się: {reason}',
@@ -1927,7 +1931,8 @@ export const tMain = createI18n({
       'Nejste přihlášeni ke Genspark: klikněte níže na „Přihlásit se ke Genspark“, přihlaste se a zkuste to znovu',
     errNoApiKey: 'Pro {provider} není nakonfigurován žádný klíč API',
     errNoModel: 'Není nakonfigurován název modelu',
-    errGskCli: 'gsk není přihlášen: nejprve spusťte gsk login a přihlaste se k účtu Genspark',
+    errGskCli:
+      'Není nastaven poskytovatel obrázků ani médií: přidejte ho v Nastavení → AI média a vyhledávání',
     errNoDeckAppend:
       'Není k čemu přidávat (chybí relace). Vygenerujte první stránku s mode:"replace" nebo přidejte stránky nativními nástroji.',
     errAppendFailed: 'Přidání se nezdařilo: {reason}',
@@ -2050,7 +2055,7 @@ export const tMain = createI18n({
     errNoApiKey: 'Geen API-sleutel geconfigureerd voor {provider}',
     errNoModel: 'Geen modelnaam geconfigureerd',
     errGskCli:
-      'gsk is niet aangemeld: voer eerst gsk login uit om u aan te melden bij uw Genspark-account',
+      'Geen afbeeldings- of mediaprovider ingesteld: voeg er een toe onder Instellingen → AI-media en zoeken',
     errNoDeckAppend:
       'Geen presentatie om aan toe te voegen (sessie ontbreekt). Genereer eerst de eerste pagina met mode:"replace" of voeg pagina\'s toe met de native tools.',
     errAppendFailed: 'Toevoegen mislukt: {reason}',
@@ -2173,7 +2178,7 @@ export const tMain = createI18n({
     errNoApiKey: 'Kunci API untuk {provider} belum dikonfigurasikan',
     errNoModel: 'Nama model belum dikonfigurasikan',
     errGskCli:
-      'gsk belum log masuk: jalankan gsk login dahulu untuk log masuk ke akaun Genspark anda',
+      'Tiada penyedia imej atau media disediakan: tambah satu di Tetapan → Media & Carian AI',
     errNoDeckAppend:
       'Tiada persembahan untuk ditambah (sesi tidak wujud). Jana halaman pertama dengan mode:"replace" dahulu, atau tambah halaman dengan alat asli.',
     errAppendFailed: 'Gagal menambah: {reason}',
@@ -2293,7 +2298,7 @@ export const tMain = createI18n({
     errGskNotLoggedIn: 'לא מחובר ל-Genspark: לחץ על "התחבר ל-Genspark" למטה, התחבר ונסה שוב',
     errNoApiKey: 'לא הוגדר מפתח API עבור {provider}',
     errNoModel: 'לא הוגדר שם מודל',
-    errGskCli: 'gsk אינו מחובר: הרץ תחילה gsk login כדי להיכנס לחשבון Genspark שלך',
+    errGskCli: 'לא הוגדר ספק תמונות או מדיה: הוסף ספק בהגדרות ← מדיה וחיפוש AI',
     errNoDeckAppend:
       'אין מצגת להוסיף אליה (הפעלה חסרה). צור תחילה את העמוד הראשון עם mode:"replace" או הוסף עמודים בכלים המקוריים.',
     errAppendFailed: 'ההוספה נכשלה: {reason}',
@@ -2412,7 +2417,7 @@ export const tMain = createI18n({
       'Genspark में साइन इन नहीं है: नीचे “Genspark में साइन इन करें” पर क्लिक करें, साइन इन करें और फिर से कोशिश करें',
     errNoApiKey: '{provider} के लिए कोई API कुंजी कॉन्फ़िगर नहीं है',
     errNoModel: 'कोई मॉडल नाम कॉन्फ़िगर नहीं है',
-    errGskCli: 'gsk साइन इन नहीं है: पहले gsk login चलाकर अपने Genspark खाते में साइन इन करें',
+    errGskCli: 'कोई इमेज या मीडिया प्रदाता सेट नहीं है: सेटिंग्स → AI मीडिया और खोज में एक जोड़ें',
     errNoDeckAppend:
       'जोड़ने के लिए कोई प्रस्तुति नहीं है (सत्र मौजूद नहीं)। पहले mode:"replace" से पहला पृष्ठ बनाएँ, या नेटिव टूल से पृष्ठ जोड़ें।',
     errAppendFailed: 'जोड़ना विफल: {reason}',
@@ -2531,7 +2536,7 @@ export const tMain = createI18n({
     errGskNotLoggedIn: '未登入 Genspark:請點擊下方「登入 Genspark」完成登入後重試',
     errNoApiKey: '未設定 {provider} 的 API Key',
     errNoModel: '未設定模型名稱',
-    errGskCli: 'gsk 未登入:請先執行 gsk login 登入 Genspark 帳號',
+    errGskCli: '尚未設定生圖或媒體解析服務：請在「設定 → 生圖、媒體與搜尋」中新增',
     errNoDeckAppend:
       '目前沒有可附加的簡報（工作階段不存在）。請先用 mode:"replace" 產生首頁，或改用原生工具新增頁面。',
     errAppendFailed: '附加失敗：{reason}',

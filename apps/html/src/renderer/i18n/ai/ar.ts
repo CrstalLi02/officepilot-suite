@@ -4,7 +4,8 @@ export const ar = {
   aiCollapsePanel: 'طي اللوحة',
   aiComposerPlaceholder: 'اطلب من الذكاء الاصطناعي الكتابة أو التعديل…',
   aiCopyReplyTitle: 'نسخ الرد',
-  aiCreditsExhausted: 'نفدت الأرصدة — أعد الشحن على genspark.ai',
+  aiCreditsExhausted:
+    'يفيد مزوّد النموذج بأن رصيدك أو أرصدتك قد نفدت. اشحن رصيدك لدى هذا المزوّد ثم أعد المحاولة',
   aiEmptyTitle: 'صمّم صفحة بالذكاء الاصطناعي',
   aiEmptyBody:
     'صفحة هبوط أو تقرير أو ملصق: حدّد الغرض والجمهور، يقترح الذكاء الاصطناعي موجزًا أولًا ثم يبني الصفحة',

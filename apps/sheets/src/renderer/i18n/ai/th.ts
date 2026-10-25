@@ -49,6 +49,7 @@ export const th = {
     'SHA-256 {sha}\nการบันทึกจะเขียนทับเฉพาะรายการที่แก้ไขเท่านั้น ส่วนที่เหลือคงไว้ตามเดิม',
   aiFileMeta: 'แผ่นงาน {sheets} แผ่น · รายการ {entries} รายการ',
   aiGensparkAccount: 'บัญชี Genspark',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: 'กำลังตรวจสอบ…',
   aiLoggedIn: 'ลงชื่อเข้าใช้แล้ว',
   aiLoggedInAs: 'ลงชื่อเข้าใช้แล้ว: {email}',
@@ -67,7 +68,7 @@ export const th = {
   aiNetworkError:
     'เครือข่ายมีปัญหา ไม่สามารถเชื่อมต่อบริการ AI ได้ โปรดตรวจสอบการเชื่อมต่อแล้วลองใหม่',
   aiCreditsExhausted:
-    'เครดิต Genspark ของคุณหมดแล้ว โปรดเติมเครดิตที่ genspark.ai/pricing แล้วลองใหม่',
+    'ผู้ให้บริการโมเดลแจ้งว่าเครดิตหรือยอดเงินของคุณหมดแล้ว โปรดเติมเงินกับผู้ให้บริการนั้นแล้วลองอีกครั้ง',
   aiToolWorkbookContext: 'อ่านข้อมูลเวิร์กบุ๊ก',
   aiToolReadRange: 'อ่านช่วง',
   aiToolReadRangeOf: 'อ่านช่วง {range}',

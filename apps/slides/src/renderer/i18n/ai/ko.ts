@@ -116,7 +116,7 @@ export const ko = {
   aiErrNetwork:
     '네트워크에 문제가 있어 AI 서비스에 연결할 수 없습니다. 연결을 확인한 후 다시 시도해 주세요',
   aiCreditsExhausted:
-    'Genspark 크레딧을 모두 사용했습니다. genspark.ai/pricing에서 충전한 후 다시 시도해 주세요',
+    '모델 제공자가 크레딧 또는 잔액이 소진되었다고 알렸습니다. 해당 제공자에서 충전한 뒤 다시 시도하세요',
   aiErrRequestFailed: '요청 전송 실패: {msg}',
   aiErrGenerateFailed: '생성 실패',
   aiErrRegenFailed: '페이지 다시 생성 실패',

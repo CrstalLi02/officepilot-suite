@@ -32,7 +32,7 @@ export const strings = {
     askSavedAs: '已保存:{name}',
     askSaveFailed: '保存失败:{error}',
     askEmptyCorpus: '知识库还是空的:先收藏一些文件,再回来提问。',
-    askNeedsLogin: '登录 Genspark 后即可使用 AI 问答。',
+    askNeedsLogin: '请先在设置中填写模型 API key，再使用 AI 问答。',
     askPlaceholder: '问一个关于收藏文件的问题…',
     askHintIdle: 'Enter 发送',
     askHintBusy: 'AI 正在回答…',
@@ -386,8 +386,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: '留空自动检测（推荐）',
     setAiCodexHint:
       '自动查找并使用当前 Codex CLI，更新后无需重新选择；也可填写自定义路径。无需 API Key。',
-    setAiByokNote:
-      '对话使用你自己的 key；生图与媒体解析按「生图与媒体」设置；网页搜索仍走 Genspark 登录或免费来源。',
+    setAiByokNote: '对话使用你自己的 key；生图、媒体解析与网页搜索按「生图、媒体与搜索」设置。',
     setAiSave: '保存',
     setAiSaved: '已保存',
     setAiTest: '测试连接',
@@ -444,19 +443,17 @@ export const strings = {
     newTab: '新建标签页',
     // First-run onboarding
     onbTitle1: '欢迎使用 OfficePilot',
-    onbSubtitle1: '第一个开源的 AI 原生 Office 套件',
+    onbSubtitle1: '内置 AI 的开源办公套件',
     onbBody1: '创建文档、制作表格、生成演示、审阅 PDF。AI 深度融入每个环节。',
     onbTitle2: '这只是一个开始',
-    onbBody2: 'OfficePilot 目前处于 alpha 阶段。欢迎加入 GenTeam 群聊，分享反馈，一起塑造它的未来。',
-    onbCredits: '活跃贡献者可获得 **1,000+ Genspark 积分**',
-    onbJoinGenTeam: '加入 GenTeam',
+    onbBody2: 'OfficePilot 目前处于 alpha 阶段。欢迎在 GitHub 上反馈问题和建议，一起塑造它的未来。',
     onbSkip: '跳过',
     onbNext: '下一步',
     onbStart: '开始使用',
     onbStepAria: '第 {n} 页，共 {total} 页',
     onbTitle3: '人人免费',
     onbBody3: '无授权费用，无广告，无水印。',
-    onbNote3: 'AI 功能可能消耗 Genspark 积分。',
+    onbNote3: 'AI 功能使用你选择的模型服务商和 API key，用量由该服务商计费。',
     onbBack: '上一步',
     intgSkillsDesc:
       'OfficePilot 只使用自己技能文件夹里的技能。从文件夹或 zip 导入会把整个技能复制进来；导入不会自动运行任何东西。',
@@ -531,7 +528,8 @@ export const strings = {
     navStarred: 'Starred',
     navAsk: 'Ask AI',
     navAssistant: 'Assistant',
-    setOpIntro: 'Manage the assistant’s model services, plugins, skills, schedules, Feishu connection and command-line integrations here.',
+    setOpIntro:
+      'Manage the assistant’s model services, plugins, skills, schedules, Feishu connection and command-line integrations here.',
     setOpOpen: 'Open assistant settings',
     setOpUnavailable: 'The OfficePilot service is not running. Please reopen the app.',
     askThreadsTitle: 'Conversations',
@@ -554,7 +552,7 @@ export const strings = {
     askSavedAs: 'Saved: {name}',
     askSaveFailed: 'Could not save: {error}',
     askEmptyCorpus: 'The knowledge base is empty: star some files first, then ask.',
-    askNeedsLogin: 'Sign in to Genspark to use AI chat.',
+    askNeedsLogin: 'Add a model API key in Settings to use AI chat.',
     askPlaceholder: 'Ask about your starred files…',
     askHintIdle: 'Enter to send',
     askHintBusy: 'The AI is answering…',
@@ -918,7 +916,7 @@ export const strings = {
     setAiCodexHint:
       'Automatically finds the current signed-in Codex CLI after updates; a custom path is optional. No API key is needed.',
     setAiByokNote:
-      'Chats use your own key. Image generation and media analysis follow the AI Media section; web search still uses the Genspark sign-in or free sources.',
+      'Chats use your own key. Image generation, media analysis and web search follow the AI Media & Search section.',
     setAiSave: 'Save',
     setAiSaved: 'Saved',
     setAiTest: 'Test connection',
@@ -976,21 +974,20 @@ export const strings = {
     newTab: 'New tab',
     // First-run onboarding
     onbTitle1: 'Welcome to OfficePilot',
-    onbSubtitle1: 'The first open-source, AI-native office suite',
+    onbSubtitle1: 'An open-source office suite with AI built in',
     onbBody1:
       'Create docs, build sheets, make slides, and review PDFs. AI is built into every step.',
     onbTitle2: 'This is just the beginning',
     onbBody2:
-      'OfficePilot is still in alpha. Join the group chat on GenTeam to share feedback and help shape what comes next.',
-    onbCredits: 'Active contributors get **1,000+ Genspark credits**',
-    onbJoinGenTeam: 'Join GenTeam',
+      'OfficePilot is still in alpha. Share bugs and ideas on GitHub and help shape what comes next.',
     onbSkip: 'Skip',
     onbNext: 'Next',
     onbStart: 'Get started',
     onbStepAria: 'Page {n} of {total}',
     onbTitle3: 'Free for everyone',
     onbBody3: 'No license fees. No ads. No watermarks.',
-    onbNote3: 'AI features may consume Genspark credits.',
+    onbNote3:
+      'AI features use the model provider and API key you choose; that provider bills any usage.',
     onbBack: 'Back',
     intgSkillsDesc:
       'OfficePilot only uses skills in its own skills folder. Importing a folder or a zip copies the whole skill in; nothing runs on import.',
@@ -1068,7 +1065,8 @@ export const strings = {
     navStarred: 'Đã gắn sao',
     navAsk: 'Hỏi AI',
     navAssistant: 'Trợ lý',
-    setOpIntro: 'Quản lý dịch vụ mô hình, plugin, kỹ năng, lịch chạy, kết nối Feishu và tích hợp dòng lệnh của trợ lý tại đây.',
+    setOpIntro:
+      'Quản lý dịch vụ mô hình, plugin, kỹ năng, lịch chạy, kết nối Feishu và tích hợp dòng lệnh của trợ lý tại đây.',
     setOpOpen: 'Mở cài đặt trợ lý',
     setOpUnavailable: 'Dịch vụ OfficePilot không chạy. Vui lòng mở lại ứng dụng.',
     askThreadsTitle: 'Cuộc trò chuyện',
@@ -1092,7 +1090,7 @@ export const strings = {
     askSavedAs: 'Đã lưu: {name}',
     askSaveFailed: 'Không thể lưu: {error}',
     askEmptyCorpus: 'Cơ sở tri thức trống: hãy đánh dấu tệp trước rồi hỏi.',
-    askNeedsLogin: 'Đăng nhập Genspark để dùng trò chuyện AI.',
+    askNeedsLogin: 'Hãy thêm khóa API mô hình trong Cài đặt để dùng trò chuyện AI.',
     askPlaceholder: 'Hỏi về các tệp đã đánh dấu…',
     askHintIdle: 'Enter để gửi',
     askHintBusy: 'AI đang trả lời…',
@@ -1457,7 +1455,7 @@ export const strings = {
     setAiCodexHint:
       'Tự động tìm CLI Codex đã đăng nhập hiện tại sau các bản cập nhật; đường dẫn tùy chỉnh là không bắt buộc. Không cần khóa API.',
     setAiByokNote:
-      'Các cuộc trò chuyện sử dụng khóa của riêng bạn. Việc tạo hình ảnh và phân tích phương tiện tuân theo phần Phương tiện AI; tìm kiếm web vẫn sử dụng đăng nhập Genspark hoặc các nguồn miễn phí.',
+      'Các cuộc trò chuyện sử dụng khóa của riêng bạn. Tạo hình ảnh, phân tích phương tiện và tìm kiếm web tuân theo phần Phương tiện AI & Tìm kiếm.',
     setAiSave: 'Lưu',
     setAiSaved: 'Đã lưu',
     setAiTest: 'Kiểm tra kết nối',
@@ -1516,21 +1514,20 @@ export const strings = {
     newTab: 'Tab mới',
     // First-run onboarding
     onbTitle1: 'Chào mừng đến với OfficePilot',
-    onbSubtitle1: 'Bộ ứng dụng văn phòng AI nguồn mở đầu tiên',
+    onbSubtitle1: 'Bộ ứng dụng văn phòng mã nguồn mở tích hợp sẵn AI',
     onbBody1:
       'Tạo tài liệu, xây dựng bảng tính, tạo bản trình bày và xem lại PDF. AI được tích hợp trong từng bước.',
     onbTitle2: 'Đây mới chỉ là khởi đầu',
     onbBody2:
-      'OfficePilot vẫn đang trong giai đoạn alpha. Hãy tham gia nhóm trò chuyện trên GenTeam để chia sẻ phản hồi và định hình những bước phát triển tiếp theo.',
-    onbCredits: 'Thành viên đóng góp tích cực nhận được **1.000+ credit Genspark**',
-    onbJoinGenTeam: 'Tham gia GenTeam',
+      'OfficePilot vẫn đang ở giai đoạn alpha. Hãy chia sẻ lỗi và ý tưởng trên GitHub để cùng định hình những gì tiếp theo.',
     onbSkip: 'Bỏ qua',
     onbNext: 'Tiếp theo',
     onbStart: 'Bắt đầu',
     onbStepAria: 'Trang {n} / {total}',
     onbTitle3: 'Miễn phí cho mọi người',
     onbBody3: 'Không phí bản quyền. Không quảng cáo. Không hình mờ.',
-    onbNote3: 'Các tính năng AI có thể tiêu tốn credit Genspark.',
+    onbNote3:
+      'Các tính năng AI dùng nhà cung cấp mô hình và khóa API bạn chọn; nhà cung cấp đó tính phí mức sử dụng.',
     onbBack: 'Quay lại',
     intgSkillsDesc:
       'OfficePilot chỉ dùng kỹ năng trong thư mục kỹ năng của chính nó. Nhập từ thư mục hoặc zip sẽ sao chép toàn bộ kỹ năng vào; không có gì chạy khi nhập.',
@@ -1609,7 +1606,8 @@ export const strings = {
     navStarred: 'お気に入り',
     navAsk: 'AIに質問',
     navAssistant: 'アシスタント',
-    setOpIntro: 'アシスタントのモデルサービス、プラグイン、スキル、スケジュール、Feishu 連携、コマンドライン連携はここで管理します。',
+    setOpIntro:
+      'アシスタントのモデルサービス、プラグイン、スキル、スケジュール、Feishu 連携、コマンドライン連携はここで管理します。',
     setOpOpen: 'アシスタントの設定を開く',
     setOpUnavailable: 'OfficePilot サービスが実行されていません。アプリを開き直してください。',
     askThreadsTitle: '会話',
@@ -1633,7 +1631,7 @@ export const strings = {
     askSavedAs: '保存済み: {name}',
     askSaveFailed: '保存できませんでした: {error}',
     askEmptyCorpus: 'ナレッジベースは空です:先にファイルをスターしてから質問してください。',
-    askNeedsLogin: 'AI チャットには Genspark へのログインが必要です。',
+    askNeedsLogin: 'AI チャットを使うには、設定でモデルの API キーを追加してください。',
     askPlaceholder: 'スター付きファイルについて質問…',
     askHintIdle: 'Enter で送信',
     askHintBusy: 'AI が回答中…',
@@ -2009,7 +2007,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: '自動検出（推奨）',
     setAiCodexHint: 'ローカルでサインイン済みの Codex CLI を使用します。API キーは不要です。',
     setAiByokNote:
-      'チャットは自分のキーを使用します。画像生成とメディア解析は「AI メディア」の設定に従い、Web 検索は引き続き Genspark のサインインまたは無料ソースを使用します。',
+      'チャットは自分のキーを使用します。画像生成・メディア解析・Web 検索は「AI メディアと検索」の設定に従います。',
     setAiSave: '保存',
     setAiSaved: '保存しました',
     setAiTest: '接続テスト',
@@ -2069,21 +2067,20 @@ export const strings = {
     newTab: '新しいタブ',
     // First-run onboarding
     onbTitle1: 'OfficePilot へようこそ',
-    onbSubtitle1: '初のオープンソース AI ネイティブ Office スイート',
+    onbSubtitle1: 'AI を組み込んだオープンソースのオフィススイート',
     onbBody1:
       '文書の作成、表計算、プレゼン作成、PDF のレビュー。あらゆるステップに AI が組み込まれています。',
     onbTitle2: 'これはまだ始まりにすぎません',
     onbBody2:
-      'OfficePilot はまだアルファ版です。GenTeam のグループチャットに参加して、フィードバックを共有し、今後の開発を一緒に形作りましょう。',
-    onbCredits: 'アクティブな貢献者への特典 **1,000+ Genspark クレジット**',
-    onbJoinGenTeam: 'GenTeam に参加',
+      'OfficePilot はまだアルファ版です。不具合やアイデアを GitHub でお寄せいただき、今後の形づくりにご協力ください。',
     onbSkip: 'スキップ',
     onbNext: '次へ',
     onbStart: 'はじめる',
     onbStepAria: '{total} ページ中 {n} ページ目',
     onbTitle3: 'すべての人に無料',
     onbBody3: 'ライセンス料なし、広告なし、透かしなし。',
-    onbNote3: 'AI 機能は Genspark クレジットを消費する場合があります。',
+    onbNote3:
+      'AI 機能は選択したモデルプロバイダーと API キーを使用し、利用料金はそのプロバイダーが請求します。',
     onbBack: '戻る',
     intgSkillsDesc:
       'OfficePilot は自身のスキルフォルダ内のスキルのみ使用します。フォルダまたは zip からの読み込みはスキル全体をコピーします。読み込み時に何も実行されません。',
@@ -2162,7 +2159,8 @@ export const strings = {
     navStarred: '즐겨찾기',
     navAsk: 'AI 질문',
     navAssistant: '어시스턴트',
-    setOpIntro: '어시스턴트의 모델 서비스, 플러그인, 스킬, 예약 작업, Feishu 연결, 명령줄 통합을 여기에서 관리합니다.',
+    setOpIntro:
+      '어시스턴트의 모델 서비스, 플러그인, 스킬, 예약 작업, Feishu 연결, 명령줄 통합을 여기에서 관리합니다.',
     setOpOpen: '어시스턴트 설정 열기',
     setOpUnavailable: 'OfficePilot 서비스가 실행되고 있지 않습니다. 앱을 다시 여세요.',
     askThreadsTitle: '대화',
@@ -2186,7 +2184,7 @@ export const strings = {
     askSavedAs: '저장됨: {name}',
     askSaveFailed: '저장하지 못했습니다: {error}',
     askEmptyCorpus: '지식 베이스가 비어 있습니다. 먼저 파일을 즐겨찾기한 후 질문해 주세요.',
-    askNeedsLogin: 'AI 채팅을 사용하려면 Genspark에 로그인하세요.',
+    askNeedsLogin: 'AI 채팅을 사용하려면 설정에서 모델 API 키를 추가하세요.',
     askPlaceholder: '즐겨찾기한 파일에 대해 질문…',
     askHintIdle: 'Enter로 보내기',
     askHintBusy: 'AI가 답변 중…',
@@ -2552,7 +2550,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: '자동 감지(권장)',
     setAiCodexHint: '로컬에서 로그인된 Codex CLI를 사용하므로 API 키가 필요 없습니다.',
     setAiByokNote:
-      '채팅은 내 키를 사용합니다. 이미지 생성과 미디어 분석은 「AI 미디어」 설정을 따르며, 웹 검색은 여전히 Genspark 로그인 또는 무료 소스를 사용합니다.',
+      '채팅은 내 키를 사용합니다. 이미지 생성, 미디어 분석, 웹 검색은 「AI 미디어 및 검색」 설정을 따릅니다.',
     setAiSave: '저장',
     setAiSaved: '저장됨',
     setAiTest: '연결 테스트',
@@ -2612,21 +2610,20 @@ export const strings = {
     newTab: '새 탭',
     // First-run onboarding
     onbTitle1: 'OfficePilot에 오신 것을 환영합니다',
-    onbSubtitle1: '최초의 오픈소스 AI 네이티브 오피스 제품군',
+    onbSubtitle1: 'AI가 내장된 오픈 소스 오피스 제품군',
     onbBody1:
       '문서 작성, 스프레드시트 제작, 프레젠테이션 생성, PDF 검토. 모든 단계에 AI가 녹아 있습니다.',
     onbTitle2: '이제 시작일 뿐입니다',
     onbBody2:
-      'OfficePilot는 아직 알파 단계입니다. GenTeam 그룹 채팅에 참여해 피드백을 공유하고 앞으로의 방향을 함께 만들어 가세요.',
-    onbCredits: '활발한 기여자를 위한 혜택 **1,000+ Genspark 크레딧**',
-    onbJoinGenTeam: 'GenTeam 참여하기',
+      'OfficePilot은 아직 알파 단계입니다. GitHub에서 버그와 아이디어를 공유하고 앞으로의 방향을 함께 만들어 주세요.',
     onbSkip: '건너뛰기',
     onbNext: '다음',
     onbStart: '시작하기',
     onbStepAria: '총 {total}페이지 중 {n}페이지',
     onbTitle3: '모두에게 무료',
     onbBody3: '라이선스 비용 없음, 광고 없음, 워터마크 없음.',
-    onbNote3: 'AI 기능은 Genspark 크레딧을 소모할 수 있습니다.',
+    onbNote3:
+      'AI 기능은 선택한 모델 제공자와 API 키를 사용하며, 사용량은 해당 제공자가 청구합니다.',
     onbBack: '이전',
     intgSkillsDesc:
       'OfficePilot는 자체 스킬 폴더의 스킬만 사용합니다. 폴더나 zip에서 가져오면 스킬 전체가 복사되며, 가져오기 시 아무것도 실행되지 않습니다.',
@@ -2705,7 +2702,8 @@ export const strings = {
     navStarred: 'Favoris',
     navAsk: 'Demander à l’IA',
     navAssistant: 'Assistant',
-    setOpIntro: 'Gérez ici les services de modèle, extensions, compétences, tâches planifiées, la connexion Feishu et les intégrations en ligne de commande de l’assistant.',
+    setOpIntro:
+      'Gérez ici les services de modèle, extensions, compétences, tâches planifiées, la connexion Feishu et les intégrations en ligne de commande de l’assistant.',
     setOpOpen: 'Ouvrir les réglages de l’assistant',
     setOpUnavailable: 'Le service OfficePilot ne fonctionne pas. Rouvrez l’application.',
     askThreadsTitle: 'Conversations',
@@ -2731,7 +2729,7 @@ export const strings = {
     askSavedAs: 'Enregistré : {name}',
     askSaveFailed: 'Enregistrement impossible : {error}',
     askEmptyCorpus: 'La base de connaissances est vide : ajoutez d’abord des fichiers favoris.',
-    askNeedsLogin: 'Connectez-vous à Genspark pour utiliser le chat IA.',
+    askNeedsLogin: 'Ajoutez une clé API de modèle dans les Paramètres pour utiliser le chat IA.',
     askPlaceholder: 'Posez une question sur vos fichiers…',
     askHintIdle: 'Entrée pour envoyer',
     askHintBusy: 'L’IA répond…',
@@ -2952,7 +2950,8 @@ export const strings = {
     aiFontSizeCustom: 'Personnalisé',
     setAiSpellcheck: 'Correction orthographique dans le chat IA',
     setDefaultApp: 'Application par défaut pour les documents Office',
-    setDefaultAppDesc: 'Ouvrir les fichiers .docx, .xlsx et .pptx dans OfficePilot par double-clic.',
+    setDefaultAppDesc:
+      'Ouvrir les fichiers .docx, .xlsx et .pptx dans OfficePilot par double-clic.',
     setDefaultAppIs: 'OfficePilot est déjà l’application par défaut.',
     setDefaultAppOther: 'Par défaut actuellement : {app}',
     setDefaultAppSet: 'Définir par défaut',
@@ -3110,7 +3109,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'Détection auto (recommandé)',
     setAiCodexHint: 'Utilise le CLI Codex connecté localement ; aucune clé API requise.',
     setAiByokNote:
-      "Les conversations utilisent votre propre clé. La génération d'images et l'analyse de médias suivent la section « Médias IA » ; la recherche web utilise toujours la connexion Genspark ou des sources gratuites.",
+      "Les conversations utilisent votre propre clé. La génération d'images, l'analyse de médias et la recherche web suivent la section « Médias IA et recherche ».",
     setAiSave: 'Enregistrer',
     setAiSaved: 'Enregistré',
     setAiTest: 'Tester la connexion',
@@ -3173,21 +3172,20 @@ export const strings = {
     newTab: 'Nouvel onglet',
     // First-run onboarding
     onbTitle1: 'Bienvenue dans OfficePilot',
-    onbSubtitle1: 'La première suite bureautique open source et native IA',
+    onbSubtitle1: 'Une suite bureautique open source avec l’IA intégrée',
     onbBody1:
       'Créez des documents, des feuilles de calcul et des présentations, et relisez des PDF. L’IA est intégrée à chaque étape.',
     onbTitle2: 'Ce n’est qu’un début',
     onbBody2:
-      'OfficePilot est encore en alpha. Rejoignez la discussion de groupe sur GenTeam pour partager vos retours et façonner la suite.',
-    onbCredits: 'Les contributeurs actifs reçoivent **1 000+ crédits Genspark**',
-    onbJoinGenTeam: 'Rejoindre GenTeam',
+      'OfficePilot est encore en alpha. Signalez bugs et idées sur GitHub pour aider à façonner la suite.',
     onbSkip: 'Passer',
     onbNext: 'Suivant',
     onbStart: 'Commencer',
     onbStepAria: 'Page {n} sur {total}',
     onbTitle3: 'Gratuit pour tous',
     onbBody3: 'Pas de licence. Pas de publicité. Pas de filigrane.',
-    onbNote3: 'Les fonctions IA peuvent consommer des crédits Genspark.',
+    onbNote3:
+      'Les fonctions IA utilisent le fournisseur de modèle et la clé API de votre choix ; ce fournisseur facture l’utilisation.',
     onbBack: 'Retour',
     intgSkillsDesc:
       'OfficePilot n’utilise que les compétences de son propre dossier. Importer un dossier ou un zip copie toute la compétence ; rien ne s’exécute à l’import.',
@@ -3268,7 +3266,8 @@ export const strings = {
     navStarred: 'Favoriten',
     navAsk: 'KI fragen',
     navAssistant: 'Assistent',
-    setOpIntro: 'Hier verwaltest du Modelldienste, Plugins, Skills, geplante Aufgaben, die Feishu-Anbindung und Kommandozeilen-Integrationen des Assistenten.',
+    setOpIntro:
+      'Hier verwaltest du Modelldienste, Plugins, Skills, geplante Aufgaben, die Feishu-Anbindung und Kommandozeilen-Integrationen des Assistenten.',
     setOpOpen: 'Assistent-Einstellungen öffnen',
     setOpUnavailable: 'Der OfficePilot-Dienst läuft nicht. Bitte öffne die App erneut.',
     askThreadsTitle: 'Unterhaltungen',
@@ -3293,7 +3292,8 @@ export const strings = {
     askSavedAs: 'Gespeichert: {name}',
     askSaveFailed: 'Speichern fehlgeschlagen: {error}',
     askEmptyCorpus: 'Die Wissensbasis ist leer: markieren Sie zuerst Dateien, dann fragen Sie.',
-    askNeedsLogin: 'Melden Sie sich bei Genspark an, um den KI-Chat zu nutzen.',
+    askNeedsLogin:
+      'Fügen Sie in den Einstellungen einen Modell-API-Schlüssel hinzu, um den KI-Chat zu nutzen.',
     askPlaceholder: 'Fragen Sie zu Ihren Favoriten…',
     askHintIdle: 'Enter zum Senden',
     askHintBusy: 'Die KI antwortet…',
@@ -3676,7 +3676,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'Automatisch erkennen (empfohlen)',
     setAiCodexHint: 'Verwendet die lokal angemeldete Codex CLI; kein API-Schlüssel nötig.',
     setAiByokNote:
-      'Chats nutzen deinen eigenen Schlüssel. Bildgenerierung und Medienanalyse folgen dem Abschnitt „KI-Medien“; die Websuche nutzt weiterhin die Genspark-Anmeldung oder kostenlose Quellen.',
+      'Chats verwenden Ihren eigenen Schlüssel. Bildgenerierung, Medienanalyse und Websuche folgen dem Abschnitt „KI-Medien & Suche“.',
     setAiSave: 'Speichern',
     setAiSaved: 'Gespeichert',
     setAiTest: 'Verbindung testen',
@@ -3737,21 +3737,20 @@ export const strings = {
     newTab: 'Neuer Tab',
     // First-run onboarding
     onbTitle1: 'Willkommen bei OfficePilot',
-    onbSubtitle1: 'Die erste quelloffene, KI-native Office-Suite',
+    onbSubtitle1: 'Eine Open-Source-Office-Suite mit integrierter KI',
     onbBody1:
       'Dokumente erstellen, Tabellen bauen, Präsentationen gestalten und PDFs prüfen. KI ist in jedem Schritt integriert.',
     onbTitle2: 'Das ist erst der Anfang',
     onbBody2:
-      'OfficePilot ist noch in der Alpha-Phase. Treten Sie dem Gruppenchat auf GenTeam bei, um Feedback zu teilen und die Zukunft mitzugestalten.',
-    onbCredits: 'Aktive Mitwirkende erhalten **1.000+ Genspark-Guthaben**',
-    onbJoinGenTeam: 'GenTeam beitreten',
+      'OfficePilot ist noch in der Alpha-Phase. Teilen Sie Fehler und Ideen auf GitHub und gestalten Sie die Zukunft mit.',
     onbSkip: 'Überspringen',
     onbNext: 'Weiter',
     onbStart: 'Loslegen',
     onbStepAria: 'Seite {n} von {total}',
     onbTitle3: 'Kostenlos für alle',
     onbBody3: 'Keine Lizenzgebühren. Keine Werbung. Keine Wasserzeichen.',
-    onbNote3: 'KI-Funktionen können Genspark-Credits verbrauchen.',
+    onbNote3:
+      'KI-Funktionen nutzen den Modellanbieter und API-Schlüssel Ihrer Wahl; die Nutzung rechnet dieser Anbieter ab.',
     onbBack: 'Zurück',
     intgSkillsDesc:
       'OfficePilot verwendet nur Skills aus seinem eigenen Skills-Ordner. Der Import eines Ordners oder einer ZIP kopiert den ganzen Skill; beim Import wird nichts ausgeführt.',
@@ -3830,9 +3829,11 @@ export const strings = {
     navStarred: 'Destacados',
     navAsk: 'Preguntar a la IA',
     navAssistant: 'Asistente',
-    setOpIntro: 'Gestiona aquí los servicios de modelo, complementos, habilidades, tareas programadas, la conexión con Feishu y las integraciones de línea de comandos del asistente.',
+    setOpIntro:
+      'Gestiona aquí los servicios de modelo, complementos, habilidades, tareas programadas, la conexión con Feishu y las integraciones de línea de comandos del asistente.',
     setOpOpen: 'Abrir ajustes del asistente',
-    setOpUnavailable: 'El servicio de OfficePilot no está en ejecución. Vuelve a abrir la aplicación.',
+    setOpUnavailable:
+      'El servicio de OfficePilot no está en ejecución. Vuelve a abrir la aplicación.',
     askThreadsTitle: 'Conversaciones',
     askThreadDelete: 'Eliminar la conversación «{label}»',
     askThreadDeleteConfirm: '¿Eliminar la conversación "{label}"? No se podrá recuperar.',
@@ -3855,7 +3856,7 @@ export const strings = {
     askSavedAs: 'Guardado: {name}',
     askSaveFailed: 'No se pudo guardar: {error}',
     askEmptyCorpus: 'La base de conocimientos está vacía: marca archivos primero y luego pregunta.',
-    askNeedsLogin: 'Inicia sesión en Genspark para usar el chat de IA.',
+    askNeedsLogin: 'Añade una clave API de modelo en Ajustes para usar el chat de IA.',
     askPlaceholder: 'Pregunta sobre tus archivos favoritos…',
     askHintIdle: 'Enter para enviar',
     askHintBusy: 'La IA está respondiendo…',
@@ -4208,7 +4209,8 @@ export const strings = {
     intgSaveZipTitle: 'Guardar skill',
     intgSavedTo: 'Guardado en {path}',
     intgCopied: 'Copiado',
-    intgCliEphemeral: 'Arrastra primero OfficePilot a Aplicaciones y luego usa la línea de comandos.',
+    intgCliEphemeral:
+      'Arrastra primero OfficePilot a Aplicaciones y luego usa la línea de comandos.',
     intgCopyPath: 'Copiar ruta',
     intgCliNeedsUpdate:
       'Este skill necesita la línea de comandos {v} o superior; actualiza OfficePilot.',
@@ -4234,7 +4236,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'Detección automática (recomendado)',
     setAiCodexHint: 'Usa la CLI de Codex con sesión local; no se necesita clave de API.',
     setAiByokNote:
-      'Los chats usan tu propia clave. La generación de imágenes y el análisis de medios siguen la sección «Medios de IA»; la búsqueda web sigue usando el inicio de sesión de Genspark o fuentes gratuitas.',
+      'Los chats usan tu propia clave. La generación de imágenes, el análisis de medios y la búsqueda web siguen la sección «Medios de IA y búsqueda».',
     setAiSave: 'Guardar',
     setAiSaved: 'Guardado',
     setAiTest: 'Probar conexión',
@@ -4295,21 +4297,20 @@ export const strings = {
     newTab: 'Nueva pestaña',
     // First-run onboarding
     onbTitle1: 'Bienvenido a OfficePilot',
-    onbSubtitle1: 'La primera suite ofimática de código abierto y nativa de IA',
+    onbSubtitle1: 'Una suite ofimática de código abierto con IA integrada',
     onbBody1:
       'Crea documentos, hojas de cálculo y presentaciones, y revisa PDF. La IA está integrada en cada paso.',
     onbTitle2: 'Esto es solo el comienzo',
     onbBody2:
-      'OfficePilot aún está en alfa. Únete al chat grupal en GenTeam para compartir comentarios y ayudar a dar forma a lo que viene.',
-    onbCredits: 'Los colaboradores activos reciben **1.000+ créditos de Genspark**',
-    onbJoinGenTeam: 'Unirse a GenTeam',
+      'OfficePilot aún está en fase alfa. Comparte errores e ideas en GitHub y ayuda a dar forma a lo que viene.',
     onbSkip: 'Omitir',
     onbNext: 'Siguiente',
     onbStart: 'Empezar',
     onbStepAria: 'Página {n} de {total}',
     onbTitle3: 'Gratis para todos',
     onbBody3: 'Sin licencias. Sin anuncios. Sin marcas de agua.',
-    onbNote3: 'Las funciones de IA pueden consumir créditos de Genspark.',
+    onbNote3:
+      'Las funciones de IA usan el proveedor de modelos y la clave API que elijas; ese proveedor factura el uso.',
     onbBack: 'Atrás',
     intgSkillsDesc:
       'OfficePilot solo usa habilidades de su propia carpeta. Importar una carpeta o un zip copia la habilidad completa; nada se ejecuta al importar.',
@@ -4321,7 +4322,8 @@ export const strings = {
     intgSkillsImportDone: '{name} importada',
     intgSkillsImportFailed: 'Error al importar: {reason}',
     intgSkillsRemove: 'Quitar',
-    intgSkillsRemoveConfirm: '¿Quitar la habilidad "{name}"? Su carpeta se eliminará de OfficePilot.',
+    intgSkillsRemoveConfirm:
+      '¿Quitar la habilidad "{name}"? Su carpeta se eliminará de OfficePilot.',
     intgSkillsRemoved: '{name} quitada',
     intgSkillsRead: 'Detalles',
     intgSkillsMine: 'Mis habilidades',
@@ -4390,7 +4392,8 @@ export const strings = {
     navStarred: 'รายการโปรด',
     navAsk: 'ถาม AI',
     navAssistant: 'ผู้ช่วย',
-    setOpIntro: 'จัดการบริการโมเดล ปลั๊กอิน ทักษะ งานตามกำหนดเวลา การเชื่อมต่อ Feishu และการผสานบรรทัดคำสั่งของผู้ช่วยได้ที่นี่',
+    setOpIntro:
+      'จัดการบริการโมเดล ปลั๊กอิน ทักษะ งานตามกำหนดเวลา การเชื่อมต่อ Feishu และการผสานบรรทัดคำสั่งของผู้ช่วยได้ที่นี่',
     setOpOpen: 'เปิดการตั้งค่าผู้ช่วย',
     setOpUnavailable: 'บริการ OfficePilot ไม่ได้ทำงาน โปรดเปิดแอปอีกครั้ง',
     askThreadsTitle: 'การสนทนา',
@@ -4413,7 +4416,7 @@ export const strings = {
     askSavedAs: 'บันทึกแล้ว: {name}',
     askSaveFailed: 'บันทึกไม่สำเร็จ: {error}',
     askEmptyCorpus: 'คลังความรู้ว่างเปล่า: ติดดาวไฟล์ก่อนแล้วค่อยถาม',
-    askNeedsLogin: 'เข้าสู่ระบบ Genspark เพื่อใช้แชท AI',
+    askNeedsLogin: 'เพิ่มคีย์ API ของโมเดลในการตั้งค่าเพื่อใช้แชท AI',
     askPlaceholder: 'ถามเกี่ยวกับไฟล์ที่ติดดาว…',
     askHintIdle: 'Enter เพื่อส่ง',
     askHintBusy: 'AI กำลังตอบ…',
@@ -4776,7 +4779,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'ค้นหาอัตโนมัติ (แนะนำ)',
     setAiCodexHint: 'ใช้ Codex CLI ที่เข้าสู่ระบบไว้ในเครื่อง โดยไม่ต้องใช้คีย์ API',
     setAiByokNote:
-      'การแชทใช้คีย์ของคุณเอง การสร้างภาพและการวิเคราะห์สื่อเป็นไปตามส่วน "สื่อ AI" ส่วนการค้นหาเว็บยังใช้การลงชื่อเข้าใช้ Genspark หรือแหล่งข้อมูลฟรี',
+      'การแชทใช้คีย์ของคุณเอง การสร้างภาพ การวิเคราะห์สื่อ และการค้นหาเว็บเป็นไปตามส่วน "สื่อ AI และการค้นหา"',
     setAiSave: 'บันทึก',
     setAiSaved: 'บันทึกแล้ว',
     setAiTest: 'ทดสอบการเชื่อมต่อ',
@@ -4837,20 +4840,19 @@ export const strings = {
     newTab: 'แท็บใหม่',
     // First-run onboarding
     onbTitle1: 'ยินดีต้อนรับสู่ OfficePilot',
-    onbSubtitle1: 'ชุดโปรแกรมออฟฟิศ AI-native โอเพนซอร์สตัวแรก',
+    onbSubtitle1: 'ชุดโปรแกรมออฟฟิศโอเพนซอร์สที่มี AI ในตัว',
     onbBody1: 'สร้างเอกสาร ทำสเปรดชีต สร้างงานนำเสนอ และตรวจทาน PDF ทุกขั้นตอนมี AI ในตัว',
     onbTitle2: 'นี่เป็นเพียงจุดเริ่มต้น',
     onbBody2:
-      'OfficePilot ยังอยู่ในช่วงอัลฟ่า เข้าร่วมแชทกลุ่มบน GenTeam เพื่อแบ่งปันความคิดเห็นและร่วมกำหนดทิศทางต่อไป',
-    onbCredits: 'ผู้มีส่วนร่วมอย่างต่อเนื่องจะได้รับ **เครดิต Genspark กว่า 1,000**',
-    onbJoinGenTeam: 'เข้าร่วม GenTeam',
+      'OfficePilot ยังอยู่ในระยะ alpha แจ้งบั๊กและไอเดียบน GitHub เพื่อช่วยกำหนดทิศทางต่อไป',
     onbSkip: 'ข้าม',
     onbNext: 'ถัดไป',
     onbStart: 'เริ่มใช้งาน',
     onbStepAria: 'หน้า {n} จาก {total}',
     onbTitle3: 'ฟรีสำหรับทุกคน',
     onbBody3: 'ไม่มีค่าลิขสิทธิ์ ไม่มีโฆษณา ไม่มีลายน้ำ',
-    onbNote3: 'ฟีเจอร์ AI อาจใช้เครดิต Genspark',
+    onbNote3:
+      'ฟีเจอร์ AI ใช้ผู้ให้บริการโมเดลและคีย์ API ที่คุณเลือก ผู้ให้บริการนั้นเป็นผู้เรียกเก็บค่าใช้งาน',
     onbBack: 'ย้อนกลับ',
     intgSkillsDesc:
       'OfficePilot ใช้เฉพาะทักษะในโฟลเดอร์ทักษะของตัวเอง การนำเข้าจากโฟลเดอร์หรือ zip จะคัดลอกทักษะทั้งชุด และไม่มีสิ่งใดทำงานเมื่อนำเข้า',
@@ -4927,7 +4929,8 @@ export const strings = {
     navStarred: 'Berbintang',
     navAsk: 'Tanya AI',
     navAssistant: 'Asisten',
-    setOpIntro: 'Kelola layanan model, plugin, keterampilan, jadwal, koneksi Feishu, dan integrasi baris perintah asisten di sini.',
+    setOpIntro:
+      'Kelola layanan model, plugin, keterampilan, jadwal, koneksi Feishu, dan integrasi baris perintah asisten di sini.',
     setOpOpen: 'Buka pengaturan asisten',
     setOpUnavailable: 'Layanan OfficePilot tidak berjalan. Buka ulang aplikasi.',
     askThreadsTitle: 'Percakapan',
@@ -4952,7 +4955,7 @@ export const strings = {
     askSavedAs: 'Tersimpan: {name}',
     askSaveFailed: 'Gagal menyimpan: {error}',
     askEmptyCorpus: 'Basis pengetahuan kosong: tandai beberapa file dahulu, lalu bertanya.',
-    askNeedsLogin: 'Masuk ke Genspark untuk memakai obrolan AI.',
+    askNeedsLogin: 'Tambahkan kunci API model di Pengaturan untuk memakai obrolan AI.',
     askPlaceholder: 'Tanya tentang file berbintang anda…',
     askHintIdle: 'Enter untuk mengirim',
     askHintBusy: 'AI sedang menjawab…',
@@ -5265,7 +5268,8 @@ export const strings = {
     intgMcpHttpDesc:
       'Berjalan di dalam OfficePilot; asisten terhubung lewat URL dan Anda bisa melihat dokumen dibangun langkah demi langkah di editor Word. OfficePilot harus tetap terbuka; untuk saat ini hanya dokumen Word.',
     intgMcpHttpAdvanced: 'Lanjutan: alamat lain dan log',
-    intgMcpTryNote: 'Asisten memanggil OfficePilot melalui MCP; Anda tidak pernah mengetik perintah.',
+    intgMcpTryNote:
+      'Asisten memanggil OfficePilot melalui MCP; Anda tidak pernah mengetik perintah.',
     intgMcpClaudeTitle: 'Claude Code',
     intgMcpClaudeDesc: 'Jalankan ini sekali di terminal:',
     intgMcpOtherTitle: 'Cursor, Claude Desktop, atau asisten lain yang mendukung MCP',
@@ -5325,7 +5329,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'Deteksi otomatis (disarankan)',
     setAiCodexHint: 'Menggunakan Codex CLI yang sudah login secara lokal; tanpa kunci API.',
     setAiByokNote:
-      'Chat memakai kunci Anda sendiri. Pembuatan gambar dan analisis media mengikuti bagian "Media AI"; pencarian web tetap memakai login Genspark atau sumber gratis.',
+      'Obrolan memakai kunci Anda sendiri. Pembuatan gambar, analisis media, dan pencarian web mengikuti bagian Media & Pencarian AI.',
     setAiSave: 'Simpan',
     setAiSaved: 'Tersimpan',
     setAiTest: 'Uji koneksi',
@@ -5386,21 +5390,20 @@ export const strings = {
     newTab: 'Tab baru',
     // First-run onboarding
     onbTitle1: 'Selamat datang di OfficePilot',
-    onbSubtitle1: 'Suite office open source AI-native pertama',
+    onbSubtitle1: 'Suite perkantoran sumber terbuka dengan AI bawaan',
     onbBody1:
       'Buat dokumen, susun spreadsheet, rancang presentasi, dan tinjau PDF. AI hadir di setiap langkah.',
     onbTitle2: 'Ini baru permulaan',
     onbBody2:
-      'OfficePilot masih dalam tahap alpha. Gabung obrolan grup di GenTeam untuk berbagi masukan dan ikut menentukan arah ke depan.',
-    onbCredits: 'Kontributor aktif mendapat **1.000+ kredit Genspark**',
-    onbJoinGenTeam: 'Gabung GenTeam',
+      'OfficePilot masih dalam tahap alfa. Bagikan bug dan ide di GitHub untuk membantu membentuk langkah berikutnya.',
     onbSkip: 'Lewati',
     onbNext: 'Berikutnya',
     onbStart: 'Mulai',
     onbStepAria: 'Halaman {n} dari {total}',
     onbTitle3: 'Gratis untuk semua',
     onbBody3: 'Tanpa biaya lisensi. Tanpa iklan. Tanpa watermark.',
-    onbNote3: 'Fitur AI dapat menggunakan kredit Genspark.',
+    onbNote3:
+      'Fitur AI memakai penyedia model dan kunci API pilihan Anda; penyedia tersebut yang menagih penggunaannya.',
     onbBack: 'Kembali',
     intgSkillsDesc:
       'OfficePilot hanya memakai keterampilan di folder keterampilannya sendiri. Mengimpor folder atau zip menyalin seluruh keterampilan; tidak ada yang dijalankan saat impor.',
@@ -5412,7 +5415,8 @@ export const strings = {
     intgSkillsImportDone: '{name} diimpor',
     intgSkillsImportFailed: 'Impor gagal: {reason}',
     intgSkillsRemove: 'Hapus',
-    intgSkillsRemoveConfirm: 'Hapus keterampilan "{name}"? Foldernya akan dihapus dari OfficePilot.',
+    intgSkillsRemoveConfirm:
+      'Hapus keterampilan "{name}"? Foldernya akan dihapus dari OfficePilot.',
     intgSkillsRemoved: '{name} dihapus',
     intgSkillsRead: 'Detail',
     intgSkillsMine: 'Skill saya',
@@ -5479,7 +5483,8 @@ export const strings = {
     navStarred: 'Избранное',
     navAsk: 'Спросить ИИ',
     navAssistant: 'Ассистент',
-    setOpIntro: 'Здесь настраиваются сервисы моделей, плагины, навыки, расписания, подключение Feishu и интеграции командной строки ассистента.',
+    setOpIntro:
+      'Здесь настраиваются сервисы моделей, плагины, навыки, расписания, подключение Feishu и интеграции командной строки ассистента.',
     setOpOpen: 'Открыть настройки ассистента',
     setOpUnavailable: 'Служба OfficePilot не запущена. Откройте приложение заново.',
     askThreadsTitle: 'Диалоги',
@@ -5504,7 +5509,7 @@ export const strings = {
     askSavedAs: 'Сохранено: {name}',
     askSaveFailed: 'Не удалось сохранить: {error}',
     askEmptyCorpus: 'База знаний пуста: сначала отметьте файлы, затем спрашивайте.',
-    askNeedsLogin: 'Войдите в Genspark, чтобы пользоваться чатом с ИИ.',
+    askNeedsLogin: 'Добавьте API-ключ модели в настройках, чтобы пользоваться чатом ИИ.',
     askPlaceholder: 'Спросите о своих файлах…',
     askHintIdle: 'Enter — отправить',
     askHintBusy: 'ИИ отвечает…',
@@ -5875,7 +5880,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'Автоопределение (рекомендуется)',
     setAiCodexHint: 'Использует локально авторизованный Codex CLI; ключ API не нужен.',
     setAiByokNote:
-      'Чаты используют ваш собственный ключ. Генерация изображений и анализ медиа настраиваются в разделе «Медиа ИИ»; веб-поиск по-прежнему использует вход в Genspark или бесплатные источники.',
+      'Чаты используют ваш собственный ключ. Генерация изображений, анализ медиа и веб-поиск настраиваются в разделе «Медиа и поиск ИИ».',
     setAiSave: 'Сохранить',
     setAiSaved: 'Сохранено',
     setAiTest: 'Проверить подключение',
@@ -5936,21 +5941,20 @@ export const strings = {
     newTab: 'Новая вкладка',
     // First-run onboarding
     onbTitle1: 'Добро пожаловать в OfficePilot',
-    onbSubtitle1: 'Первый открытый ИИ-нативный офисный пакет',
+    onbSubtitle1: 'Офисный пакет с открытым исходным кодом и встроенным ИИ',
     onbBody1:
       'Создавайте документы, таблицы и презентации, работайте с PDF. ИИ встроен в каждый шаг.',
     onbTitle2: 'Это только начало',
     onbBody2:
-      'OfficePilot пока в альфа-версии. Присоединяйтесь к групповому чату в GenTeam, чтобы делиться отзывами и влиять на дальнейшее развитие.',
-    onbCredits: 'Активные участники получают **1000+ кредитов Genspark**',
-    onbJoinGenTeam: 'Присоединиться к GenTeam',
+      'OfficePilot пока в альфа-версии. Сообщайте об ошибках и делитесь идеями на GitHub — помогите определить, что будет дальше.',
     onbSkip: 'Пропустить',
     onbNext: 'Далее',
     onbStart: 'Начать',
     onbStepAria: 'Страница {n} из {total}',
     onbTitle3: 'Бесплатно для всех',
     onbBody3: 'Без лицензий. Без рекламы. Без водяных знаков.',
-    onbNote3: 'Функции ИИ могут расходовать кредиты Genspark.',
+    onbNote3:
+      'Функции ИИ используют выбранного вами поставщика модели и API-ключ; оплата использования — у этого поставщика.',
     onbBack: 'Назад',
     intgSkillsDesc:
       'OfficePilot использует только навыки из своей папки навыков. Импорт папки или zip копирует навык целиком; при импорте ничего не запускается.',
@@ -6030,7 +6034,8 @@ export const strings = {
     navStarred: 'المفضلة',
     navAsk: 'اسأل الذكاء الاصطناعي',
     navAssistant: 'المساعد',
-    setOpIntro: 'أدِر هنا خدمات النماذج والإضافات والمهارات والمهام المجدولة واتصال Feishu وتكاملات سطر الأوامر الخاصة بالمساعد.',
+    setOpIntro:
+      'أدِر هنا خدمات النماذج والإضافات والمهارات والمهام المجدولة واتصال Feishu وتكاملات سطر الأوامر الخاصة بالمساعد.',
     setOpOpen: 'فتح إعدادات المساعد',
     setOpUnavailable: 'خدمة OfficePilot لا تعمل. أعد فتح التطبيق.',
     askThreadsTitle: 'المحادثات',
@@ -6054,7 +6059,7 @@ export const strings = {
     askSavedAs: 'تم الحفظ: {name}',
     askSaveFailed: 'تعذر الحفظ: {error}',
     askEmptyCorpus: 'قاعدة المعارف فارغة: ضع نجمة على بعض الملفات أولاً ثم اسأل.',
-    askNeedsLogin: 'سجّل الدخول إلى Genspark لاستخدام محادثة الذكاء الاصطناعي.',
+    askNeedsLogin: 'أضف مفتاح API للنموذج في الإعدادات لاستخدام دردشة الذكاء الاصطناعي.',
     askPlaceholder: 'اسأل عن ملفاتك المفضلة…',
     askHintIdle: 'Enter للإرسال',
     askHintBusy: 'الذكاء الاصطناعي يجيب…',
@@ -6419,7 +6424,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'اكتشاف تلقائي (موصى به)',
     setAiCodexHint: 'يستخدم Codex CLI المسجل محليًا؛ لا حاجة إلى مفتاح API.',
     setAiByokNote:
-      'تستخدم المحادثات مفتاحك الخاص. يتبع توليد الصور وتحليل الوسائط قسم «وسائط الذكاء الاصطناعي»؛ ولا يزال البحث في الويب يستخدم تسجيل دخول Genspark أو مصادر مجانية.',
+      'تستخدم المحادثات مفتاحك الخاص. يتبع توليد الصور وتحليل الوسائط والبحث على الويب قسم «وسائط الذكاء الاصطناعي والبحث».',
     setAiSave: 'حفظ',
     setAiSaved: 'تم الحفظ',
     setAiTest: 'اختبار الاتصال',
@@ -6478,21 +6483,20 @@ export const strings = {
     newTab: 'علامة تبويب جديدة',
     // First-run onboarding
     onbTitle1: 'مرحبًا بك في OfficePilot',
-    onbSubtitle1: 'أول حزمة مكتبية مفتوحة المصدر وأصيلة في الذكاء الاصطناعي',
+    onbSubtitle1: 'حزمة مكتبية مفتوحة المصدر مع ذكاء اصطناعي مدمج',
     onbBody1:
       'أنشئ المستندات وجداول البيانات والعروض التقديمية وراجع ملفات PDF. الذكاء الاصطناعي مدمج في كل خطوة.',
     onbTitle2: 'هذه مجرد البداية',
     onbBody2:
-      'لا يزال OfficePilot في مرحلة ألفا. انضم إلى الدردشة الجماعية على GenTeam لمشاركة ملاحظاتك والمساهمة في تشكيل المستقبل.',
-    onbCredits: 'يحصل المساهمون النشطون على **+1,000 من أرصدة Genspark**',
-    onbJoinGenTeam: 'الانضمام إلى GenTeam',
+      'لا يزال OfficePilot في مرحلة ألفا. شارك الأخطاء والأفكار على GitHub وساعد في تشكيل ما سيأتي.',
     onbSkip: 'تخطي',
     onbNext: 'التالي',
     onbStart: 'ابدأ الآن',
     onbStepAria: 'الصفحة {n} من {total}',
     onbTitle3: 'مجاني للجميع',
     onbBody3: 'بلا رسوم ترخيص، بلا إعلانات، بلا علامات مائية.',
-    onbNote3: 'قد تستهلك ميزات الذكاء الاصطناعي أرصدة Genspark.',
+    onbNote3:
+      'تستخدم ميزات الذكاء الاصطناعي مزوّد النموذج ومفتاح API اللذين تختارهما، ويحاسبك هذا المزوّد على الاستخدام.',
     onbBack: 'رجوع',
     intgSkillsDesc:
       'يستخدم OfficePilot المهارات الموجودة في مجلد مهاراته فقط. استيراد مجلد أو ملف zip ينسخ المهارة كاملة؛ ولا يُشغَّل شيء عند الاستيراد.',
@@ -6569,7 +6573,8 @@ export const strings = {
     navStarred: 'Favoritos',
     navAsk: 'Perguntar à IA',
     navAssistant: 'Assistente',
-    setOpIntro: 'Gerencie aqui os serviços de modelo, plugins, habilidades, tarefas agendadas, a conexão com o Feishu e as integrações de linha de comando do assistente.',
+    setOpIntro:
+      'Gerencie aqui os serviços de modelo, plugins, habilidades, tarefas agendadas, a conexão com o Feishu e as integrações de linha de comando do assistente.',
     setOpOpen: 'Abrir configurações do assistente',
     setOpUnavailable: 'O serviço do OfficePilot não está em execução. Abra o aplicativo novamente.',
     askThreadsTitle: 'Conversas',
@@ -6595,7 +6600,7 @@ export const strings = {
     askSaveFailed: 'Não foi possível salvar: {error}',
     askEmptyCorpus:
       'A base de conhecimento está vazia: marque arquivos primeiro e depois pergunte.',
-    askNeedsLogin: 'Entre no Genspark para usar o chat de IA.',
+    askNeedsLogin: 'Adicione uma chave de API de modelo nas Configurações para usar o chat de IA.',
     askPlaceholder: 'Pergunte sobre seus arquivos favoritos…',
     askHintIdle: 'Enter para enviar',
     askHintBusy: 'A IA está respondendo…',
@@ -6966,7 +6971,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'Detectar automaticamente (recomendado)',
     setAiCodexHint: 'Usa o Codex CLI conectado localmente; nenhuma chave de API é necessária.',
     setAiByokNote:
-      'Os chats usam a sua própria chave. A geração de imagens e a análise de mídia seguem a seção «Mídia de IA»; a busca na web continua usando o login do Genspark ou fontes gratuitas.',
+      'Os chats usam sua própria chave. Geração de imagens, análise de mídia e busca na web seguem a seção Mídia e busca de IA.',
     setAiSave: 'Salvar',
     setAiSaved: 'Salvo',
     setAiTest: 'Testar conexão',
@@ -7025,21 +7030,20 @@ export const strings = {
     newTab: 'Nova guia',
     // First-run onboarding
     onbTitle1: 'Bem-vindo ao OfficePilot',
-    onbSubtitle1: 'A primeira suíte de escritório open source e nativa de IA',
+    onbSubtitle1: 'Uma suíte de escritório de código aberto com IA integrada',
     onbBody1:
       'Crie documentos, planilhas e apresentações e revise PDFs. A IA está integrada em cada etapa.',
     onbTitle2: 'Isto é só o começo',
     onbBody2:
-      'O OfficePilot ainda está em alfa. Entre no chat em grupo no GenTeam para compartilhar feedback e ajudar a moldar o que vem a seguir.',
-    onbCredits: 'Contribuidores ativos recebem **1.000+ créditos Genspark**',
-    onbJoinGenTeam: 'Entrar no GenTeam',
+      'O OfficePilot ainda está em fase alfa. Compartilhe bugs e ideias no GitHub e ajude a definir os próximos passos.',
     onbSkip: 'Pular',
     onbNext: 'Avançar',
     onbStart: 'Começar',
     onbStepAria: 'Página {n} de {total}',
     onbTitle3: 'Gratuito para todos',
     onbBody3: "Sem licenças. Sem anúncios. Sem marcas d'água.",
-    onbNote3: 'Os recursos de IA podem consumir créditos Genspark.',
+    onbNote3:
+      'Os recursos de IA usam o provedor de modelos e a chave de API que você escolher; esse provedor cobra pelo uso.',
     onbBack: 'Voltar',
     intgSkillsDesc:
       'O OfficePilot só usa habilidades da sua própria pasta. Importar uma pasta ou um zip copia a habilidade inteira; nada é executado na importação.',
@@ -7118,7 +7122,8 @@ export const strings = {
     navStarred: 'Preferiti',
     navAsk: 'Chiedi all’IA',
     navAssistant: 'Assistente',
-    setOpIntro: 'Gestisci qui servizi di modello, plugin, competenze, attività pianificate, connessione Feishu e integrazioni da riga di comando dell’assistente.',
+    setOpIntro:
+      'Gestisci qui servizi di modello, plugin, competenze, attività pianificate, connessione Feishu e integrazioni da riga di comando dell’assistente.',
     setOpOpen: 'Apri le impostazioni dell’assistente',
     setOpUnavailable: 'Il servizio OfficePilot non è in esecuzione. Riapri l’app.',
     askThreadsTitle: 'Conversazioni',
@@ -7144,7 +7149,7 @@ export const strings = {
     askSavedAs: 'Salvato: {name}',
     askSaveFailed: 'Salvataggio non riuscito: {error}',
     askEmptyCorpus: 'La base di conoscenza è vuota: contrassegna prima alcuni file, poi chiedi.',
-    askNeedsLogin: 'Accedi a Genspark per usare la chat IA.',
+    askNeedsLogin: 'Aggiungi una chiave API del modello nelle Impostazioni per usare la chat IA.',
     askPlaceholder: 'Chiedi qualcosa sui tuoi file preferiti…',
     askHintIdle: 'Invio per inviare',
     askHintBusy: 'L’IA sta rispondendo…',
@@ -7514,7 +7519,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'Rilevamento automatico (consigliato)',
     setAiCodexHint: 'Usa Codex CLI con accesso locale; non è richiesta alcuna chiave API.',
     setAiByokNote:
-      "Le chat usano la tua chiave. La generazione di immagini e l'analisi dei media seguono la sezione «Media IA»; la ricerca web usa ancora l'accesso Genspark o fonti gratuite.",
+      'Le chat usano la tua chiave. Generazione di immagini, analisi dei media e ricerca web seguono la sezione «Media e ricerca IA».',
     setAiSave: 'Salva',
     setAiSaved: 'Salvato',
     setAiTest: 'Prova connessione',
@@ -7573,21 +7578,20 @@ export const strings = {
     newTab: 'Nuova scheda',
     // First-run onboarding
     onbTitle1: 'Benvenuto in OfficePilot',
-    onbSubtitle1: 'La prima suite per ufficio open source e nativa per l’IA',
+    onbSubtitle1: 'Una suite per ufficio open source con l’IA integrata',
     onbBody1:
       'Crea documenti, fogli di calcolo e presentazioni e rivedi i PDF. L’IA è integrata in ogni passaggio.',
     onbTitle2: 'Questo è solo l’inizio',
     onbBody2:
-      'OfficePilot è ancora in alpha. Unisciti alla chat di gruppo su GenTeam per condividere feedback e contribuire a plasmare il futuro.',
-    onbCredits: 'I collaboratori attivi ricevono **1.000+ crediti Genspark**',
-    onbJoinGenTeam: 'Unisciti a GenTeam',
+      'OfficePilot è ancora in alpha. Segnala bug e idee su GitHub e aiuta a definire i prossimi passi.',
     onbSkip: 'Salta',
     onbNext: 'Avanti',
     onbStart: 'Inizia',
     onbStepAria: 'Pagina {n} di {total}',
     onbTitle3: 'Gratuito per tutti',
     onbBody3: 'Nessuna licenza. Nessuna pubblicità. Nessuna filigrana.',
-    onbNote3: 'Le funzioni IA possono consumare crediti Genspark.',
+    onbNote3:
+      'Le funzioni IA usano il provider di modelli e la chiave API che scegli; l’utilizzo è fatturato da quel provider.',
     onbBack: 'Indietro',
     intgSkillsDesc:
       'OfficePilot usa solo le competenze nella propria cartella. Importare una cartella o uno zip copia l’intera competenza; nulla viene eseguito all’importazione.',
@@ -7667,7 +7671,8 @@ export const strings = {
     navStarred: 'Ulubione',
     navAsk: 'Zapytaj AI',
     navAssistant: 'Asystent',
-    setOpIntro: 'Tutaj zarządzasz usługami modeli, wtyczkami, umiejętnościami, zadaniami cyklicznymi, połączeniem z Feishu i integracjami wiersza poleceń asystenta.',
+    setOpIntro:
+      'Tutaj zarządzasz usługami modeli, wtyczkami, umiejętnościami, zadaniami cyklicznymi, połączeniem z Feishu i integracjami wiersza poleceń asystenta.',
     setOpOpen: 'Otwórz ustawienia asystenta',
     setOpUnavailable: 'Usługa OfficePilot nie działa. Otwórz aplikację ponownie.',
     askThreadsTitle: 'Rozmowy',
@@ -7691,7 +7696,7 @@ export const strings = {
     askSavedAs: 'Zapisano: {name}',
     askSaveFailed: 'Nie udało się zapisać: {error}',
     askEmptyCorpus: 'Baza wiedzy jest pusta: najpierw oznacz pliki, potem pytaj.',
-    askNeedsLogin: 'Zaloguj się do Genspark, aby korzystać z czatu AI.',
+    askNeedsLogin: 'Dodaj klucz API modelu w Ustawieniach, aby korzystać z czatu AI.',
     askPlaceholder: 'Zapytaj o swoje pliki…',
     askHintIdle: 'Enter wysyła',
     askHintBusy: 'AI odpowiada…',
@@ -7903,7 +7908,8 @@ export const strings = {
     aiFontSizeCustom: 'Niestandardowy',
     setAiSpellcheck: 'Sprawdzanie pisowni w czacie AI',
     setDefaultApp: 'Domyślna aplikacja dla dokumentów Office',
-    setDefaultAppDesc: 'Otwieraj pliki .docx, .xlsx i .pptx w OfficePilot po dwukrotnym kliknięciu.',
+    setDefaultAppDesc:
+      'Otwieraj pliki .docx, .xlsx i .pptx w OfficePilot po dwukrotnym kliknięciu.',
     setDefaultAppIs: 'OfficePilot jest już aplikacją domyślną.',
     setDefaultAppOther: 'Obecnie domyślna: {app}',
     setDefaultAppSet: 'Ustaw jako domyślną',
@@ -8033,7 +8039,8 @@ export const strings = {
     intgCopied: 'Skopiowano',
     intgCliEphemeral: 'Najpierw przenieś OfficePilot do Aplikacji, potem użyj wiersza poleceń.',
     intgCopyPath: 'Kopiuj ścieżkę',
-    intgCliNeedsUpdate: 'Ten skill wymaga wiersza poleceń {v} lub nowszego; zaktualizuj OfficePilot.',
+    intgCliNeedsUpdate:
+      'Ten skill wymaga wiersza poleceń {v} lub nowszego; zaktualizuj OfficePilot.',
     intgLoading: 'Sprawdzanie…',
     intgUpdateDue: 'Dostępna aktualizacja skilla',
     setSecAiModel: 'Model AI',
@@ -8057,7 +8064,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'Wykryj automatycznie (zalecane)',
     setAiCodexHint: 'Używa lokalnie zalogowanego Codex CLI; klucz API nie jest potrzebny.',
     setAiByokNote:
-      'Czaty używają Twojego klucza. Generowanie obrazów i analiza mediów zależą od sekcji „Media AI”; wyszukiwanie w sieci nadal korzysta z logowania Genspark lub darmowych źródeł.',
+      'Czaty używają Twojego klucza. Generowanie obrazów, analiza multimediów i wyszukiwanie w sieci działają według sekcji „Media i wyszukiwanie AI”.',
     setAiSave: 'Zapisz',
     setAiSaved: 'Zapisano',
     setAiTest: 'Testuj połączenie',
@@ -8116,21 +8123,20 @@ export const strings = {
     newTab: 'Nowa karta',
     // First-run onboarding
     onbTitle1: 'Witamy w OfficePilot',
-    onbSubtitle1: 'Pierwszy otwartoźródłowy, natywnie oparty na AI pakiet biurowy',
+    onbSubtitle1: 'Pakiet biurowy open source z wbudowaną AI',
     onbBody1:
       'Twórz dokumenty, arkusze i prezentacje oraz przeglądaj pliki PDF. AI jest wbudowana w każdy etap.',
     onbTitle2: 'To dopiero początek',
     onbBody2:
-      'OfficePilot jest wciąż w fazie alfa. Dołącz do czatu grupowego na GenTeam, aby dzielić się opiniami i współtworzyć jego przyszłość.',
-    onbCredits: 'Aktywni współtwórcy otrzymują **1000+ kredytów Genspark**',
-    onbJoinGenTeam: 'Dołącz do GenTeam',
+      'OfficePilot jest wciąż w wersji alfa. Zgłaszaj błędy i pomysły na GitHubie i pomóż kształtować dalszy rozwój.',
     onbSkip: 'Pomiń',
     onbNext: 'Dalej',
     onbStart: 'Rozpocznij',
     onbStepAria: 'Strona {n} z {total}',
     onbTitle3: 'Za darmo dla każdego',
     onbBody3: 'Bez opłat licencyjnych. Bez reklam. Bez znaków wodnych.',
-    onbNote3: 'Funkcje AI mogą zużywać kredyty Genspark.',
+    onbNote3:
+      'Funkcje AI korzystają z wybranego dostawcy modelu i klucza API; za użycie rozlicza ten dostawca.',
     onbBack: 'Wstecz',
     intgSkillsDesc:
       'OfficePilot używa tylko umiejętności z własnego folderu. Import folderu lub pliku zip kopiuje całą umiejętność; podczas importu nic nie jest uruchamiane.',
@@ -8209,7 +8215,8 @@ export const strings = {
     navStarred: 'Oblíbené',
     navAsk: 'Zeptat se AI',
     navAssistant: 'Asistent',
-    setOpIntro: 'Zde spravujete služby modelů, pluginy, dovednosti, plánované úlohy, připojení Feishu a integrace příkazového řádku asistenta.',
+    setOpIntro:
+      'Zde spravujete služby modelů, pluginy, dovednosti, plánované úlohy, připojení Feishu a integrace příkazového řádku asistenta.',
     setOpOpen: 'Otevřít nastavení asistenta',
     setOpUnavailable: 'Služba OfficePilot neběží. Otevřete aplikaci znovu.',
     askThreadsTitle: 'Konverzace',
@@ -8233,7 +8240,7 @@ export const strings = {
     askSavedAs: 'Uloženo: {name}',
     askSaveFailed: 'Uložení se nezdařilo: {error}',
     askEmptyCorpus: 'Znalostní databáze je prázdná: nejprve označte soubory a pak se ptejte.',
-    askNeedsLogin: 'Pro používí AI chatu se přihlaste do Genspark.',
+    askNeedsLogin: 'Chcete-li používat chat s AI, přidejte v Nastavení klíč API modelu.',
     askPlaceholder: 'Zeptejte se na své soubory…',
     askHintIdle: 'Enter odesílá',
     askHintBusy: 'AI odpovídá…',
@@ -8480,7 +8487,8 @@ export const strings = {
     intgExample1: 'Převeď ~/Downloads/report.md na dokument Word',
     intgExample2: 'Udělej prezentaci o 6 snímcích o našich výsledcích za 3. čtvrtletí',
     intgExample3: 'Převeď budget.xlsx do PDF a otevři ho v OfficePilot',
-    intgStep2Note: 'Asistent spouští příkazový řádek officepilot-suite sám; nikdy ho nemusíte psát.',
+    intgStep2Note:
+      'Asistent spouští příkazový řádek officepilot-suite sám; nikdy ho nemusíte psát.',
     intgCliPartTitle: 'CLI · příkazový řádek + skill',
     intgCliPartDesc:
       'Pro asistenty, kteří umí spouštět příkazy terminálu (Claude Code, Codex, Cursor a další). Po instalaci skillu asistent sám volá příkazový řádek officepilot-suite k vytváření, převodu, čtení a úpravám souborů; žádný příkaz nepíšete.',
@@ -8556,7 +8564,7 @@ export const strings = {
     setAiCodexHint:
       'Automaticky najde a použije aktuální Codex CLI, po aktualizaci není třeba nic měnit; lze zadat i vlastní cestu. API klíč není potřeba.',
     setAiByokNote:
-      'Chaty používají váš vlastní klíč. Generování obrázků a analýza médií se řídí sekcí AI média; webové vyhledávání dál používá přihlášení ke Genspark nebo bezplatné zdroje.',
+      'Chaty používají váš vlastní klíč. Generování obrázků, analýza médií a vyhledávání na webu se řídí sekcí „AI média a vyhledávání“.',
     setAiSave: 'Uložit',
     setAiSaved: 'Uloženo',
     setAiTest: 'Otestovat připojení',
@@ -8615,21 +8623,20 @@ export const strings = {
     newTab: 'Nová karta',
     // First-run onboarding
     onbTitle1: 'Vítejte v OfficePilot',
-    onbSubtitle1: 'První open-source kancelářský balík s nativní AI',
+    onbSubtitle1: 'Kancelářský balík s otevřeným zdrojovým kódem a vestavěnou AI',
     onbBody1:
       'Vytvářejte dokumenty, tabulky a prezentace a kontrolujte PDF. AI je součástí každého kroku.',
     onbTitle2: 'Toto je jen začátek',
     onbBody2:
-      'OfficePilot je stále ve fázi alfa. Připojte se ke skupinovému chatu na GenTeam, sdílejte zpětnou vazbu a pomozte utvářet, co přijde dál.',
-    onbCredits: 'Aktivní přispěvatelé získají **1 000+ kreditů Genspark**',
-    onbJoinGenTeam: 'Připojit se ke GenTeam',
+      'OfficePilot je stále ve fázi alfa. Sdílejte chyby a nápady na GitHubu a pomozte utvářet, co přijde dál.',
     onbSkip: 'Přeskočit',
     onbNext: 'Další',
     onbStart: 'Začít',
     onbStepAria: 'Stránka {n} z {total}',
     onbTitle3: 'Zdarma pro všechny',
     onbBody3: 'Žádné licenční poplatky. Žádné reklamy. Žádné vodoznaky.',
-    onbNote3: 'Funkce AI mohou čerpat kredity Genspark.',
+    onbNote3:
+      'Funkce AI používají poskytovatele modelu a klíč API podle vaší volby; využití účtuje tento poskytovatel.',
     onbBack: 'Zpět',
     setTabSleep: 'Uspávat neaktivní karty',
     setTabSleepDesc:
@@ -8748,7 +8755,8 @@ export const strings = {
     navStarred: 'Favorieten',
     navAsk: 'Vraag het de AI',
     navAssistant: 'Assistent',
-    setOpIntro: 'Beheer hier de modeldiensten, plug-ins, vaardigheden, geplande taken, de Feishu-koppeling en de opdrachtregelintegraties van de assistent.',
+    setOpIntro:
+      'Beheer hier de modeldiensten, plug-ins, vaardigheden, geplande taken, de Feishu-koppeling en de opdrachtregelintegraties van de assistent.',
     setOpOpen: 'Assistentinstellingen openen',
     setOpUnavailable: 'De OfficePilot-dienst draait niet. Open de app opnieuw.',
     askThreadsTitle: 'Gesprekken',
@@ -8772,7 +8780,8 @@ export const strings = {
     askSavedAs: 'Opgeslagen: {name}',
     askSaveFailed: 'Opslaan mislukt: {error}',
     askEmptyCorpus: 'De kennisbank is leeg: markeer eerst bestanden en stel dan je vraag.',
-    askNeedsLogin: 'Log in bij Genspark om AI-chat te gebruiken.',
+    askNeedsLogin:
+      'Voeg in Instellingen een API-sleutel voor een model toe om AI-chat te gebruiken.',
     askPlaceholder: 'Vraag naar je favoriete bestanden…',
     askHintIdle: 'Enter om te verzenden',
     askHintBusy: 'De AI beantwoordt…',
@@ -9115,7 +9124,8 @@ export const strings = {
     intgSaveZipTitle: 'Skill opslaan',
     intgSavedTo: 'Opgeslagen in {path}',
     intgCopied: 'Gekopieerd',
-    intgCliEphemeral: "Sleep OfficePilot eerst naar Programma's en gebruik daarna de opdrachtregel.",
+    intgCliEphemeral:
+      "Sleep OfficePilot eerst naar Programma's en gebruik daarna de opdrachtregel.",
     intgCopyPath: 'Pad kopiëren',
     intgCliNeedsUpdate: 'Deze skill vereist opdrachtregel {v} of nieuwer; werk OfficePilot bij.',
     intgLoading: 'Controleren…',
@@ -9140,7 +9150,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'Automatisch detecteren (aanbevolen)',
     setAiCodexHint: 'Gebruikt de lokaal aangemelde Codex CLI; geen API-sleutel nodig.',
     setAiByokNote:
-      'Chats gebruiken je eigen sleutel. Afbeeldingen genereren en media-analyse volgen de sectie "AI-media"; zoeken op het web gebruikt nog steeds de Genspark-aanmelding of gratis bronnen.',
+      'Chats gebruiken je eigen sleutel. Afbeeldingen genereren, media-analyse en zoeken op het web volgen de sectie AI-media en zoeken.',
     setAiSave: 'Opslaan',
     setAiSaved: 'Opgeslagen',
     setAiTest: 'Verbinding testen',
@@ -9199,21 +9209,20 @@ export const strings = {
     newTab: 'Nieuw tabblad',
     // First-run onboarding
     onbTitle1: 'Welkom bij OfficePilot',
-    onbSubtitle1: 'De eerste open source, AI-native officesuite',
+    onbSubtitle1: 'Een opensource-officesuite met ingebouwde AI',
     onbBody1:
       'Maak documenten, bouw spreadsheets, maak presentaties en beoordeel PDF-bestanden. AI zit in elke stap ingebouwd.',
     onbTitle2: 'Dit is nog maar het begin',
     onbBody2:
-      'OfficePilot is nog in alfa. Doe mee aan de groepschat op GenTeam om feedback te delen en mee te bepalen wat er komt.',
-    onbCredits: 'Actieve bijdragers krijgen **1.000+ Genspark-credits**',
-    onbJoinGenTeam: 'Word lid van GenTeam',
+      'OfficePilot is nog in alfa. Deel bugs en ideeën op GitHub en help bepalen wat er komt.',
     onbSkip: 'Overslaan',
     onbNext: 'Volgende',
     onbStart: 'Aan de slag',
     onbStepAria: 'Pagina {n} van {total}',
     onbTitle3: 'Gratis voor iedereen',
     onbBody3: 'Geen licentiekosten. Geen advertenties. Geen watermerken.',
-    onbNote3: 'AI-functies kunnen Genspark-credits verbruiken.',
+    onbNote3:
+      'AI-functies gebruiken de modelprovider en API-sleutel die je kiest; die provider rekent het gebruik af.',
     onbBack: 'Terug',
     intgSkillsDesc:
       'OfficePilot gebruikt alleen vaardigheden uit zijn eigen map. Een map of zip importeren kopieert de hele vaardigheid; bij het importeren wordt niets uitgevoerd.',
@@ -9292,7 +9301,8 @@ export const strings = {
     navStarred: 'Berbintang',
     navAsk: 'Tanya AI',
     navAssistant: 'Pembantu',
-    setOpIntro: 'Urus perkhidmatan model, pemalam, kemahiran, tugasan berjadual, sambungan Feishu dan integrasi baris arahan pembantu di sini.',
+    setOpIntro:
+      'Urus perkhidmatan model, pemalam, kemahiran, tugasan berjadual, sambungan Feishu dan integrasi baris arahan pembantu di sini.',
     setOpOpen: 'Buka tetapan pembantu',
     setOpUnavailable: 'Perkhidmatan OfficePilot tidak berjalan. Sila buka semula aplikasi.',
     askThreadsTitle: 'Perbualan',
@@ -9317,7 +9327,7 @@ export const strings = {
     askSavedAs: 'Disimpan: {name}',
     askSaveFailed: 'Gagal menyimpan: {error}',
     askEmptyCorpus: 'Pangkalan pengetahuan kosong: tanda beberapa fail dahulu, kemudian tanya.',
-    askNeedsLogin: 'Log masuk ke Genspark untuk menggunakan sembang AI.',
+    askNeedsLogin: 'Tambah kunci API model dalam Tetapan untuk menggunakan sembang AI.',
     askPlaceholder: 'Tanya tentang fail kegemaran anda…',
     askHintIdle: 'Enter untuk menghantar',
     askHintBusy: 'AI sedan menjawab…',
@@ -9529,7 +9539,8 @@ export const strings = {
     aiFontSizeCustom: 'Tersuai',
     setAiSpellcheck: 'Semakan ejaan dalam sembang AI',
     setDefaultApp: 'Apl lalai untuk dokumen Office',
-    setDefaultAppDesc: 'Buka fail .docx, .xlsx dan .pptx dalam OfficePilot apabila diklik dua kali.',
+    setDefaultAppDesc:
+      'Buka fail .docx, .xlsx dan .pptx dalam OfficePilot apabila diklik dua kali.',
     setDefaultAppIs: 'OfficePilot sudah menjadi apl lalai.',
     setDefaultAppOther: 'Lalai semasa: {app}',
     setDefaultAppSet: 'Jadikan lalai',
@@ -9688,7 +9699,7 @@ export const strings = {
     setAiCodexHint:
       'Menggunakan Codex CLI yang telah log masuk secara setempat; tiada kunci API diperlukan.',
     setAiByokNote:
-      'Sembang menggunakan kunci anda sendiri. Penjanaan imej dan analisis media mengikut bahagian "Media AI"; carian web masih menggunakan log masuk Genspark atau sumber percuma.',
+      'Sembang menggunakan kunci anda sendiri. Penjanaan imej, analisis media dan carian web mengikut bahagian Media & Carian AI.',
     setAiSave: 'Simpan',
     setAiSaved: 'Disimpan',
     setAiTest: 'Uji sambungan',
@@ -9747,21 +9758,20 @@ export const strings = {
     newTab: 'Tab baharu',
     // First-run onboarding
     onbTitle1: 'Selamat datang ke OfficePilot',
-    onbSubtitle1: 'Suite pejabat sumber terbuka natif AI yang pertama',
+    onbSubtitle1: 'Suite pejabat sumber terbuka dengan AI terbina dalam',
     onbBody1:
       'Cipta dokumen, bina hamparan, hasilkan persembahan dan semak PDF. AI tersedia pada setiap langkah.',
     onbTitle2: 'Ini baru permulaan',
     onbBody2:
-      'OfficePilot masih dalam peringkat alfa. Sertai sembang kumpulan di GenTeam untuk berkongsi maklum balas dan membentuk masa depannya.',
-    onbCredits: 'Penyumbang aktif menerima **1,000+ kredit Genspark**',
-    onbJoinGenTeam: 'Sertai GenTeam',
+      'OfficePilot masih dalam peringkat alfa. Kongsi pepijat dan idea di GitHub untuk membantu membentuk langkah seterusnya.',
     onbSkip: 'Langkau',
     onbNext: 'Seterusnya',
     onbStart: 'Mula',
     onbStepAria: 'Halaman {n} daripada {total}',
     onbTitle3: 'Percuma untuk semua',
     onbBody3: 'Tiada yuran lesen. Tiada iklan. Tiada tera air.',
-    onbNote3: 'Ciri AI mungkin menggunakan kredit Genspark.',
+    onbNote3:
+      'Ciri AI menggunakan penyedia model dan kunci API pilihan anda; penyedia itu mengebil penggunaan.',
     onbBack: 'Kembali',
     intgSkillsDesc:
       'OfficePilot hanya menggunakan kemahiran dalam folder kemahirannya sendiri. Mengimport folder atau zip menyalin keseluruhan kemahiran; tiada apa yang dijalankan semasa import.',
@@ -9773,7 +9783,8 @@ export const strings = {
     intgSkillsImportDone: '{name} diimport',
     intgSkillsImportFailed: 'Import gagal: {reason}',
     intgSkillsRemove: 'Buang',
-    intgSkillsRemoveConfirm: 'Buang kemahiran "{name}"? Foldernya akan dipadam daripada OfficePilot.',
+    intgSkillsRemoveConfirm:
+      'Buang kemahiran "{name}"? Foldernya akan dipadam daripada OfficePilot.',
     intgSkillsRemoved: '{name} dibuang',
     intgSkillsRead: 'Detail',
     intgSkillsMine: 'Kemahiran saya',
@@ -9839,7 +9850,8 @@ export const strings = {
     navStarred: 'מועדפים',
     navAsk: 'שאל את ה-AI',
     navAssistant: 'עוזר',
-    setOpIntro: 'כאן מנהלים את שירותי המודל, התוספים, המיומנויות, המשימות המתוזמנות, החיבור ל-Feishu ושילובי שורת הפקודה של העוזר.',
+    setOpIntro:
+      'כאן מנהלים את שירותי המודל, התוספים, המיומנויות, המשימות המתוזמנות, החיבור ל-Feishu ושילובי שורת הפקודה של העוזר.',
     setOpOpen: 'פתח את הגדרות העוזר',
     setOpUnavailable: 'שירות OfficePilot אינו פועל. פתח את האפליקציה מחדש.',
     askThreadsTitle: 'שיחות',
@@ -9863,7 +9875,7 @@ export const strings = {
     askSavedAs: 'נשמר: {name}',
     askSaveFailed: 'השמירה נכשלה: {error}',
     askEmptyCorpus: 'בסיס הידע ריק: סמן קבצים תחילה ואז שאל.',
-    askNeedsLogin: 'התחבר ל-Genspark כדי להשתמש בצ׳אט AI.',
+    askNeedsLogin: 'הוסף מפתח API של מודל בהגדרות כדי להשתמש בצ׳אט ה-AI.',
     askPlaceholder: 'שאל על הקבצים המסומנים שלך…',
     askHintIdle: 'Enter לשליחה',
     askHintBusy: 'ה-AI עונה…',
@@ -10219,7 +10231,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: 'זיהוי אוטומטי (מומלץ)',
     setAiCodexHint: 'משתמש ב-Codex CLI המחובר מקומית; אין צורך במפתח API.',
     setAiByokNote:
-      'הצ׳אטים משתמשים במפתח שלך. יצירת תמונות וניתוח מדיה נקבעים בקטע "מדיה AI"; חיפוש באינטרנט עדיין משתמש בהתחברות Genspark או במקורות חינמיים.',
+      'שיחות משתמשות במפתח שלך. יצירת תמונות, ניתוח מדיה וחיפוש באינטרנט פועלים לפי הסעיף "מדיה וחיפוש AI".',
     setAiSave: 'שמירה',
     setAiSaved: 'נשמר',
     setAiTest: 'בדיקת חיבור',
@@ -10276,20 +10288,17 @@ export const strings = {
     newTab: 'כרטיסייה חדשה',
     // First-run onboarding
     onbTitle1: 'ברוכים הבאים ל-OfficePilot',
-    onbSubtitle1: 'חבילת המשרד הראשונה בקוד פתוח שהיא AI-נייטיב',
+    onbSubtitle1: 'חבילה משרדית בקוד פתוח עם AI מובנה',
     onbBody1: 'צרו מסמכים, בנו גיליונות, הכינו מצגות ובדקו קובצי PDF. ה-AI מובנה בכל שלב.',
     onbTitle2: 'זו רק ההתחלה',
-    onbBody2:
-      'OfficePilot עדיין בגרסת אלפא. הצטרפו לצ׳אט הקבוצתי ב-GenTeam כדי לשתף משוב ולעזור לעצב את ההמשך.',
-    onbCredits: 'תורמים פעילים מקבלים **1,000+ נקודות Genspark**',
-    onbJoinGenTeam: 'הצטרפו ל-GenTeam',
+    onbBody2: 'OfficePilot עדיין בשלב אלפא. שתפו באגים ורעיונות ב-GitHub ועזרו לעצב את ההמשך.',
     onbSkip: 'דילוג',
     onbNext: 'הבא',
     onbStart: 'להתחיל',
     onbStepAria: 'עמוד {n} מתוך {total}',
     onbTitle3: 'חינם לכולם',
     onbBody3: 'ללא דמי רישיון, ללא פרסומות, ללא סימני מים.',
-    onbNote3: 'תכונות AI עשויות לצרוך קרדיטים של Genspark.',
+    onbNote3: 'תכונות ה-AI משתמשות בספק המודל ובמפתח ה-API שבחרת; הספק מחייב על השימוש.',
     onbBack: 'חזרה',
     intgSkillsDesc:
       'OfficePilot משתמש רק במיומנויות שבתיקיית המיומנויות שלו. ייבוא תיקייה או zip מעתיק את המיומנות כולה; שום דבר לא מופעל בייבוא.',
@@ -10365,7 +10374,8 @@ export const strings = {
     navStarred: 'तारांकित',
     navAsk: 'AI से पूछें',
     navAssistant: 'सहायक',
-    setOpIntro: 'सहायक की मॉडल सेवाएँ, प्लगइन, कौशल, शेड्यूल किए गए कार्य, Feishu कनेक्शन और कमांड-लाइन एकीकरण यहाँ प्रबंधित करें।',
+    setOpIntro:
+      'सहायक की मॉडल सेवाएँ, प्लगइन, कौशल, शेड्यूल किए गए कार्य, Feishu कनेक्शन और कमांड-लाइन एकीकरण यहाँ प्रबंधित करें।',
     setOpOpen: 'सहायक सेटिंग्स खोलें',
     setOpUnavailable: 'OfficePilot सेवा नहीं चल रही है। कृपया ऐप फिर से खोलें।',
     askThreadsTitle: 'बातचीत',
@@ -10390,7 +10400,7 @@ export const strings = {
     askSavedAs: 'सहेजा गया: {name}',
     askSaveFailed: 'सहेज नहीं सका: {error}',
     askEmptyCorpus: 'नॉलेज बेस खाली है: पहले फ़ाइलें स्टार करें, फिर पूछें।',
-    askNeedsLogin: 'AI चैट के लिए Genspark में साइन इन करें।',
+    askNeedsLogin: 'AI चैट इस्तेमाल करने के लिए सेटिंग्स में मॉडल API कुंजी जोड़ें।',
     askPlaceholder: 'अपनी फ़ाइलों के बारे में पूछें…',
     askHintIdle: 'भेजने के लिए Enter',
     askHintBusy: 'AI उत्तर दे रहा है…',
@@ -10755,7 +10765,7 @@ export const strings = {
     setAiCodexHint:
       'स्थानीय रूप से साइन-इन किए गए Codex CLI का उपयोग करता है; API कुंजी की आवश्यकता नहीं।',
     setAiByokNote:
-      'चैट आपकी अपनी कुंजी का उपयोग करती हैं। इमेज जनरेशन और मीडिया विश्लेषण "AI मीडिया" अनुभाग के अनुसार होते हैं; वेब खोज अभी भी Genspark साइन-इन या मुफ़्त स्रोतों का उपयोग करती है।',
+      'चैट आपकी अपनी कुंजी का उपयोग करती हैं। इमेज जनरेशन, मीडिया विश्लेषण और वेब खोज "AI मीडिया और खोज" अनुभाग के अनुसार चलते हैं।',
     setAiSave: 'सहेजें',
     setAiSaved: 'सहेजा गया',
     setAiTest: 'कनेक्शन परखें',
@@ -10814,21 +10824,20 @@ export const strings = {
     newTab: 'नया टैब',
     // First-run onboarding
     onbTitle1: 'OfficePilot में आपका स्वागत है',
-    onbSubtitle1: 'पहला ओपन-सोर्स, AI-नेटिव ऑफ़िस सुइट',
+    onbSubtitle1: 'बिल्ट-इन AI वाला ओपन-सोर्स ऑफिस सुइट',
     onbBody1:
       'दस्तावेज़ बनाएँ, स्प्रेडशीट तैयार करें, प्रस्तुतियाँ बनाएँ और PDF की समीक्षा करें। AI हर चरण में शामिल है।',
     onbTitle2: 'यह तो बस शुरुआत है',
     onbBody2:
-      'OfficePilot अभी अल्फ़ा में है। GenTeam पर ग्रुप चैट से जुड़ें, फ़ीडबैक साझा करें और आगे की दिशा तय करने में मदद करें।',
-    onbCredits: 'सक्रिय योगदानकर्ताओं के लिए **1,000+ Genspark क्रेडिट**',
-    onbJoinGenTeam: 'GenTeam से जुड़ें',
+      'OfficePilot अभी अल्फ़ा में है। GitHub पर बग और सुझाव साझा करें और आगे की दिशा तय करने में मदद करें।',
     onbSkip: 'छोड़ें',
     onbNext: 'आगे',
     onbStart: 'शुरू करें',
     onbStepAria: 'कुल {total} में से पृष्ठ {n}',
     onbTitle3: 'सभी के लिए मुफ़्त',
     onbBody3: 'कोई लाइसेंस शुल्क नहीं। कोई विज्ञापन नहीं। कोई वॉटरमार्क नहीं।',
-    onbNote3: 'AI सुविधाएँ Genspark क्रेडिट खर्च कर सकती हैं।',
+    onbNote3:
+      'AI सुविधाएँ आपके चुने हुए मॉडल प्रदाता और API कुंजी का उपयोग करती हैं; उपयोग का शुल्क वही प्रदाता लेता है।',
     onbBack: 'वापस',
     intgSkillsDesc:
       'OfficePilot केवल अपने कौशल फ़ोल्डर के कौशल उपयोग करता है। फ़ोल्डर या zip से आयात पूरा कौशल कॉपी करता है; आयात पर कुछ नहीं चलता।',
@@ -10928,7 +10937,7 @@ export const strings = {
     askSavedAs: '已儲存:{name}',
     askSaveFailed: '儲存失敗:{error}',
     askEmptyCorpus: '知識庫還是空的:先收藏一些檔案,再回來提問。',
-    askNeedsLogin: '登入 Genspark 後即可使用 AI 問答。',
+    askNeedsLogin: '請先在設定中填寫模型 API key，再使用 AI 問答。',
     askPlaceholder: '問一個關於收藏檔案的問題…',
     askHintIdle: 'Enter 傳送',
     askHintBusy: 'AI 正在回答…',
@@ -11278,8 +11287,7 @@ export const strings = {
     setAiCodexAutoPlaceholder: '留空自動偵測（建議）',
     setAiCodexHint:
       '自動尋找目前的 Codex CLI，更新後無需重新選擇；也可填寫自訂路徑。無需 API Key。',
-    setAiByokNote:
-      '對話使用你自己的 key；生圖與媒體解析依「生圖與媒體」設定；網頁搜尋仍走 Genspark 登入或免費來源。',
+    setAiByokNote: '對話使用你自己的 key；生圖、媒體解析與網頁搜尋依「生圖、媒體與搜尋」設定。',
     setAiSave: '儲存',
     setAiSaved: '已儲存',
     setAiTest: '測試連線',
@@ -11334,19 +11342,17 @@ export const strings = {
     newTab: '新分頁',
     // First-run onboarding
     onbTitle1: '歡迎使用 OfficePilot',
-    onbSubtitle1: '第一個開源的 AI 原生 Office 套件',
+    onbSubtitle1: '內建 AI 的開源辦公套件',
     onbBody1: '建立文件、製作試算表、產生簡報、審閱 PDF。AI 深度融入每個環節。',
     onbTitle2: '這只是一個開始',
-    onbBody2: 'OfficePilot 目前仍在 alpha 階段。歡迎加入 GenTeam 群聊，分享回饋，一起打造它的未來。',
-    onbCredits: '活躍貢獻者可獲得 **1,000+ Genspark 點數**',
-    onbJoinGenTeam: '加入 GenTeam',
+    onbBody2: 'OfficePilot 目前處於 alpha 階段。歡迎在 GitHub 上回報問題與建議，一起塑造它的未來。',
     onbSkip: '略過',
     onbNext: '下一步',
     onbStart: '開始使用',
     onbStepAria: '第 {n} 頁，共 {total} 頁',
     onbTitle3: '人人免費',
     onbBody3: '無授權費用，無廣告，無浮水印。',
-    onbNote3: 'AI 功能可能消耗 Genspark 點數。',
+    onbNote3: 'AI 功能使用你選擇的模型服務商與 API key，用量由該服務商計費。',
     onbBack: '上一步',
     intgSkillsDesc:
       'OfficePilot 只使用自己技能資料夾裡的技能。從資料夾或 zip 匯入會把整個技能複製進來；匯入不會自動執行任何東西。',

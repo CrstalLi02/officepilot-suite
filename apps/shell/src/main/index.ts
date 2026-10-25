@@ -129,7 +129,11 @@ import {
 } from './cloud-projects'
 import { handleDroppedFiles } from './dropped-files'
 import { collectLaunchPaths } from './launch-paths'
-import { installOfficePilot, officePilotKeepsRunning, stopOfficePilot } from './officepilot-integration'
+import {
+  installOfficePilot,
+  officePilotKeepsRunning,
+  stopOfficePilot,
+} from './officepilot-integration'
 import {
   genofficeLogout,
   gskLoginInfo,
@@ -747,12 +751,6 @@ function initAnalytics(): void {
     // analytics must never block startup
   }
 }
-
-// ---- first-run onboarding ----
-// The GenTeam community page opened from the onboarding's second slide.
-// Stable short link served by the genoffice.ai site; it 302s to the tokened
-// invite link, which stays out of this repo and rotates server-side.
-const GENTEAM_URL = 'https://github.com/CrstalLi02/officepilot-suite'
 
 // Genspark credit-usage page opened from the account menu's credits row.
 // Kept main-side so the renderer never supplies the URL.
@@ -4085,16 +4083,16 @@ function createShellWindow(): void {
       kind === 'assistant'
         ? tm('assistantTab')
         : kind === 'help'
-        ? tm('menuUserGuide')
-        : kind === 'docs'
-          ? tm('untitledDoc')
-          : kind === 'slides'
-            ? tm('untitledDeck')
-            : kind === 'markdown'
-              ? tm('untitledMarkdown')
-              : kind === 'html'
-                ? tm('untitledHtml')
-                : tm('untitledSheet'),
+          ? tm('menuUserGuide')
+          : kind === 'docs'
+            ? tm('untitledDoc')
+            : kind === 'slides'
+              ? tm('untitledDeck')
+              : kind === 'markdown'
+                ? tm('untitledMarkdown')
+                : kind === 'html'
+                  ? tm('untitledHtml')
+                  : tm('untitledSheet'),
     // the tab strip is interface chrome, so its height follows the scale
     () => currentUiScale,
   )
@@ -5486,12 +5484,6 @@ function registerHomeIpc(): void {
     writeAppSetting(APP_SETTINGS_PATH(), DEFAULT_SAVE_DIR_KEY, picked)
     ensureFolderWatchers()
     return picked
-  })
-
-  ipcMain.handle(HOME_CHANNELS.openGenTeam, () => {
-    shell.openExternal(GENTEAM_URL).catch(() => {
-      // no browser handler available; nothing actionable for the user here
-    })
   })
 
   ipcMain.handle(HOME_CHANNELS.openCreditUsage, () => {

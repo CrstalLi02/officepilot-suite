@@ -51,6 +51,7 @@ export const de = {
     'SHA-256 {sha}\nBeim Speichern werden nur die bearbeiteten Einträge neu geschrieben; alles andere bleibt erhalten.',
   aiFileMeta: '{sheets} Blätter · {entries} Einträge',
   aiGensparkAccount: 'Genspark-Konto',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: 'Wird überprüft…',
   aiLoggedIn: 'Angemeldet',
   aiLoggedInAs: 'Angemeldet: {email}',
@@ -69,7 +70,7 @@ export const de = {
   aiNetworkError:
     'Netzwerkproblem: Der KI-Dienst ist nicht erreichbar. Prüfe deine Verbindung und versuche es erneut',
   aiCreditsExhausted:
-    'Deine Genspark-Credits sind aufgebraucht. Lade unter genspark.ai/pricing auf und versuche es erneut',
+    'Ihr Modellanbieter meldet, dass Ihr Guthaben aufgebraucht ist. Laden Sie es beim Anbieter auf und versuchen Sie es erneut',
   aiToolWorkbookContext: 'Arbeitsmappeninformationen lesen',
   aiToolReadRange: 'Bereich lesen',
   aiToolReadRangeOf: 'Bereich {range} lesen',

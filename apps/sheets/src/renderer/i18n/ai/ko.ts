@@ -48,6 +48,7 @@ export const ko = {
   aiFileTooltip: 'SHA-256 {sha}\n저장 시 편집된 항목만 다시 쓰고 나머지는 그대로 유지합니다.',
   aiFileMeta: '시트 {sheets}개 · 항목 {entries}개',
   aiGensparkAccount: 'Genspark 계정',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: '확인 중…',
   aiLoggedIn: '로그인됨',
   aiLoggedInAs: '로그인됨: {email}',
@@ -66,7 +67,7 @@ export const ko = {
   aiNetworkError:
     '네트워크에 문제가 있어 AI 서비스에 연결할 수 없습니다. 연결을 확인한 후 다시 시도해 주세요',
   aiCreditsExhausted:
-    'Genspark 크레딧을 모두 사용했습니다. genspark.ai/pricing에서 충전한 후 다시 시도해 주세요',
+    '모델 제공자가 크레딧 또는 잔액이 소진되었다고 알렸습니다. 해당 제공자에서 충전한 뒤 다시 시도하세요',
   aiToolWorkbookContext: '통합 문서 정보 읽기',
   aiToolReadRange: '범위 읽기',
   aiToolReadRangeOf: '범위 {range} 읽기',

@@ -49,6 +49,7 @@ export const ar = {
     'SHA-256 {sha}\nعند الحفظ تتم إعادة كتابة الإدخالات المحرَّرة فقط؛ ويُحتفظ بكل ما عداها كما هو.',
   aiFileMeta: '{sheets} أوراق · {entries} إدخالات',
   aiGensparkAccount: 'حساب Genspark',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: 'جارٍ التحقق…',
   aiLoggedIn: 'تم تسجيل الدخول',
   aiLoggedInAs: 'تم تسجيل الدخول: {email}',
@@ -67,7 +68,7 @@ export const ar = {
   aiNetworkError:
     'مشكلة في الشبكة: تعذّر الوصول إلى خدمة الذكاء الاصطناعي. تحقق من الاتصال وحاول مجددًا',
   aiCreditsExhausted:
-    'نفدت أرصدة Genspark لديك. يرجى إعادة الشحن عبر genspark.ai/pricing ثم المحاولة مجددًا',
+    'يفيد مزوّد النموذج بأن رصيدك أو أرصدتك قد نفدت. اشحن رصيدك لدى هذا المزوّد ثم أعد المحاولة',
   aiToolWorkbookContext: 'قراءة معلومات المصنف',
   aiToolReadRange: 'قراءة النطاق',
   aiToolReadRangeOf: 'قراءة النطاق {range}',

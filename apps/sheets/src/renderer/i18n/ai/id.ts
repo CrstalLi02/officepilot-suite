@@ -49,6 +49,7 @@ export const id = {
     'SHA-256 {sha}\nPenyimpanan hanya menulis ulang entri yang diedit; sisanya tetap dipertahankan.',
   aiFileMeta: '{sheets} lembar · {entries} entri',
   aiGensparkAccount: 'Akun Genspark',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: 'Memeriksa…',
   aiLoggedIn: 'Sudah masuk',
   aiLoggedInAs: 'Sudah masuk: {email}',
@@ -67,7 +68,7 @@ export const id = {
   aiNetworkError:
     'Masalah jaringan: tidak dapat terhubung ke layanan AI. Periksa koneksi Anda lalu coba lagi',
   aiCreditsExhausted:
-    'Kredit Genspark Anda telah habis. Isi ulang di genspark.ai/pricing lalu coba lagi',
+    'Penyedia model melaporkan bahwa kredit atau saldo Anda habis. Isi ulang di penyedia tersebut, lalu coba lagi',
   aiToolWorkbookContext: 'Baca info buku kerja',
   aiToolReadRange: 'Baca rentang',
   aiToolReadRangeOf: 'Baca rentang {range}',

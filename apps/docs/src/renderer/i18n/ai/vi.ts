@@ -117,7 +117,7 @@ export const vi = {
   aiNetworkError:
     'Sự cố mạng: không thể kết nối tới dịch vụ AI. Kiểm tra kết nối của bạn và thử lại',
   aiCreditsExhausted:
-    'Điểm tín dụng Genspark của bạn đã hết. Truy cập genspark.ai/pricing để nạp thêm rồi thử lại',
+    'Nhà cung cấp mô hình báo rằng tín dụng hoặc số dư của bạn đã hết. Hãy nạp thêm tại nhà cung cấp đó rồi thử lại',
   aiSumReadAttachment: 'Đọc tệp đính kèm',
   aiSumImageAttachment: 'Hình ảnh đính kèm {name}',
   aiSumRead: 'Đọc {name}',

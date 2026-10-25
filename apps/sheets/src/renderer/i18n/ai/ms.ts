@@ -50,6 +50,7 @@ export const ms = {
     'SHA-256 {sha}\nPenyimpanan hanya menulis semula entri yang diedit; yang lain dikekalkan seperti sedia ada.',
   aiFileMeta: '{sheets} helaian · {entries} entri',
   aiGensparkAccount: 'Akaun Genspark',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: 'Sedang menyemak…',
   aiLoggedIn: 'Sudah log masuk',
   aiLoggedInAs: 'Sudah log masuk: {email}',
@@ -68,7 +69,7 @@ export const ms = {
   aiNetworkError:
     'Masalah rangkaian: tidak dapat menghubungi perkhidmatan AI. Semak sambungan anda dan cuba lagi',
   aiCreditsExhausted:
-    'Kredit Genspark anda telah habis. Tambah nilai di genspark.ai/pricing dan cuba lagi',
+    'Penyedia model melaporkan bahawa kredit atau baki anda telah habis. Tambah nilai dengan penyedia itu, kemudian cuba lagi',
   aiToolWorkbookContext: 'Baca maklumat buku kerja',
   aiToolReadRange: 'Baca julat',
   aiToolReadRangeOf: 'Baca julat {range}',

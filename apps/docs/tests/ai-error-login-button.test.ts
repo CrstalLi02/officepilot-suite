@@ -1,6 +1,7 @@
-// A failed run marks the error bubble with a "Sign in to Genspark" button only
-// when Genspark is the active provider — a BYOK user's failure (their own
-// provider's rate limit, say) must not advertise a Genspark sign-in (genoffice#1948).
+// A failed run never marks the error bubble with a "Sign in to Genspark" button.
+// Upstream offered it when Genspark was the active provider (genoffice#1948); the
+// OfficePilot modification has no Genspark account, and the provider falls back
+// to 'genspark' whenever no model key is set, so the button must never appear.
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 import { act, createElement } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
@@ -141,7 +142,7 @@ describe('AI error bubble sign-in button', () => {
     }
   })
 
-  it('offers the sign-in button when Genspark is the provider', async () => {
+  it('offers no sign-in button even when Genspark is the provider', async () => {
     const editor = createEditor()
     try {
       let listener: ChunkListener | null = null
@@ -180,7 +181,7 @@ describe('AI error bubble sign-in button', () => {
         await flush()
       })
       expect(container.querySelector('.ai-msg-error')).not.toBeNull()
-      expect(container.querySelector('.ai-login-btn')).not.toBeNull()
+      expect(container.querySelector('.ai-login-btn')).toBeNull()
       act(() => mounted.root.unmount())
     } finally {
       editor.destroy()

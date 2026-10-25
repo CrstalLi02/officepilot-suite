@@ -50,6 +50,7 @@ export const cs = {
     'SHA-256 {sha}\nPři uložení se přepíší jen upravené položky; všechno ostatní zůstane zachováno.',
   aiFileMeta: 'Listy: {sheets} · položky: {entries}',
   aiGensparkAccount: 'Účet Genspark',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: 'Ověřuje se…',
   aiLoggedIn: 'Přihlášeno',
   aiLoggedInAs: 'Přihlášeno: {email}',
@@ -68,7 +69,7 @@ export const cs = {
   aiNetworkError:
     'Problém se sítí: službu AI se nepodařilo kontaktovat. Zkontrolujte připojení a zkuste to znovu',
   aiCreditsExhausted:
-    'Vaše kredity Genspark jsou vyčerpány. Dobijte je na genspark.ai/pricing a zkuste to znovu',
+    'Poskytovatel modelu hlásí, že vám došel kredit nebo zůstatek. Dobijte si účet u tohoto poskytovatele a zkuste to znovu',
   aiToolWorkbookContext: 'Načtení informací o sešitu',
   aiToolReadRange: 'Načtení oblasti',
   aiToolReadRangeOf: 'Načtení oblasti {range}',

@@ -21,7 +21,14 @@ Base: upstream commit 58dfd0b ("Sync snapshot (2026-10-22)").
 - `apps/shell/src/renderer/src/Home.tsx` — the account button only opens settings.
 - `packages/ai-provider/src/providers.ts`, `search-settings.ts` — defaults: DeepSeek (user's own key), keyless Parallel search, cloud tools off.
 - `apps/docs/src/main/docs-main.ts`, `apps/sheets/src/main/sheets-main.ts`, `apps/slides/src/main/ai-ipc.ts` — a missing model key is reported as such instead of asking to sign in to Genspark.
-- In-app help (`apps/shell/src/renderer/src/i18n/help/topics/*.md`) — sections about the Genspark account removed in every locale (`tools/officepilot-rebrand.mjs`).
+- In-app help (`apps/shell/src/renderer/src/i18n/help/topics/*.md`) — sections about the Genspark account removed in every locale (`tools/officepilot-rebrand.mjs`); `help-registry.ts` no longer lists "genspark" as a search keyword.
+- `apps/docs/src/renderer/ai/AiPanel.tsx`, `apps/sheets/src/renderer/App.tsx`, `apps/slides/src/renderer/ai/AiPanel.tsx` — a failed AI run no longer adds a "Sign in to Genspark" button (it appeared whenever no model key was set, because the provider then falls back to `genspark`).
+- `apps/shell/src/renderer/src/KbAskPanel.tsx`, `strings.ts` (`askNeedsLogin`) — the knowledge-base chat asks for a model API key instead of a Genspark sign-in, in every locale.
+- `apps/shell/src/renderer/src/SettingsModal.tsx` — the "Genspark cloud tools" switch and the Genspark provider hints only render with the Genspark account; `setAiByokNote` no longer says web search uses the Genspark sign-in, in every locale.
+- `aiCreditsExhausted` (docs, sheets, slides, html, markdown, pdf) — the credits error names the user's model provider instead of Genspark credits and genspark.ai/pricing, in every locale.
+- `apps/slides/src/main/i18n-main.ts` (`errGskCli`), `packages/ai-search/src/media-tools.ts` — image and media tools without a provider say to add one under Settings (AI Media & Search) instead of "gsk login".
+- `apps/sheets/src/renderer/ai/AiChatPanel.tsx`, `i18n/ai/*.ts` — the AI panel resizer is labelled `aiPanelTitle` (OfficePilot) instead of "Genspark account".
+- Agent prompts and tool descriptions (`docs-skill.ts`, `markdown-skill.ts`, `pdf-skill.ts`, `slides-skill.ts`, `packages/pipelines/src/slides/guides/design.md`), `packages/ai-provider/src/media-protocols.ts`, CLI help (`packages/cli/src/commands/image.ts`, `media.ts`, `search.ts`) and `apps/sheets/src/preload/index.ts` — no Genspark sign-in or Genspark-only wording.
 
 ## Privacy and system changes
 
@@ -32,7 +39,9 @@ Base: upstream commit 58dfd0b ("Sync snapshot (2026-10-22)").
 ## Branding
 
 - `tools/officepilot-rebrand.mjs` — rewrites user-visible product names ("GenOffice" → "OfficePilot"; earlier passes used "OfficePilot Suite"), the typed command (`genoffice` → `officepilot-suite`) and upstream links across UI strings, help, main-process dialogs, CLI help, skills, packaging metadata and their tests. Internal identifiers (`@genoffice/*` packages, env vars, `genoffice://` resources) are unchanged.
-- `tools/check-officepilot-brand.mjs` — fails the build if upstream branding reaches a user-visible surface.
+- `tools/check-officepilot-brand.mjs` — fails the build if upstream branding reaches a user-visible surface, including a UI string naming Genspark outside the keys that only render with the Genspark account, Genspark sign-in or credits wording in prompts and CLI help, and the upstream onboarding.
+- First-run onboarding (`apps/shell/src/renderer/src/Onboarding.tsx`, `onboarding.css`, `strings.ts`) — no GenTeam group chat or "1,000+ Genspark credits" offer, no "first open-source, AI-native office suite" claim (GenOffice's), and a note that AI usage is billed by the user's own model provider, in every locale. The `openGenTeam` IPC is removed (`src/main/index.ts`, `src/preload/index.ts`, `src/shared/home-api.ts`).
+- `apps/shell/src/renderer/src/assets/officepilot-mark.svg` replaces the upstream app icon (`app-icon.png`, removed) in the onboarding and the update dialog (`update.html`).
 - Product name `OfficePilot`, app id `com.officepilot.desktop` (the OfficePilot desktop app this build replaces), Linux executable `officepilot-suite`, maintainer / vendor, icons (`apps/*/build/icon*`), logo (`officepilot-logo.svg` replaces the upstream logo).
 - `packages/cli/src/install.ts` — the command on `PATH` is `officepilot-suite`.
 - `packages/cli/bin/genoffice`, `genoffice.cmd` — the packaged launchers start the `OfficePilot` binary (they still pointed at the upstream `GenOffice` binary and fell back to a system Node).

@@ -12,6 +12,7 @@ import type { AiFontSize, AiPanelPrefs, AiPanelSide } from '@genoffice/ui'
 import type { DecisionEndpoint, DefaultAppStatus, FileSearchSettings } from '../../shared/home-api'
 import { AUTHOR_NAME_MAX, isCloudflareEndpoint } from '../../shared/home-api'
 import type { UpdateUiState } from '../../shared/update-api'
+import { GENSPARK_ACCOUNT_ENABLED } from '../../shared/officepilot'
 import {
   DEFAULT_MAX_OUTPUT_TOKENS,
   MAX_MAX_OUTPUT_TOKENS,
@@ -193,7 +194,11 @@ const SECTIONS: readonly { id: SectionId; labelKey: StringKey }[] = [
 /** OfficePilot modification: the assistant keeps its settings (model services, plugins,
  *  skills, schedules, Feishu, command-line integrations) in its own UI; this pane links there */
 function OfficePilotPane({ t, onClose }: { t: (key: StringKey) => string; onClose: () => void }) {
-  const [status, setStatus] = useState<{ available: boolean; running: boolean; version: string } | null>(null)
+  const [status, setStatus] = useState<{
+    available: boolean
+    running: boolean
+    version: string
+  } | null>(null)
   useEffect(() => {
     void window.aiOffice.officepilotStatus?.().then(setStatus)
   }, [])
@@ -202,8 +207,12 @@ function OfficePilotPane({ t, onClose }: { t: (key: StringKey) => string; onClos
       <h3 className="set-pane-title">{t('navAssistant')}</h3>
       <div className="set-field">
         <div className="set-field-text">
-          <div className="set-field-label">OfficePilot{status?.version ? ` ${status.version}` : ''}</div>
-          <div className="set-field-desc">{status && !status.running ? t('setOpUnavailable') : t('setOpIntro')}</div>
+          <div className="set-field-label">
+            OfficePilot{status?.version ? ` ${status.version}` : ''}
+          </div>
+          <div className="set-field-desc">
+            {status && !status.running ? t('setOpUnavailable') : t('setOpIntro')}
+          </div>
         </div>
         <button
           className="set-btn primary"
@@ -708,7 +717,12 @@ function AiModelPane({ t }: { t: TFunc }) {
         />
       </div>
       <div className="set-field-desc set-ai-note">
-        {isGenspark ? t('setAiGensparkHint') : isCodex ? t('setAiCodexHint') : t('setAiByokNote')}
+        {/* OfficePilot modification: a Genspark provider left in an old settings file shows no sign-in hint */}
+        {isGenspark && GENSPARK_ACCOUNT_ENABLED
+          ? t('setAiGensparkHint')
+          : isCodex
+            ? t('setAiCodexHint')
+            : t('setAiByokNote')}
       </div>
       {meta?.needsBaseUrl && (
         <>
@@ -1085,26 +1099,29 @@ function AiModelPane({ t }: { t: TFunc }) {
           onBlur={commitMaxTokens}
         />
       </div>
-      <div className="set-field">
-        <div className="set-field-text">
-          <div className="set-field-stack">
-            <div className="set-field-label">{t('setAiGskTools')}</div>
-            <div className="set-field-desc">{t('setAiGskToolsDesc')}</div>
+      {/* OfficePilot modification: the Genspark cloud tools switch only exists with the Genspark account */}
+      {GENSPARK_ACCOUNT_ENABLED && (
+        <div className="set-field">
+          <div className="set-field-text">
+            <div className="set-field-stack">
+              <div className="set-field-label">{t('setAiGskTools')}</div>
+              <div className="set-field-desc">{t('setAiGskToolsDesc')}</div>
+            </div>
           </div>
+          {/* locked on with the genspark provider — chat runs through gsk anyway */}
+          <button
+            className="set-switch"
+            role="switch"
+            aria-checked={settings.gskToolsEnabled !== false}
+            aria-label={t('setAiGskTools')}
+            disabled={isGenspark}
+            onClick={() => {
+              setSettings({ ...settings, gskToolsEnabled: settings.gskToolsEnabled === false })
+              touch()
+            }}
+          />
         </div>
-        {/* locked on with the genspark provider — chat runs through gsk anyway */}
-        <button
-          className="set-switch"
-          role="switch"
-          aria-checked={settings.gskToolsEnabled !== false}
-          aria-label={t('setAiGskTools')}
-          disabled={isGenspark}
-          onClick={() => {
-            setSettings({ ...settings, gskToolsEnabled: settings.gskToolsEnabled === false })
-            touch()
-          }}
-        />
-      </div>
+      )}
     </>
   )
 }
@@ -1553,7 +1570,9 @@ function AiMediaPane({
         {subhead(cap, title)}
         {providerRow(title, id, options, pick)}
         <div className="set-field-desc set-ai-note">
-          {id === 'genspark' ? t('setAiMediaGensparkHint') : meta.description}
+          {id === 'genspark'
+            ? GENSPARK_ACCOUNT_ENABLED && t('setAiMediaGensparkHint')
+            : meta.description}
         </div>
         {id !== 'genspark' && (
           <>
@@ -1602,7 +1621,7 @@ function AiMediaPane({
         )}
         <div className="set-field-desc set-ai-note">
           {search.provider === 'genspark'
-            ? t('setAiSearchGensparkHint')
+            ? GENSPARK_ACCOUNT_ENABLED && t('setAiSearchGensparkHint')
             : search.provider === 'parallel'
               ? t('setAiSearchParallelHint')
               : search.provider === 'keenable'
@@ -1804,7 +1823,9 @@ export function SettingsModal({
   target,
 }: SettingsModalProps) {
   const { lang, setLang, t } = useI18n()
-  const [section, setSection] = useState<SectionId>(target?.section && target.section !== 'account' ? target.section : 'aiModel')
+  const [section, setSection] = useState<SectionId>(
+    target?.section && target.section !== 'account' ? target.section : 'aiModel',
+  )
   useEffect(() => {
     if (target) setSection(target.section)
   }, [target])
@@ -2313,7 +2334,10 @@ export function SettingsModal({
                 <h3 className="set-pane-title">{t('setSecAbout')}</h3>
                 <Field label={t('versionLabel')} value={appVersion || '—'} />
                 {/* OfficePilot modification: attribution required by Apache-2.0 (NOTICE) */}
-                <Field label="License" value="Based on OfficePilot by Mainfunc, Inc. (Apache-2.0); modified by OfficePilot" />
+                <Field
+                  label="License"
+                  value="Based on OfficePilot by Mainfunc, Inc. (Apache-2.0); modified by OfficePilot"
+                />
                 {updateState && (
                   <div className="set-field">
                     <div className="set-field-text">

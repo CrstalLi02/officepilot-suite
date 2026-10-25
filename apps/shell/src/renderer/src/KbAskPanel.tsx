@@ -33,6 +33,7 @@ import type { AiSettings } from '@genoffice/ai-provider'
 import { activeProvider } from '@genoffice/ai-provider/browser'
 import type { ChatMessage, ChatMeta, ProjectApi } from '@genoffice/project-store'
 import { useI18n } from './locale'
+import { GENSPARK_ACCOUNT_ENABLED } from '../../shared/officepilot'
 import type { AttachmentAddResult } from '../../shared/home-api'
 import { AskAttachments } from './AskAttachments'
 import { artifactFromCall, retryInstruction, settleArtifact, type Artifact } from './ask-artifacts'
@@ -933,7 +934,9 @@ export function KbAskPanel({
           {t('askNoSave')}
         </p>
       )}
-      {gskEmail === null && provider === 'genspark' && (
+      {/* OfficePilot modification: activeProvider() reports 'genspark' when no model key is
+          usable; without the Genspark account the hint asks for a key instead of a sign-in */}
+      {(!GENSPARK_ACCOUNT_ENABLED || gskEmail === null) && provider === 'genspark' && (
         <p className="kb-ask-login">{t('askNeedsLogin')}</p>
       )}
       {attachNotice && (

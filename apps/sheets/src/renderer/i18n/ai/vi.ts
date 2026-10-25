@@ -50,6 +50,7 @@ export const vi = {
     'SHA-256 {sha}\nLưu chỉ ghi đè các mục đã chỉnh sửa; tất cả nội dung khác được giữ nguyên.',
   aiFileMeta: '{sheets} trang tính · {entries} mục',
   aiGensparkAccount: 'Tài khoản Genspark',
+  aiPanelTitle: 'OfficePilot',
   aiAccountChecking: 'Đang kiểm tra…',
   aiLoggedIn: 'Đã đăng nhập',
   aiLoggedInAs: 'Đã đăng nhập: {email}',
@@ -67,7 +68,7 @@ export const vi = {
   aiOverloadedError: 'Dịch vụ AI hiện đang bận — vui lòng thử lại sau giây lát',
   aiNetworkError: 'Sự cố mạng: không thể kết nối với dịch vụ AI. Hãy kiểm tra kết nối và thử lại',
   aiCreditsExhausted:
-    'Điểm tín dụng Genspark của bạn đã hết. Hãy truy cập genspark.ai/pricing để nạp thêm rồi thử lại',
+    'Nhà cung cấp mô hình báo rằng tín dụng hoặc số dư của bạn đã hết. Hãy nạp thêm tại nhà cung cấp đó rồi thử lại',
   aiToolWorkbookContext: 'Đọc thông tin sổ làm việc',
   aiToolReadRange: 'Đọc dải ô',
   aiToolReadRangeOf: 'Đọc dải ô {range}',
