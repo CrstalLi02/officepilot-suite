@@ -1044,13 +1044,16 @@ function AccountEntry({
         </span>
         <span className="account-text">
           <span className="account-name">
-            {loggedIn
-              ? email
-                ? email.split('@')[0]
-                : t('loggedIn')
-              : waiting
-                ? t('waitingShort')
-                : t('login')}
+            {/* OfficePilot modification: no Genspark account, so the entry is just Settings */}
+            {!GENSPARK_ACCOUNT_ENABLED
+              ? t('settings')
+              : loggedIn
+                ? email
+                  ? email.split('@')[0]
+                  : t('loggedIn')
+                : waiting
+                  ? t('waitingShort')
+                  : t('login')}
           </span>
           {!loggedIn && !waiting && errorText && (
             <span className="account-sub error">{errorText}</span>

@@ -42,6 +42,9 @@ for (const rel of files) {
     if (/Apache-2\.0|OfficePilot modification/.test(line)) return
     if (/(?<!\^)\bGenOffice\b(?! \[| \/| (?:Sans|Serif|PUA|Batang|Songti|Gothic|Box|SimSun|Hiragino|Grid|Myungjo|Poppins|DM|Bengali|Tamil|MS|Fullwidth|YaHei|UI Kana|Hangul|Che|MingLiU|Heiti|Ethiopic)\b)/.test(line)) problems.push(`${rel}:${i + 1}: GenOffice`)
     if (/\/i18n\/help\//.test(rel) && /Genspark/.test(line)) problems.push(`${rel}:${i + 1}: Genspark in help`)
+    // the editors' AI assistant carries the OfficePilot name and mark, not Genspark's
+    if (/(>|"|')Genspark AI(<|"|')|(aiPanelTitle|ribbonAiAssistant): 'Genspark'|M105\.115 0H24\.6428|^\s+Genspark\s*$/.test(line))
+      problems.push(`${rel}:${i + 1}: Genspark assistant name or mark`)
   })
 }
 
